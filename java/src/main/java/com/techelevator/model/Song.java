@@ -5,8 +5,20 @@ public class Song {
     public String title;
     public String artist;
     public String genre;
-    public int id;
+    public int songId;
     public String mood;
+
+    public Song() {
+
+    }
+
+    public Song(String title, String artist, String genre, int songId, String mood) {
+        this.title = title;
+        this.artist = artist;
+        this.genre = genre;
+        this.songId = songId;
+        this.mood = mood;
+    }
 
     public String getTitle() {
         return title;
@@ -32,12 +44,12 @@ public class Song {
         this.genre = genre;
     }
 
-    public int getId() {
-        return id;
+    public int getsongId() {
+        return songId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setSongId(int songId) {
+        this.songId = songId;
     }
 
     public String getMood() {

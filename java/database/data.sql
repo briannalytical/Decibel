@@ -9,7 +9,7 @@ VALUES ('rap'),('rock'),('hip-hop'),('classical'),
 
 INSERT INTO mood (mood_name)
 VALUES ('happy'), ('sad'),('angry'), ('romantic'),
-('silly'), ('unhinged'), ('motivated'), ('chill'), ('workout')
+('silly'), ('unhinged'), ('motivated'), ('chill'), ('workout');
 
 INSERT INTO song(title, artist)
 VALUES ('Swan Lake', ' Pyotr Ilyich Tchaikovsky'),
@@ -17,3 +17,5 @@ VALUES ('Swan Lake', ' Pyotr Ilyich Tchaikovsky'),
 ('The Four Seasons of Buenos Aires', 'Astor Piazzolla'),('Rust', 'Hans Zimmer'),('Toccata and Fugue D Minor', 'Johann Sebastian Bach'),
 ('Portals', 'Alan Silvestri'),('Time', 'Hans Zimmer'),('Trepak', ' Pyotr Ilyich Tchaikovsky')
 
+INSERT INTO song_genre (song_id, genre_id)
+VALUES (1,4),(2,4), (3,4), (4,4), (5,4) , (6,4), (7,4), (8,4), (9,4)

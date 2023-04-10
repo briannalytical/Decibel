@@ -3,7 +3,6 @@ package com.techelevator.dao;
 import com.techelevator.model.Song;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
-
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +14,6 @@ public class JdbcSongDao implements SongDao{
     public JdbcSongDao(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
 
-    }
-
-    @Override
-    public List<Song> songs() {
-       List<Song> songs = new ArrayList<Song>();
-       return songs;
     }
 
     @Override

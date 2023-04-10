@@ -6,8 +6,6 @@ import java.util.List;
 
 public interface SongDao {
 
-    List<Song> songs();
-
     Song getSongBySongId(int songId);
 
     Song getSongByMood(int moodId);

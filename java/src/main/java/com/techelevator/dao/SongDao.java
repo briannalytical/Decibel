@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface SongDao {
 
-    List<Song> songs();
+    List<Song> playlist();
 
     Song getSongBySongId(int songId);
 
@@ -15,6 +15,4 @@ public interface SongDao {
     Song getSongByGenre(int genreId);
 
     Song addSongToList(int genreId, int moodId, int songId);
-
-
 }

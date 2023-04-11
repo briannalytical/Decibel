@@ -19,20 +19,20 @@ public class JdbcMoodDao implements MoodDao {
     }
 
     @Override
-    public List<Mood> getSongsByMood(int moodId) {
-        List<Mood> songsByMood = new ArrayList<Mood>();
-        String sql= "SELECT song.song_id, title, artist, mood_name, mood.mood_id, genre.genre_id\n" +
-                "FROM song" +
-                "JOIN song_mood ON song_mood.song_id =song.song_id" +
-                "JOIN mood ON song_mood.mood_id = mood.mood_id" +
+    public List<Mood> getMoods() {
+        List<Mood> getMood = new ArrayList<Mood>();
+        String sql= "SELECT song.song_id, title, artist, mood_name, mood.mood_id, genre.genre_id " +
+                "FROM song " +
+                "JOIN song_mood ON song_mood.song_id =song.song_id " +
+                "JOIN mood ON song_mood.mood_id = mood.mood_id " +
                 "JOIN song_genre ON song_genre.song_id = song.song_id " +
-                "JOIN genre ON song_genre.genre_id = genre.genre_id " +
-                "WHERE mood.mood_id = ?";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, moodId);
+                "JOIN genre ON song_genre.genre_id = genre.genre_id ";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
-            songsByMood.add(mapRowToMood(results));
+            getMood.add(mapRowToMood(results));
         }
-        return songsByMood;
+        return getMood;
     }
 
 
@@ -45,7 +45,7 @@ public class JdbcMoodDao implements MoodDao {
     }
 
     @Override
-    public Mood getMoodById(int moodId) {
+    public List<Mood> getSongsByMoodId(int moodId) {
         return null;
     }
 

@@ -4,9 +4,15 @@ export default {
     getAllSongs(){
         return axios.get('/songs');
     },
-    getAllMoodsById(){
-        return axios.get('/moods');
+    getAllMoods(){
+        return axios.get('/songs/moods');
+    },
+    getSongsByMood(id){
+        return axios.get(`/songs/moods/${id}`);
+
+        
     }
+   
   
 
    

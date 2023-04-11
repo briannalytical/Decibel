@@ -63,17 +63,21 @@ const router = new Router({
       }
     },
     {
-      path: "/moods",
+      path: "/songs/moods",
       name: "moods",
       component: Songs,
       meta: {
         requiresAuth:false
       }
+    },
+    {
+      path: "/songs/moods/:id",
+      name: "mood-detail",
+      component: Songs,
+      meta: {
+        requiresAuth: false
+      }
     }
-    
-    
-   
-    
   ]
 })
 

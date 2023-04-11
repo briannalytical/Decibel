@@ -5,8 +5,7 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
-import List from '../views/List.vue'
-import Generator from '../views/List.vue'
+import Songs from '../views/Songs.vue'
 
 Vue.use(Router)
 
@@ -56,21 +55,23 @@ const router = new Router({
       }
     },
     {
-      path: "/generator",
-      name: "generator",
-      component: Generator,
+      path: "/songs",
+      name: "songs",
+      component: Songs,
       meta: {
         requiresAuth: false
       }
     },
     {
-      path: "/list",
-      name: "list",
-      component: List,
+      path: "/songs/:id",
+      name: "song-detail",
+      component: Songs,
       meta: {
         requiresAuth: false
       }
-    },
+    }
+   
+    
   ]
 })
 

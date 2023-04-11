@@ -3,6 +3,7 @@ package com.techelevator.dao;
 import com.techelevator.model.Song;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
@@ -18,12 +19,17 @@ public class JdbcSongDao implements SongDao {
     }
 
     @Override
-    public List<Song> songs() {
-       List<Song> songs = new ArrayList<Song>();
-       String sql = "SELECT title, artist, genre, mood_name, song_id " +
-               "FROM song ";
-    // where I left off
-       return songs;
+    public List<Song> playlist() {
+        List<Song> playlist = new ArrayList<Song>();
+        String sql = "SELECT song.song_id, title, artist, genre.genre_id, genre_name " +
+                "FROM song " +
+                "JOIN song_genre ON song_genre.song_id = song.song_id " +
+                "JOIN genre ON song_genre.genre_id = genre.genre_id ";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while (results.next()) {
+            playlist.add(mapRowToSong(results));
+        }
+        return playlist;
     }
 
     @Override
@@ -52,6 +58,7 @@ public class JdbcSongDao implements SongDao {
     //mapping method
     private Song mapRowToSong(SqlRowSet row) {
         Song song = new Song();
+
         song.setSongId(row.getInt("song_id"));
         song.setTitle(row.getString("title"));
         song.setArtist( row.getString("artist"));

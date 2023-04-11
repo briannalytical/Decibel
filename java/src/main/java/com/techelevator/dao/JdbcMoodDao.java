@@ -1,7 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Mood;
-import com.techelevator.model.Song;
+import org.springframework.stereotype.Component;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.jdbc.core.JdbcTemplate;
 import javax.sql.DataSource;

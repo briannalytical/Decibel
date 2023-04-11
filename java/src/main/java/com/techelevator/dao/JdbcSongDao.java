@@ -10,15 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class JdbcSongDao implements SongDao{
+public class JdbcSongDao implements SongDao {
 
     private JdbcTemplate jdbcTemplate;
 
-    public JdbcSongDao(DataSource dataSource) {
-        this.jdbcTemplate = new JdbcTemplate(dataSource);
-
+    public JdbcSongDao(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
+    @Override
     public List<Song> playlist() {
         List<Song> playlist = new ArrayList<Song>();
         String sql = "SELECT song.song_id, title, artist, genre.genre_id, genre_name " +
@@ -34,6 +34,9 @@ public class JdbcSongDao implements SongDao{
 
     @Override
     public Song getSongBySongId(int songId) {
+        Song song = null;
+        String sql = "SELECT song.song_id, title, artist " +
+                "FROM song ";
         return null;
     }
 
@@ -56,12 +59,14 @@ public class JdbcSongDao implements SongDao{
     private Song mapRowToSong(SqlRowSet row) {
         Song song = new Song();
 
-        song.setArtist( row.getString("artist"));
-        song.setGenre(row.getString("genre_name"));
-//        song.setMood(row.getString("mood_name"));
-        song.setTitle(row.getString("title"));
         song.setSongId(row.getInt("song_id"));
+        song.setTitle(row.getString("title"));
+        song.setArtist( row.getString("artist"));
+        song.setGenre(row.getString("genre_id"));
+        song.setMood(row.getString("mood_id"));
 
         return song;
     }
+
 }
+

@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div {
+    border: 2px solid black;
+}
+
+.song-table {
+    border: 1px solid black;
+}
+
+.column {
+    border: 1px solid black;
+}

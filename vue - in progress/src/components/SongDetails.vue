@@ -10,7 +10,7 @@
 <script>
 
 import SongListItem from './SongListItem.vue'
-import SongListService from '@/services/SongListService'
+//import SongListService from '@/services/SongListService'
 
 export default {
   name: 'song-detail',
@@ -22,14 +22,14 @@ export default {
       song: {}
     }
   },
-  created(){
-    const songId= this.$route.params.id;
-    SongListService.getSongsById(songId)
-    .then( response => {
-      this.song = response.data;
-    }).catch( err => console.error(err) );
+  // created(){
+  //   const songId= this.$route.params.id;
+  //   SongListService.getSongsById(songId)
+  //   .then( response => {
+  //     this.song = response.data;
+  //   }).catch( err => console.error(err) );
     
-  }
+  // }
 
 }
 </script>

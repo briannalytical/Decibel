@@ -8,6 +8,7 @@
 import SongListItem from './SongListItem.vue'
 
 export default {
+name: 'song-list-item', 
     components: {
         SongListItem
     },

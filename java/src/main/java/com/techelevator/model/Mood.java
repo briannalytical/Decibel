@@ -1,8 +1,13 @@
 package com.techelevator.model;
 
 public class Mood {
+<<<<<<< HEAD
     public String mood;
     public int moodId;
+=======
+    private String mood;
+    private int moodId;
+>>>>>>> 631ee36001c750f95f05fb54dd9dd56e1a110cfd
 
     public Mood(){
 

@@ -8,6 +8,8 @@ public interface SongDao {
 
     List<Song> playlist();
 
+//    List<Song> moodList();
+
     Song getSongBySongId(int songId);
 
     Song getSongByMood(int moodId);

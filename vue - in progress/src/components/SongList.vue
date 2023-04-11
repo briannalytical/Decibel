@@ -1,10 +1,18 @@
 <template>
-  <div class="songlist">
+ 
+   
+        <div class="moods">
+            <div v-for="currentMood in mood" v-bind:key="currentMood.id">
+                <router-link v-bind:to="{name: 'mood'}">
+            {{currentMood.mood}}
+            <Mood />
+            </router-link>
+             <div class="songlist">
       <div v-for="currentSong in songs" v-bind:key="currentSong.id">
       {{currentSong.title}}
       <SongListItem />
-        <div class="moods">
-            <Mood />
+
+            </div>
         </div>
       </div>
   </div>
@@ -24,13 +32,20 @@ export default {
     },
     data() {
         return {
-            songs: []
+            songs: [],
+            mood: []
         }
     },
     created() {
         SongListService.getAllSongs()
         .then(response => {
             this.songs = response.data;
+        })
+        .catch(err => console.error(err) );
+
+        SongListService.getAllMoods()
+        .then(response => {
+            this.mood = response.data;
         })
         .catch(err => console.error(err) );
 

@@ -62,6 +62,14 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path: "/moods",
+      name: "moods",
+      component: Songs,
+      meta: {
+        requiresAuth:false
+      }
+    }
     
     
    

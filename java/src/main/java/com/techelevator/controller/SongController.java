@@ -19,9 +19,10 @@ public class SongController {
         this.songDao = songDao;
     }
 
-    @RequestMapping(path="/songs", method= RequestMethod.GET)
+    @RequestMapping(path = "/songs", method = RequestMethod.GET)
     public List<Song> playlist() {
         return songDao.playlist();
     }
-
 }
+
+

@@ -7,6 +7,17 @@ public class Song {
     public String genre;
     public int songId;
     public String mood;
+    public int moodId;
+
+
+
+    public int getMoodId() {
+        return moodId;
+    }
+
+    public void setMoodId(int moodId) {
+        this.moodId = moodId;
+    }
 
     public Song() {
 

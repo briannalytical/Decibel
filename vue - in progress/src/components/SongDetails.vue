@@ -1,5 +1,7 @@
 <template>
   <div class="songDetail">
+    <h2>Moods {{song.mood}}</h2>
+    <Mood v-bind:mood="mood" />
       <h2>Songs {{ song.title}}</h2>
       <SongList v-bind:song="song" />
     
@@ -12,6 +14,7 @@
 import SongList from './SongList.vue'
 import SongListService from '@/services/SongListService'
 
+
 export default {
   name: 'song-detail',
   components: {
@@ -19,18 +22,20 @@ export default {
   },
   data() {
     return {
-      song: {}
+      song: {},
+      mood: {}
     }
   },
   created(){
-    const mood= this.$route.params.mood;
-    SongListService.getSongsByMood(mood)
-    .then( response => {
-      this.song = response.data;
-    }).catch( err => console.error(err) );
-    
-  }
+     const moodId = this.$route.params.id;
+        SongListService.getAllMoodsById(moodId)
+            .then( response => {
+                this.mood = response.data;
+            }).catch( err => console.error(err) );
 
+  
+
+  }
 }
 </script>
 

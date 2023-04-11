@@ -17,6 +17,11 @@ VALUES ('Swan Lake', ' Pyotr Ilyich Tchaikovsky'),
 ('The Four Seasons of Buenos Aires', 'Astor Piazzolla'),('Rust', 'Hans Zimmer'),('Toccata and Fugue D Minor', 'Johann Sebastian Bach'),
 ('Portals', 'Alan Silvestri'),('Time', 'Hans Zimmer'),('Trepak', ' Pyotr Ilyich Tchaikovsky');
 
+<<<<<<< HEAD
+SELECT song.song_id, title, artist
+FROM song
+JOIN genre_id ON 
+=======
 INSERT INTO song_genre (song_id, genre_id)
 VALUES (1,4),(2,4), (3,4), (4,4), (5,4) , (6,4), (7,4), (8,4), (9,4);
 
@@ -52,3 +57,4 @@ VALUES (28,10),(29,10), (30,10), (31,10), (32,10), (33,10), (34,10), (35,10), (3
 
 INSERT INTO song_mood (song_id, mood_id)
 VALUES (28,1),(29,2), (30,3), (31,4), (32,5), (33,6), (34,7), (35,8), (36,9);
+>>>>>>> 9e7e036ee72651e2483066e0773ce512a4e66a21

@@ -2,19 +2,25 @@
   <div class="songlist">
       <div v-for="currentSong in songs" v-bind:key="currentSong.id">
       {{currentSong.title}}
+      <SongListItem />
+        <div class="moods">
+            <Mood />
+        </div>
       </div>
   </div>
 </template>
 
 <script>
 
-//import SongListItem from '@/components/SongListItem'
+import SongListItem from '@/components/SongListItem'
 import SongListService from '@/services/SongListService'
+import Mood from './Mood.vue'
 
 export default {
     name: 'song-list',
     components: {
-        //SongListItem
+        SongListItem,
+        Mood
     },
     data() {
         return {

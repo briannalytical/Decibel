@@ -17,3 +17,6 @@ VALUES ('Swan Lake', ' Pyotr Ilyich Tchaikovsky'),
 ('The Four Seasons of Buenos Aires', 'Astor Piazzolla'),('Rust', 'Hans Zimmer'),('Toccata and Fugue D Minor', 'Johann Sebastian Bach'),
 ('Portals', 'Alan Silvestri'),('Time', 'Hans Zimmer'),('Trepak', ' Pyotr Ilyich Tchaikovsky')
 
+SELECT song.song_id, title, artist
+FROM song
+JOIN genre_id ON 

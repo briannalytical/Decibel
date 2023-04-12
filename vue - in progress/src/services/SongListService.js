@@ -1,19 +1,19 @@
-import axios from  'axios';
+import axios from 'axios';
 
 export default {
-    getAllSongs(){
+    getAllSongs() {
         return axios.get('/songs');
     },
-    getAllMoods(){
+    getAllMoods() {
         return axios.get('/songs/moods');
     },
-    getSongsByMood(id){
+    getSongsByMood(id) {
         return axios.get(`/songs/moods/${id}`);
 
-        
-    }
-   
-  
 
-   
+    }
+
+
+
+
 }

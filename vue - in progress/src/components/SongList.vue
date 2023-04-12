@@ -1,39 +1,31 @@
 <template>
-      <div class="songlist">
-                   <!-- <SongListItem /> -->
-        <table id="table">
-            <tr class="column">
-                <th>Title</th>
-                <th>Artist</th>
-                <th>Mood</th>
-                <th>Genre</th>
-              </tr>
-              <tr v-for="currentSong in songs" v-bind:key="currentSong.id">
-                <td>{{ currentSong.title }}</td>
-                <td>{{ currentSong.artist }}</td>
-                <td>{{ currentSong.mood }}</td>
-                <td>{{ currentSong.genre }}</td>
-              </tr>
-        </table>
-
-      </div>
-
+  <div class="songlist">
+    <table id="table">
+      <tr class="column">
+        <th>Title</th>
+        <th>Artist</th>
+        <th>Mood</th>
+        <th>Genre</th>
+      </tr>
+      <tr v-for="currentSong in songs" v-bind:key="currentSong.id">
+        <td>{{ currentSong.title }}</td>
+        <td>{{ currentSong.artist }}</td>
+        <td>{{ currentSong.mood }}</td>
+        <td>{{ currentSong.genre }}</td>
+      </tr>
+    </table>
+  </div>
 </template>
 
 <script>
-// import SongListItem from "@/components/SongListItem";
 import SongListService from "@/services/SongListService";
-
 
 export default {
   name: "song-list",
-  components: {
-    // SongListItem,
- },
+  components: {},
   data() {
     return {
       songs: [],
-      // mood: [],
     };
   },
   created() {
@@ -42,45 +34,36 @@ export default {
         this.songs = response.data;
       })
       .catch((err) => console.error(err));
+  },
 
-    // SongListService.getAllMoods()
-    //   .then((response) => {
-    //     this.mood = response.data;
-    //   })
-    //   .catch((err) => console.error(err));
-
-      }
+  methods: {
     
-    
-    
-  
+  }
 };
 </script>
 
 <style>
-
 table {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 table,
 th,
 td {
-    border: 1px solid;
+  border: 1px solid;
 }
 
 th,
 td {
-    padding: 15px;
-    text-align: left;
+  padding: 15px;
+  text-align: left;
 }
 
 th {
-    background-color: #fffb001e;
-    color: rgb(0, 0, 0);
+  background-color: #fffb001e;
+  color: rgb(0, 0, 0);
 }
-
 </style>

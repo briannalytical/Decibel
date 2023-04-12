@@ -67,7 +67,7 @@ const router = new Router({
       name: "moods",
       component: Songs,
       meta: {
-        requiresAuth:false
+        requiresAuth: false
       }
     },
     {

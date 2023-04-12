@@ -1,17 +1,22 @@
 <template>
   <div id="main">
     <div id="header-section">
-      <img src="holder-logo.jpg" />
+      <img v-bind:src="require('../assets/holder-logo.jpg')" />
       <h1>Decibel</h1>
       <p>How would you like to generate your playlist?</p>
     </div>
 
     <div id="dropdown-section-one">
       <div id="mood-dropdown">
-        <select class="mood">
+        <select
+          v-on:change="updateMood"
+          v-model="moodId"
+          name="mood"
+          class="mood"
+        >
           <option>Select Mood</option>
           <option
-            v-bind:value="currentMood.mood"
+            v-bind:value="currentMood.moodId"
             v-for="currentMood in mood"
             v-bind:key="currentMood.moodId"
           >
@@ -33,18 +38,18 @@
         <button v-on:click.prevent="generatePlaylistByMood">Generate</button>
       </div>
     </div>
-
+    <!-- 
     <div class="or-selector">
       <p>Or</p>
     </div>
 
     <div id="dropdown-section-two">
       <div id="mood-dropdown">
-        <select name="mood" class="mood2">
+        <select v-model="moodId" name="mood" class="mood2">
           <option>Select Mood</option>
 
           <option
-            v-bind:value="currentMood.mood"
+            v-bind:value="currentMood.moodId"
             v-for="currentMood in mood"
             v-bind:key="currentMood.moodId"
           >
@@ -65,8 +70,8 @@
           <option value="c++">C++</option>
           <option value="java">Java</option>
         </select>
-      </div>
-    </div>
+      </div> -->
+    <!-- </div> -->
 
     <song-list />
   </div>
@@ -79,7 +84,9 @@ export default {
   data() {
     return {
       mood: [],
+      moodId: "",
     };
+    
   },
   component: SongList,
 
@@ -87,12 +94,6 @@ export default {
     SongListService.getAllMoods()
       .then((response) => {
         this.mood = response.data;
-      })
-      .catch((err) => console.error(err));
-
-    SongListService.getSongsByMood()
-      .then((response) => {
-        this.mood.id = response.data;
       })
       .catch((err) => console.error(err));
   },
@@ -106,6 +107,9 @@ export default {
           mood: moodName,
         },
       });
+    },
+    updateMood() {
+      this.$store.commit("SET_MOOD_ID", this.moodId);
     },
   },
 };

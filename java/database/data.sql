@@ -1,5 +1,3 @@
-BEGIN TRANSACTION;
-
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
@@ -17,11 +15,6 @@ VALUES ('Swan Lake', ' Pyotr Ilyich Tchaikovsky'),
 ('The Four Seasons of Buenos Aires', 'Astor Piazzolla'),('Rust', 'Hans Zimmer'),('Toccata and Fugue D Minor', 'Johann Sebastian Bach'),
 ('Portals', 'Alan Silvestri'),('Time', 'Hans Zimmer'),('Trepak', ' Pyotr Ilyich Tchaikovsky');
 
-<<<<<<< HEAD
-SELECT song.song_id, title, artist
-FROM song
-JOIN genre_id ON 
-=======
 INSERT INTO song_genre (song_id, genre_id)
 VALUES (1,4),(2,4), (3,4), (4,4), (5,4) , (6,4), (7,4), (8,4), (9,4);
 
@@ -127,5 +120,3 @@ INSERT INTO song_genre (song_id, genre_id)
     VALUES (100,12), (101,12), (102,12), (103,12), (104,12), (105,12), (106,12), (107,12), (108,12);
 INSERT INTO song_mood (song_id, mood_id)
     VALUES (100,1), (101,2), (102,3), (103,4), (104,5), (105,6), (106,7), (107,8), (108,9);
-
->>>>>>> 9e7e036ee72651e2483066e0773ce512a4e66a21

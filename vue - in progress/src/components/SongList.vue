@@ -51,10 +51,7 @@ export default {
             this.mood.id = response.data;
         }).catch((err) => console.error(err));
       }
-    
-    
-    
-  
+     
 };
 </script>
 

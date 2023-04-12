@@ -1,15 +1,7 @@
 <template>
-  <div class="moods">
-    <div v-for="currentMood in mood" v-bind:key="currentMood.id">
-      <router-link
-        v-bind:to="{ name: 'mood' }">
-        <Mood v-bind:mood="currentMood"/>
-      </router-link>
       <div class="songlist">
-
-                   <SongListItem />
-
-        <table id="song-table" >
+                   <!-- <SongListItem /> -->
+        <table id="table">
             <tr class="column">
                 <th>Title</th>
                 <th>Artist</th>
@@ -25,25 +17,23 @@
         </table>
 
       </div>
-    </div>
-  </div>
+
 </template>
 
 <script>
-import SongListItem from "@/components/SongListItem";
+// import SongListItem from "@/components/SongListItem";
 import SongListService from "@/services/SongListService";
-import Mood from "./Mood.vue";
+
 
 export default {
   name: "song-list",
   components: {
-    SongListItem,
-    Mood,
-  },
+    // SongListItem,
+ },
   data() {
     return {
       songs: [],
-      mood: [],
+      // mood: [],
     };
   },
   created() {
@@ -53,16 +43,12 @@ export default {
       })
       .catch((err) => console.error(err));
 
-    SongListService.getAllMoods()
-      .then((response) => {
-        this.mood = response.data;
-      })
-      .catch((err) => console.error(err));
+    // SongListService.getAllMoods()
+    //   .then((response) => {
+    //     this.mood = response.data;
+    //   })
+    //   .catch((err) => console.error(err));
 
-      SongListService.getSongsByMood()
-        .then((response) => {
-            this.mood.id = response.data;
-        }).catch((err) => console.error(err));
       }
     
     
@@ -72,7 +58,6 @@ export default {
 </script>
 
 <style>
-
 
 table {
     display: block;

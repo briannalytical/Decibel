@@ -2,7 +2,7 @@
 
   <div>
       <SongDetails />
-      <SongList />
+      <!-- <SongList /> -->
       <div class="back-button-container">
     <back-button></back-button>
         </div>
@@ -12,13 +12,13 @@
 <script>
 
 import SongDetails from '@/components/SongDetails'
-import SongList from '@/components/SongList'
+// import SongList from '@/components/SongList'
 import BackButton from '../components/BackButton.vue'
 
 export default {
     components: {
         SongDetails,
-        SongList,
+        // SongList,
         BackButton
     }
 

@@ -8,12 +8,9 @@
 
     <div id="dropdown-section-one">
 
-        <div id="mood-dropdown">
-            <select name="mood" class="mood">
-            <option value="javascript">{{Mood}}</option>
-            <option value="python">Python</option>
-            <option value="c++">C++</option>
-            <option value="java">Java</option>
+        <div id="mood-dropdown" >
+            <select class="mood" >
+            <option v-bind:value="currentMood.mood" v-for="currentMood in mood" v-bind:key="currentMood.moodId">{{currentMood.mood}}</option>
         </select>
         <button>Generate</button>
     </div>
@@ -61,13 +58,37 @@
         </select>
     </div>
     </div>
+
+    <song-list />
 </div>
 </template>
 
 <script>
 
-
+import SongListService from '@/services/SongListService';
+import SongList from '@/components/SongList';
 export default {
+
+data() {
+    return {
+        mood:[],
+    }
+},
+    component: SongList,
+
+    created() {
+
+    SongListService.getAllMoods()
+      .then((response) => {
+        this.mood = response.data;
+      })
+      .catch((err) => console.error(err));
+
+    //   SongListService.getSongsByMood()
+    //     .then((response) => {
+    //         this.mood.id = response.data;
+    //     }).catch((err) => console.error(err));
+      }
 
 }
 </script>

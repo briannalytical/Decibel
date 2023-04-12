@@ -21,12 +21,8 @@ public class JdbcMoodDao implements MoodDao {
     @Override
     public List<Mood> getMoods() {
         List<Mood> getMood = new ArrayList<Mood>();
-        String sql= "SELECT song.song_id, title, artist, mood_name, mood.mood_id, genre.genre_id " +
-                "FROM song " +
-                "JOIN song_mood ON song_mood.song_id =song.song_id " +
-                "JOIN mood ON song_mood.mood_id = mood.mood_id " +
-                "JOIN song_genre ON song_genre.song_id = song.song_id " +
-                "JOIN genre ON song_genre.genre_id = genre.genre_id ";
+        String sql= "SELECT mood_name,mood_id " +
+                "FROM mood ";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {

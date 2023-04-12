@@ -6,25 +6,24 @@
         <Mood v-bind:mood="currentMood"/>
       </router-link>
       <div class="songlist">
-        <div v-for="currentSong in songs" v-bind:key="currentSong.id">
+
                    <SongListItem />
-              <div id="playlist">
-        <table id="song-table">
+
+        <table id="song-table" >
             <tr class="column">
                 <th>Title</th>
                 <th>Artist</th>
                 <th>Mood</th>
                 <th>Genre</th>
               </tr>
-              <tr>
+              <tr v-for="currentSong in songs" v-bind:key="currentSong.id">
                 <td>{{ currentSong.title }}</td>
                 <td>{{ currentSong.artist }}</td>
                 <td>{{ currentSong.mood }}</td>
                 <td>{{ currentSong.genre }}</td>
               </tr>
         </table>
-        </div>
-        </div>
+
       </div>
     </div>
   </div>

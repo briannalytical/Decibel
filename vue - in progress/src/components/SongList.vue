@@ -1,5 +1,6 @@
 <template>
   <div class="songlist">
+  
     <table id="table">
       <tr class="column">
         <th>Title</th>
@@ -7,7 +8,7 @@
         <th>Mood</th>
         <th>Genre</th>
       </tr>
-      <tr v-for="currentSong in songs" v-bind:key="currentSong.id">
+      <tr v-for="currentSong in filteredSongs" v-bind:key="currentSong.id">
         <td>{{ currentSong.title }}</td>
         <td>{{ currentSong.artist }}</td>
         <td>{{ currentSong.mood }}</td>
@@ -36,6 +37,26 @@ export default {
       .catch((err) => console.error(err));
   },
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  computed: {
+    filteredSongs(){
+     return this.songs.filter(song=>{
+        if(song.moodId == this.$store.state.moodId) {
+          return true
+        }
+      })
+    }
+
+=======
+<<<<<<< HEAD
+    SongListService.getAllMoods()
+      .then((response) => {
+        this.mood = response.data;
+      })
+      .catch((err) => console.error(err));
+>>>>>>> 06f2ed9410e7f0365387150b095742d43f191c37
 
     
 
@@ -45,6 +66,7 @@ export default {
 
   methods: {
     
+>>>>>>> 7e4fbacb0ea1dc6ba21e992a3c200ddabe9ffbfe
   }
 
 };

@@ -22,8 +22,8 @@ export default {
 <style scoped>
 .back-button-container {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 50px;
+  left: 20px;
   z-index: 10;
 }
 </style>

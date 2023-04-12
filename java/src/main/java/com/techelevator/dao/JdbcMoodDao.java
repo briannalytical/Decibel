@@ -21,7 +21,11 @@ public class JdbcMoodDao implements MoodDao {
     @Override
     public List<Mood> getMoods() {
         List<Mood> getMood = new ArrayList<Mood>();
+<<<<<<< HEAD
         String sql= "SELECT mood_name,mood_id " +
+=======
+        String sql= "SELECT  mood_name,mood_id " +
+>>>>>>> 06f2ed9410e7f0365387150b095742d43f191c37
                 "FROM mood ";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);

@@ -1,6 +1,6 @@
 <template>
   <button class="back-button" @click="goBack">
-      &#8592; Back
+     &#8592; Back  
   </button>
 </template>
 
@@ -19,10 +19,10 @@ export default {
     background-color: #f8f9fa;
     border: none;
     color: #077bff;
-    padding: 8px 16px;
+    /* padding: 8px 16px; */
     font-size: 16px;
     cursor: pointer;
-    text-decoration: none;
+    /* text-decoration: none; */
     border-radius: 4px;
     transition: background-color 0.3s, color 0.3s;
 }

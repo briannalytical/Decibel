@@ -37,6 +37,7 @@ export default {
       .catch((err) => console.error(err));
   },
 
+<<<<<<< HEAD
   computed: {
     filteredSongs(){
      return this.songs.filter(song=>{
@@ -46,7 +47,26 @@ export default {
       })
     }
 
+=======
+<<<<<<< HEAD
+    SongListService.getAllMoods()
+      .then((response) => {
+        this.mood = response.data;
+      })
+      .catch((err) => console.error(err));
+
+      SongListService.getSongsByMood()
+        .then((response) => {
+            this.mood.id = response.data;
+        }).catch((err) => console.error(err));
+      }
+     
+=======
+  methods: {
+    
+>>>>>>> 7e4fbacb0ea1dc6ba21e992a3c200ddabe9ffbfe
   }
+>>>>>>> 844d41a56e4f964ba101e0b08b112c629b3c2dd5
 };
 </script>
 

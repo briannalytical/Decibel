@@ -45,10 +45,16 @@ export default {
         this.mood = response.data;
       })
       .catch((err) => console.error(err));
+
+      SongListService.getSongsByMood()
+        .then((response) => {
+            this.mood.id = response.data;
+        }).catch((err) => console.error(err));
+      }
     
     
     
-  },
+  
 };
 </script>
 

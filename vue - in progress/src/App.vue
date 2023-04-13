@@ -4,6 +4,8 @@
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{ name: 'songs' }">Songs</router-link
       >&nbsp;|&nbsp;
+       <router-link v-bind:to="{ name: 'savedlist' }">Saved Lists</router-link
+      >&nbsp;|&nbsp;
       <router-link v-bind:to="{ name: 'welcome' }">Welcome</router-link
       >&nbsp;|&nbsp;
       <router-link

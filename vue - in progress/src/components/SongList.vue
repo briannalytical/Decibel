@@ -35,11 +35,15 @@ export default {
         this.songs = response.data;
       })
       .catch((err) => console.error(err));
+
+      SongListService.getAllMoods()
+      .then((response) => {
+        this.mood = response.data;
+      })
+      .catch((err) => console.error(err));
   },
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
   computed: {
     filteredSongs(){
      return this.songs.filter(song=>{
@@ -47,16 +51,11 @@ export default {
           return true
         }
       })
-    }
+    },
 
-=======
-<<<<<<< HEAD
-    SongListService.getAllMoods()
-      .then((response) => {
-        this.mood = response.data;
-      })
-      .catch((err) => console.error(err));
->>>>>>> 06f2ed9410e7f0365387150b095742d43f191c37
+
+    
+
 
     
 
@@ -66,7 +65,8 @@ export default {
 
   methods: {
     
->>>>>>> 7e4fbacb0ea1dc6ba21e992a3c200ddabe9ffbfe
+
+  }
   }
 
 };

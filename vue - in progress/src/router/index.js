@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import Songs from '../views/Songs.vue'
 import Welcome from '../views/Welcome.vue'
+import SavedList from '../views/SavedList.vue'
 Vue.use(Router)
 
 /**
@@ -86,6 +87,15 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path: "/songs/moods/:id/savelist",
+      name: "savelist",
+      component: SavedList,
+      meta: {
+        requiresAuth: false
+      }
+    },
+
   ]
 })
 

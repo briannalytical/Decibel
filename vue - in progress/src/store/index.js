@@ -42,6 +42,7 @@ export default new Vuex.Store({
     SET_MOOD_ID(state, moodId){
       state.moodId = moodId;
       
-    }
+    },
+ 
   }
 })

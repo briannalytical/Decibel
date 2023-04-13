@@ -73,13 +73,13 @@
       </div> -->
     <!-- </div> -->
 
-    <song-list />
+    <!-- <SongList /> -->
   </div>
 </template>
 
 <script>
 import SongListService from "@/services/SongListService";
-import SongList from "@/components/SongList";
+// import SongList from "@/components/SongList";
 export default {
   data() {
     return {
@@ -88,7 +88,8 @@ export default {
     };
     
   },
-  component: SongList,
+  // components:{ SongList,
+  // },
 
   created() {
     SongListService.getAllMoods()

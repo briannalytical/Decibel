@@ -1,10 +1,10 @@
 <template>
   <div>
- <div v-for="currentPlaylist in savedPlaylist" v-bind:key="currentPlaylist.playlistId">
-     <button class="save-button" @click="savePlaylist">
-     &#8592; Save Playlist  
-  </button>
+ <div v-for="currentPlaylist in playlist" v-bind:key="currentPlaylist.playlistId">
+   <p v-for="song in currentPlaylist.songs" v-bind:key=song.songId>{{song.title}}</p>
+     
  </div>
+ <p>Test</p>
   </div>
 </template>
 
@@ -18,37 +18,17 @@ export default {
   },
 
     name: 'savelist',
-    computed: {
-
-      savedPlaylist() {
-        return this.playlist.filter(playlist => {
-          if(playlist.playlistId == this.$store.state.playlistId) {
-            return true
-          }
-        })
-      }
-    },
      created() {
-       const playlistId = this.$route.params.id;
+      
 
-    SongListService.getPlaylistById(playlistId)
+    SongListService.getPlaylistById()
       .then((response) => {
         this.playlist = response.data;
       })
       .catch((err) => console.error(err));
      },
 
-     methods: {
-    savePlaylist() {
-      const playlistId = this.$route.params.id;
-        this.$router.push({
-            name:"savelist", 
-            params: {
-              id: playlistId
-            }
-        })
-    }
-    }
+   
 
 }
 </script>

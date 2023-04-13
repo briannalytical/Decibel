@@ -40,6 +40,8 @@ export default {
         this.mood = response.data;
       })
       .catch((err) => console.error(err));
+
+      this.$store.commit('SAVE_PLAYLIST',this.songs)
   },
 
   computed: {
@@ -51,7 +53,7 @@ export default {
       });
     },
 
-    methods: {},
+    
   },
 };
 </script>

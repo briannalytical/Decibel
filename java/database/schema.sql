@@ -53,3 +53,18 @@ CREATE TABLE song_mood (
 	CONSTRAINT fk_song_mood_song_id FOREIGN KEY (song_id) REFERENCES song(song_id),
 	CONSTRAINT fk_song_mood_mood_id FOREIGN KEY (mood_id) REFERENCES mood(mood_id)
 );
+
+CREATE TABLE playlist (
+	playlist_id serial,
+	playlist_name varchar (200),
+	CONSTRAINT PK_playlist PRIMARY KEY (playlist_id)
+	);
+	
+CREATE TABLE playlist_users (
+playlist_id bigint,
+user_id bigint,
+	
+CONSTRAINT pk_playlist_users primary key (playlist_id, user_id),
+CONSTRAINT fk_playlist_users_playlist_id FOREIGN KEY (playlist_id) REFERENCES playlist(playlist_id),
+CONSTRAINT fk_playlist_users_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)
+);

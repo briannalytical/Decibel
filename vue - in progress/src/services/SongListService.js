@@ -11,6 +11,11 @@ export default {
         return axios.get(`/songs/moods/${id}`);
 
 
+    },
+    getPlaylistById(id) {
+        return axios.get(`/songs/playlist/${id}`);
+
+
     }
 
 

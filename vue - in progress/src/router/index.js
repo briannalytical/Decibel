@@ -88,7 +88,7 @@ const router = new Router({
       }
     },
     {
-      path: "/songs/moods/:id/savelist",
+      path: "/songs/playlist/:id",
       name: "savelist",
       component: SavedList,
       meta: {

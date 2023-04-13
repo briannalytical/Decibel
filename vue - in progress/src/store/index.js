@@ -43,6 +43,10 @@ export default new Vuex.Store({
       state.moodId = moodId;
       
     },
+
+    SAVED_PLAYLIST(state, playlistId){
+      state.playlistId = playlistId;
+    }
  
   }
 })

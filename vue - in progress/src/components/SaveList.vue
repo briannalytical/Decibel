@@ -1,4 +1,4 @@
-np<template>
+<template>
   <div>
  <div v-for="currentPlaylist in playlist" v-bind:key="currentPlaylist.playlistId">
    <p>{{currentPlaylist.playlistName}}</p>

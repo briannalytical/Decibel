@@ -6,7 +6,9 @@ import java.util.List;
 
 public interface PlaylistDao {
 
-    List<Playlist> savedPlaylistById(int playlistId);
+    public List <Playlist> getSongsInPlaylist(int userId);
+
+    public void savePlaylist(Playlist playlist, int userId);
 
 
 }

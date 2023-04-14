@@ -20,7 +20,8 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    moodId: ""
+    moodId: "",
+    playlist: ""
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -43,6 +44,10 @@ export default new Vuex.Store({
       state.moodId = moodId;
       
     },
+
+    SAVE_PLAYLIST(state, playlist){
+      state.playlist = playlist;
+    }
  
   }
 })

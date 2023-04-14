@@ -3,6 +3,7 @@
     <SongDetails />
     <div class="back-button-container">
       <back-button></back-button>
+      <save-button></save-button>
     </div>
   </div>
 </template>
@@ -10,11 +11,13 @@
 <script>
 import SongDetails from "@/components/SongDetails";
 import BackButton from "../components/BackButton.vue";
+import SaveButton from "../components/SaveButton.vue";
 
 export default {
   components: {
     SongDetails,
     BackButton,
+    SaveButton
   },
 };
 </script>

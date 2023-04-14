@@ -1,6 +1,5 @@
 <template>
   <div class="songlist">
-  
     <table id="table">
       <tr class="column">
         <th>Title</th>
@@ -36,39 +35,26 @@ export default {
       })
       .catch((err) => console.error(err));
 
-      SongListService.getAllMoods()
+    SongListService.getAllMoods()
       .then((response) => {
         this.mood = response.data;
       })
       .catch((err) => console.error(err));
+
+      this.$store.commit('SAVE_PLAYLIST',this.songs)
   },
 
-
   computed: {
-    filteredSongs(){
-     return this.songs.filter(song=>{
-        if(song.moodId == this.$store.state.moodId) {
-          return true
+    filteredSongs() {
+      return this.songs.filter((song) => {
+        if (song.moodId == this.$store.state.moodId) {
+          return true;
         }
-      })
+      });
     },
 
-
     
-
-
-    
-
-      
-      
-     
-
-  methods: {
-    
-
-  }
-  }
-
+  },
 };
 </script>
 

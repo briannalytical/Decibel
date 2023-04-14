@@ -10,6 +10,8 @@ public interface SongDao {
 
     List<Song> getSongByMood(int moodId);
 
+
+
     Song getSongBySongId(int songId);
 
 

@@ -1,10 +1,21 @@
 package com.techelevator.model;
+import com.techelevator.model.Song;
+
+import java.util.List;
 
 public class Playlist {
 
     public String playlistName;
     public int playlistId;
+    public List<Song> songs;
 
+    public List<Song> getSongs() {
+        return songs;
+    }
+
+    public void setSongs(List<Song> songs) {
+        this.songs = songs;
+    }
 
     public Playlist() {
     }

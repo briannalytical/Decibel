@@ -7,7 +7,7 @@ import java.util.List;
 public interface MoodDao {
 
 
-    List<Mood> getSongsByMood(int moodId);
+    List<Mood> getMoods();
     Mood getSongName(String mood);
-    Mood getMoodById(int moodId);
+    List<Mood> getSongsByMoodId(int moodId);
 }

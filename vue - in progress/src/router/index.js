@@ -6,7 +6,8 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import Songs from '../views/Songs.vue'
-
+import Welcome from '../views/Welcome.vue'
+import SavedList from '../views/SavedList.vue'
 Vue.use(Router)
 
 /**
@@ -63,17 +64,38 @@ const router = new Router({
       }
     },
     {
-      path: "/moods",
+      path: "/songs/moods",
       name: "moods",
       component: Songs,
       meta: {
-        requiresAuth:false
+        requiresAuth: false
       }
-    }
-    
-    
-   
-    
+    },
+    {
+      path: "/songs/moods/:id",
+      name: "mood-detail",
+      component: Songs,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/welcome",
+      name: "welcome",
+      component: Welcome,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/songs/moods/:id/savelist",
+      name: "savelist",
+      component: SavedList,
+      meta: {
+        requiresAuth: false
+      }
+    },
+
   ]
 })
 

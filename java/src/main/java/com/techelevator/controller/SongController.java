@@ -2,10 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.SongDao;
 import com.techelevator.model.Song;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +19,11 @@ public class SongController {
     @RequestMapping(path = "/songs", method = RequestMethod.GET)
     public List<Song> playlist() {
         return songDao.playlist();
+    }
+
+    @RequestMapping(path = "/songs/moods/{id}", method = RequestMethod.GET)
+    public List<Song> getSongByMood(@PathVariable int id) {
+        return songDao.getSongByMood(id);
     }
 }
 

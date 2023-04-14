@@ -1,9 +1,32 @@
+DROP TABLE IF EXISTS playlist_users
+DROP TABLE IF EXISTS playlist
 DROP TABLE IF EXISTS song_mood;
 DROP TABLE IF EXISTS song_genre;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS song;
 DROP TABLE IF EXISTS mood;
 DROP TABLE IF EXISTS genre;
+
+CREATE TABLE IF NOT EXISTS public.playlist_users
+(
+    playlist_id bigint NOT NULL,
+    user_id bigint NOT NULL,
+    CONSTRAINT pk_playlist_users PRIMARY KEY (playlist_id, user_id),
+    CONSTRAINT fk_playlist_users_playlist_id FOREIGN KEY (playlist_id)
+        REFERENCES public.playlist (playlist_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT fk_playlist_users_user_id FOREIGN KEY (user_id)
+        REFERENCES public.users (user_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.playlist_users
+    OWNER to postgres;
+
 
 CREATE TABLE users (
 	user_id SERIAL,

@@ -1,11 +1,16 @@
-np<template>
-  <div>
- <div v-for="currentPlaylist in playlist" v-bind:key="currentPlaylist.playlistId">
-   <p>{{currentPlaylist.playlistName}}</p>
+<template>
+  <div id="main">
+
+<div v-for="currentPlaylist in playlist" v-bind:key="currentPlaylist.playlistId" >
+  <b-button class="expand-btn" v-b-toggle="'currentPlaylist.playlistId'" variant="primary">{{currentPlaylist.playlistName}}</b-button>
+  <b-collapse v-bind:id="'currentPlaylist.playlistId'" class="mt-2">
+    <b-card >
+      <p class="card-text">{{currentPlaylist.songs}}</p>
+    </b-card>
+  </b-collapse>
+</div>
    
  </div>
- <p>Test</p>
-  </div>
 </template>
 
 <script>
@@ -44,6 +49,10 @@ export default {
     /* text-decoration: none; */
     border-radius: 4px;
     transition: background-color 0.3s, color 0.3s;
+}
+
+.expand-btn {
+  height: auto;
 }
 
 .save-button:hover {

@@ -29,8 +29,9 @@ public class PlaylistController {
     }
 
     @RequestMapping(path = "/playlist", method = RequestMethod.POST)
-    public List <Playlist> savePlaylist(@RequestBody List<Song> playlist, Principal user) {
-//        return playlistDao.getSongsInPlaylist(userDao.findIdByUsername(user.getName()));
-        return new ArrayList<>();
+    public void  savePlaylist(@RequestBody Playlist playlist, Principal user) {
+        playlistDao.savePlaylist(playlist,(userDao.findIdByUsername(user.getName())));
+
+
   }
 }

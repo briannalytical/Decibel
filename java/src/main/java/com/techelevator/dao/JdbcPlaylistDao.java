@@ -31,7 +31,8 @@ public class JdbcPlaylistDao implements PlaylistDao {
                 " WHERE user_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while (results.next()) {
-
+            playlist = new Playlist();
+            songs = new ArrayList<>();
             playlist.setPlaylistId(results.getInt("playlist_id"));
             playlist.setPlaylistName(results.getString("playlist_name"));
 
@@ -49,13 +50,31 @@ public class JdbcPlaylistDao implements PlaylistDao {
                 songs.add(mapRowToSong(results2));
             }
             playlist.setSongs(songs);
+            playlistOfSongs.add(playlist);
         }
-        playlistOfSongs.add(playlist);
+
 
         return playlistOfSongs;
     }
 @Override
-public void savePlaylist(Playlist playlist, int userId){
+public void  savePlaylist(Playlist playlist, int userId){
+        String sql3 = "INSERT INTO playlist (playlist_name) " +
+                "VALUES (?) RETURNING playlist_id";
+        int playlistId = jdbcTemplate.queryForObject(sql3, Integer.class, playlist.getPlaylistName());
+
+        String sql4 = "INSERT INTO playlist_users (playlist_id, user_id) " +
+                "VALUES (?,?)";
+
+        jdbcTemplate.update(sql4,playlistId, userId);
+
+        String sql5 = "INSERT INTO song_playlist (song_id, playlist_id) " +
+                "VALUES(?,?)";
+
+        List<Song> savedSongs = playlist.getSongs();
+
+        for (Song song: savedSongs){
+            jdbcTemplate.update(sql5,song.getsongId(), playlistId);
+        }
 
 }
 

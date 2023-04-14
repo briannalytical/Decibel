@@ -1,8 +1,8 @@
-<template>
+np<template>
   <div>
  <div v-for="currentPlaylist in playlist" v-bind:key="currentPlaylist.playlistId">
-   <p v-for="song in currentPlaylist.songs" v-bind:key=song.songId>{{song.title}}</p>
-     
+   <p>{{currentPlaylist.playlistName}}</p>
+   
  </div>
  <p>Test</p>
   </div>

@@ -1,5 +1,5 @@
 package com.techelevator.dao;
-
+import com.techelevator.model.Playlist;
 import com.techelevator.model.Song;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -50,6 +50,9 @@ public class JdbcSongDao implements SongDao{
       return getSongByMoodList;
   }
 
+
+
+
     @Override
     public Song getSongBySongId(int songId) {
 
@@ -78,6 +81,7 @@ public class JdbcSongDao implements SongDao{
         song.setTitle(row.getString("title"));
         song.setMoodId(row.getInt("mood_id"));
         song.setSongId(row.getInt("song_id"));
+
 
         return song;
     }

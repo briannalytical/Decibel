@@ -1,6 +1,6 @@
 <template>
   <div class="songDetail">
-    <Mood v-bind:mood="mood" />
+   
     <h2>Playlist</h2>
     <SongList v-bind:song="song" />
   </div>
@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       song: {},
-      mood: {},
+
     };
   },
 };

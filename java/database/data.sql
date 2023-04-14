@@ -120,3 +120,9 @@ INSERT INTO song_genre (song_id, genre_id)
     VALUES (100,12), (101,12), (102,12), (103,12), (104,12), (105,12), (106,12), (107,12), (108,12);
 INSERT INTO song_mood (song_id, mood_id)
     VALUES (100,1), (101,2), (102,3), (103,4), (104,5), (105,6), (106,7), (107,8), (108,9);
+
+INSERT INTO playlist (playlist_name)
+VALUES ('Will'), ('JB'), ('BebeFinn');
+
+INSERT INTO playlist_users (playlist_id, user_id)
+VALUES (1,1), (2,1),(3,1)

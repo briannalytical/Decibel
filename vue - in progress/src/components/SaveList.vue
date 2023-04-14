@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div id="main">
 
 <div v-for="currentPlaylist in playlist" v-bind:key="currentPlaylist.playlistId" >
@@ -9,6 +10,11 @@
     </b-card>
   </b-collapse>
 </div>
+=======
+  <div>
+ <div v-for="currentPlaylist in playlist" v-bind:key="currentPlaylist.playlistId">
+   <p>{{currentPlaylist.playlistName}}</p>
+>>>>>>> 9a1f26247eeecfb010dce0af2c541c16806e8f1e
    
  </div>
 </template>

@@ -5,6 +5,9 @@
     <div id="speech-box">
         <speech-recognition @mood-detected="onMoodDetected"></speech-recognition>
       </div>
+    <div id="musicplayer">
+         <MusicPlayer></MusicPlayer>
+    </div>
     <div id="header-section">
       <img v-bind:src="require('../assets/holder-logo.jpg')" />
       <h1>Decibel</h1>
@@ -85,6 +88,7 @@
 <script>
 import SongListService from "@/services/SongListService";
 import SpeechRecognition from "@/components/SpeechRecognition.vue";
+import MusicPlayer from "@/components/MusicPlayer.vue";
 // import SongList from "@/components/SongList";
 export default {
   data() {
@@ -94,7 +98,7 @@ export default {
     };
     
   },
-  components:{ SpeechRecognition,
+  components:{ SpeechRecognition, MusicPlayer,
   },
 
   created() {

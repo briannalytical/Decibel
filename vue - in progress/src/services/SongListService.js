@@ -19,6 +19,9 @@ export default {
     },
     savePlaylist(playlist){
         return axios.post(`/playlist`,playlist)
+    },
+    updateNameOfPlaylist(playlist){
+        return axios.put(`/playlist`,playlist)
     }
 
 

@@ -24,14 +24,19 @@ public class PlaylistController {
     private UserDao userDao;
 
     @RequestMapping(path = "/playlist", method = RequestMethod.GET)
-    public List <Playlist> getSongsInPlaylist(Principal user) {
+    public List<Playlist> getSongsInPlaylist(Principal user) {
         return playlistDao.getSongsInPlaylist(userDao.findIdByUsername(user.getName()));
     }
 
+
     @RequestMapping(path = "/playlist", method = RequestMethod.POST)
-    public void  savePlaylist(@RequestBody Playlist playlist, Principal user) {
-        playlistDao.savePlaylist(playlist,(userDao.findIdByUsername(user.getName())));
+    public void savePlaylist(@RequestBody Playlist playlist, Principal user) {
+        playlistDao.savePlaylist(playlist, (userDao.findIdByUsername(user.getName())));
+    }
 
+    @RequestMapping(path = "/playlist", method = RequestMethod.PUT)
+    public void updatePlaylistByName(@RequestBody Playlist playlist, Principal user) {
+        playlistDao.updatePlaylistByName(playlist.getPlaylistName(), playlist.getPlaylistId());
+    }
 
-  }
 }

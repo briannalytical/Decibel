@@ -2,9 +2,15 @@ package com.techelevator.dao;
 import com.techelevator.model.Playlist;
 import com.techelevator.model.Song;
 import com.techelevator.model.User;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.ResourceAccessException;
+import org.springframework.web.client.RestClientResponseException;
+import org.springframework.web.client.RestTemplate;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
@@ -14,6 +20,9 @@ import java.util.List;
 
 public class JdbcPlaylistDao implements PlaylistDao {
     private JdbcTemplate jdbcTemplate;
+    private final RestTemplate restTemplate = new RestTemplate();
+    private static final String API_BASE_URL = "http://localhost:9000/";
+
 
     public JdbcPlaylistDao(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
@@ -77,6 +86,16 @@ public void  savePlaylist(Playlist playlist, int userId){
         }
 
 }
+    @Override
+    public void updatePlaylistByName(String playlistName, int playlistId) {
+        String sql6 = "UPDATE playlist " +
+                "SET playlist_name= ?" +
+                "WHERE playlist_id= ?";
+        jdbcTemplate.update(sql6, playlistName, playlistId);
+
+    }
+
+
 
     private Playlist mapRowToPlaylist(SqlRowSet row) {
         Playlist playlist = new Playlist();

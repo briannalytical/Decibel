@@ -8,6 +8,7 @@ import store from '../store/index'
 import Songs from '../views/Songs.vue'
 import Welcome from '../views/Welcome.vue'
 import SavedList from '../views/SavedList.vue'
+import UserPortfolio from '../views/UserPortfolio.vue'
 Vue.use(Router)
 
 /**
@@ -91,6 +92,14 @@ const router = new Router({
       path: "/songs/playlist",
       name: "savelist",
       component: SavedList,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/user",
+      name: "user",
+      component: UserPortfolio,
       meta: {
         requiresAuth: false
       }

@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import SavedList from '@/components/SavedList'
+
 export default {
     components: {
-        SavedList
+       
     }
 }
 </script>

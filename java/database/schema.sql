@@ -1,12 +1,12 @@
-DROP TABLE IF EXISTS playlist_song;
+DROP TABLE IF EXISTS song_playlist;
 DROP TABLE IF EXISTS playlist_users;
-DROP TABLE IF EXISTS playlist;
 DROP TABLE IF EXISTS song_mood;
 DROP TABLE IF EXISTS song_genre;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS song;
 DROP TABLE IF EXISTS mood;
 DROP TABLE IF EXISTS genre;
+DROP TABLE IF EXISTS playlist;
 
 
 CREATE TABLE users (
@@ -74,10 +74,10 @@ CONSTRAINT fk_playlist_users_user_id FOREIGN KEY (user_id) REFERENCES users(user
 );
 
 CREATE TABLE song_playlist (
+song_id bigint,	
 playlist_id bigint,
-song_id bigint,
 	
-CONSTRAINT pk_song_playlist primary key (playlist_id, song_id),
-CONSTRAINT fk_song_playlist_playlist_id FOREIGN KEY (playlist_id) REFERENCES playlist(playlist_id),
-CONSTRAINT fk_song_playlist_song_id FOREIGN KEY (song_id) REFERENCES song(song_id)
+CONSTRAINT pk_song_playlist primary key (song_id, playlist_id),
+CONSTRAINT fk_song_playlist_song_id FOREIGN KEY (song_id) REFERENCES song(song_id),
+CONSTRAINT fk_song_playlist_playlist_id FOREIGN KEY (playlist_id) REFERENCES playlist(playlist_id)
 );

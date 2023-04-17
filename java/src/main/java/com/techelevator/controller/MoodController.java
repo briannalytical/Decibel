@@ -14,7 +14,7 @@ public class MoodController {
     @Autowired
     private MoodDao moodDao;
 
-    @RequestMapping(path = "songs/moods", method = RequestMethod.GET)
+    @RequestMapping(path = "/songs/moods", method = RequestMethod.GET)
     public List<Mood> getMoods() {
         return moodDao.getMoods();
     }

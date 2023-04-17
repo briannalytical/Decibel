@@ -116,6 +116,7 @@ INSERT INTO song(title, artist)
     VALUES ('Sparkle', 'Tetsuro Yamashita'), ('Colors','Black Pumas'), ('In Plain Sight','Kraak & Smaak'), ('Beauty and Essence','Free Nationals'),
     ('Aint Nobody Like You','Yung Bae'), ('Brick House','Commodores'), ('People Get Up and Drive Your Funky Soul','James Brown'),
     ('The Rubber Band Man','The Spinners'), ('Jungle Boogie','Kool & The Gang');
+	
 INSERT INTO song_genre (song_id, genre_id)
     VALUES (100,12), (101,12), (102,12), (103,12), (104,12), (105,12), (106,12), (107,12), (108,12);
 INSERT INTO song_mood (song_id, mood_id)
@@ -125,4 +126,7 @@ INSERT INTO playlist (playlist_name)
 VALUES ('Will'), ('JB'), ('BebeFinn');
 
 INSERT INTO playlist_users (playlist_id, user_id)
-VALUES (1,1), (2,1),(3,1)
+VALUES (1,1), (2,1),(3,1);
+
+INSERT INTO song_playlist (song_id, playlist_id)
+ VALUES (100,2), (101,2), (102,2), (103,2), (104,2), (105,2), (106,2), (107,2), (108,2);

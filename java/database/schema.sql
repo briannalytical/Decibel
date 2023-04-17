@@ -1,13 +1,12 @@
-DROP TABLE IF EXISTS playlist_song;
+DROP TABLE IF EXISTS song_playlist;
 DROP TABLE IF EXISTS playlist_users;
-DROP TABLE IF EXISTS playlist;
 DROP TABLE IF EXISTS song_mood;
 DROP TABLE IF EXISTS song_genre;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS song;
 DROP TABLE IF EXISTS mood;
 DROP TABLE IF EXISTS genre;
-
+DROP TABLE IF EXISTS playlist;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -16,8 +15,6 @@ CREATE TABLE users (
 	role varchar(50) NOT NULL,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
-
-
 CREATE TABLE song (
 	song_id SERIAL,
 	title varchar(200) NOT NULL,
@@ -26,20 +23,17 @@ CREATE TABLE song (
 	
 	
 );
-
 CREATE TABLE genre (
 	genre_id SERIAL,
 	genre_name varchar(200) NOT NULL,
 	CONSTRAINT PK_genre PRIMARY KEY (genre_id)
 	
 );
-
 CREATE TABLE mood (
 	mood_id SERIAL,
 	mood_name varchar(200) NOT NULL,
 	CONSTRAINT PK_mood PRIMARY KEY (mood_id)
 );
-
 CREATE TABLE song_genre (
 	song_id bigint,
 	genre_id bigint,
@@ -48,7 +42,6 @@ CREATE TABLE song_genre (
 	CONSTRAINT fk_song_genre_song_id FOREIGN KEY (song_id) REFERENCES song(song_id),
 	CONSTRAINT fk_song_genre_genre_id FOREIGN KEY (genre_id) REFERENCES genre(genre_id)
 );
-
 CREATE TABLE song_mood (
 	song_id bigint,
 	mood_id bigint,
@@ -57,7 +50,6 @@ CREATE TABLE song_mood (
 	CONSTRAINT fk_song_mood_song_id FOREIGN KEY (song_id) REFERENCES song(song_id),
 	CONSTRAINT fk_song_mood_mood_id FOREIGN KEY (mood_id) REFERENCES mood(mood_id)
 );
-
 CREATE TABLE playlist (
 	playlist_id serial,
 	playlist_name varchar (200),
@@ -72,12 +64,11 @@ CONSTRAINT pk_playlist_users primary key (playlist_id, user_id),
 CONSTRAINT fk_playlist_users_playlist_id FOREIGN KEY (playlist_id) REFERENCES playlist(playlist_id),
 CONSTRAINT fk_playlist_users_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
-
 CREATE TABLE song_playlist (
+song_id bigint,	
 playlist_id bigint,
-song_id bigint,
 	
-CONSTRAINT pk_song_playlist primary key (playlist_id, song_id),
-CONSTRAINT fk_song_playlist_playlist_id FOREIGN KEY (playlist_id) REFERENCES playlist(playlist_id),
-CONSTRAINT fk_song_playlist_song_id FOREIGN KEY (song_id) REFERENCES song(song_id)
+CONSTRAINT pk_song_playlist primary key (song_id, playlist_id),
+CONSTRAINT fk_song_playlist_song_id FOREIGN KEY (song_id) REFERENCES song(song_id),
+CONSTRAINT fk_song_playlist_playlist_id FOREIGN KEY (playlist_id) REFERENCES playlist(playlist_id)
 );

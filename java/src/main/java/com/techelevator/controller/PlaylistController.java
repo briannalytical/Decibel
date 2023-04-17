@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
+
+
 @PreAuthorize("isAuthenticated()")
 @RestController
 @CrossOrigin
@@ -23,15 +25,24 @@ public class PlaylistController {
     @Autowired
     private UserDao userDao;
 
-    @RequestMapping(path = "/playlist", method = RequestMethod.GET)
-    public List <Playlist> getSongsInPlaylist(Principal user) {
+    @RequestMapping(path = "/playlists", method = RequestMethod.GET)
+    public List<Playlist> getSongsInPlaylist(Principal user) {
         return playlistDao.getSongsInPlaylist(userDao.findIdByUsername(user.getName()));
     }
 
-    @RequestMapping(path = "/playlist", method = RequestMethod.POST)
-    public void  savePlaylist(@RequestBody Playlist playlist, Principal user) {
-        playlistDao.savePlaylist(playlist,(userDao.findIdByUsername(user.getName())));
+    @RequestMapping(path = "/playlists", method = RequestMethod.POST)
+    public void savePlaylist(@RequestBody Playlist playlist, Principal user) {
+        playlistDao.savePlaylist(playlist, (userDao.findIdByUsername(user.getName())));
+    }
 
+    @RequestMapping(path = "/playlists", method = RequestMethod.PUT)
+    public void updatePlaylistByName(@RequestBody Playlist playlist, Principal user) {
+        playlistDao.updatePlaylistByName(playlist.getPlaylistName(), playlist.getPlaylistId());
+    }
 
-  }
+    @RequestMapping(path="/playlists", method=RequestMethod.DELETE)
+        public void deletePlaylistByName(Playlist playlist, Principal user) {
+        playlistDao.deletePlayListById(playlist.getPlaylistName(), playlist.getPlaylistId());
+    }
+
 }

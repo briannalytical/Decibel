@@ -26,6 +26,11 @@ public class SongController {
         return songDao.getSongByMood(id);
     }
 
+//    @RequestMapping(path="/songs/genres{id}", method=RequestMethod.GET)
+//    public List<Song> getSongByGenre(@PathVariable int id) {
+//        return songDao.getSongByGenre(id);
+//    }
+
 
 
 

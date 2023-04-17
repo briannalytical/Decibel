@@ -8,6 +8,8 @@
       >&nbsp;|&nbsp; -->
       <router-link v-bind:to="{ name: 'welcome' }">Welcome</router-link
       >&nbsp;|&nbsp;
+       <router-link v-bind:to="{ name: 'user'}">User</router-link
+      >&nbsp;|&nbsp;
       <router-link
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token != ''"

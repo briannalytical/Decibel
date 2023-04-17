@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS playlist_song;
-DROP TABLE IF EXISTS playlist_users
-DROP TABLE IF EXISTS playlist
+DROP TABLE IF EXISTS playlist_users;
+DROP TABLE IF EXISTS playlist;
 DROP TABLE IF EXISTS song_mood;
 DROP TABLE IF EXISTS song_genre;
 DROP TABLE IF EXISTS users;

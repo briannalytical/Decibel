@@ -1,11 +1,11 @@
 <template>
   <div class="songlist">
-  
-    <button v-on:click="showForm = !showForm">Save Playlist</button>
+
+<button class="save-button" v-on:click="showForm = !showForm">&#8595; Save</button>
     <form v-show="showForm" v-on:submit.prevent="savePlaylist">
-      <input type="text" v-model="playlist.playlistName">
-      <button type="submit"></button>
-      </form>
+      <input type="text" placeholder="Playlist Name" class="playlist-name" required v-model="playlist.playlistName"><br>
+      <button type="submit" class="submit-save">Go!</button>
+    </form>
     <table id="table">
       <tr class="column">
         <th>Title</th>
@@ -116,20 +116,21 @@ th {
   color: rgb(0, 0, 0);
 }
 
-save-button {
-  background-color: #f8f9fa;
+.save-button {
+  background-color: #F8F9FA;
   border: none;
-  color: #077bff;
-  /* padding: 8px 16px; */
+  color: #077BFF;
+  padding-left: 20px;
   font-size: 16px;
   cursor: pointer;
-  /* text-decoration: none; */
   border-radius: 4px;
   transition: background-color 0.3s, color 0.3s;
 }
-
 .save-button:hover {
-  background-color: #077bff;
-  color: #ffffff;
+  background-color: #077BFF;
+  color: #FFFFFF;
+}
+.playlist-name {
+  align-self: auto;
 }
 </style>

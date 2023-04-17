@@ -1,5 +1,10 @@
 <template>
+
   <div id="main">
+
+    <div id="speech-box">
+        <speech-recognition @mood-detected="onMoodDetected"></speech-recognition>
+      </div>
     <div id="header-section">
       <img v-bind:src="require('../assets/holder-logo.jpg')" />
       <h1>Decibel</h1>
@@ -79,6 +84,7 @@
 
 <script>
 import SongListService from "@/services/SongListService";
+import SpeechRecognition from "@/components/SpeechRecognition.vue";
 // import SongList from "@/components/SongList";
 export default {
   data() {
@@ -88,8 +94,8 @@ export default {
     };
     
   },
-  // components:{ SongList,
-  // },
+  components:{ SpeechRecognition,
+  },
 
   created() {
     SongListService.getAllMoods()
@@ -111,6 +117,10 @@ export default {
     },
     updateMood() {
       this.$store.commit("SET_MOOD_ID", this.moodId);
+    },
+
+    onMoodDetected(mood) {
+      console.log("Detected mood:", mood);
     },
   },
 };

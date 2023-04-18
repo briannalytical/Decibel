@@ -97,11 +97,11 @@ public class JdbcPlaylistDao implements PlaylistDao {
     }
 
     @Override
-    public void updatePlaylist(String playlistPicture, String playlistName, int playlistId) {
+    public void updatePlaylist(Playlist playlist) {
         String sql6 = "UPDATE playlist " +
                 "SET playlist_name = ?, playlist_image=? " +
                 "WHERE playlist_id=?";
-        jdbcTemplate.update(sql6, playlistName, playlistId);
+        jdbcTemplate.update(sql6, playlist.getPlaylistName(), playlist.getPlaylistPicture(), playlist.getPlaylistId());
     }
 
 

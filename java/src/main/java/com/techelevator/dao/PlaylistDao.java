@@ -14,7 +14,7 @@ public interface PlaylistDao {
 
     public void deletePlayListById(String playlistName, int userId);
 
-    public void updatePlaylist(String playlistPicture, String playlistName, int playlistId);
+    public void updatePlaylist(Playlist playlist);
 
 
 }

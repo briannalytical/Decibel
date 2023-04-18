@@ -104,8 +104,8 @@ public class JdbcPlaylistDao implements PlaylistDao {
 
     @Override
     public void updatePlaylistPicture(String playlistPicture, int playlistId) {
-        String sql8 = "UPDATE playlist \n" +
-                "SET playlist_image = ?\n" +
+        String sql8 = "UPDATE playlist  " +
+                "SET playlist_image = ? " +
                 "WHERE playlist_id = ?";
 
         jdbcTemplate.update(sql8, playlistPicture, playlistId);

@@ -4,10 +4,8 @@
 
     <main id="main-grid">
       <div id="user-picture">
-        <img
-          src="https://files.slack.com/files-tmb/T0GNFLF6D-F05354D0QTH-c2d9ab6f5f/download_360.png"
-          alt="placeholder"
-        />
+        <img v-bind:src="require('../assets/user-profile.png')">
+        
         <button v-on:click.prevent="uploadPhoto">Upload User Picture</button>
       </div>
 
@@ -16,34 +14,16 @@
       </div>
 
        <div id="user-info">
-        <h1>User Info</h1>
+        <h2>User Info</h2>
       </div>
 
       <div id="playlist-image">
-        <p
-          img
-          src="https://files.slack.com/files-tmb/T0GNFLF6D-F053N53AGRJ-df616dd4f7/screenshot_2023-04-17_110337_480.png"
-        >
-          playlistImage
-        </p>
-        <p
-          img
-          src="https://files.slack.com/files-tmb/T0GNFLF6D-F053N53AGRJ-df616dd4f7/screenshot_2023-04-17_110337_480.png"
-        >
-          playlistImage
-        </p>
-        <p
-          img
-          src="https://files.slack.com/files-tmb/T0GNFLF6D-F053N53AGRJ-df616dd4f7/screenshot_2023-04-17_110337_480.png"
-        >
-          playlistImage
-        </p>
-        <p
-          img
-          src="https://files.slack.com/files-tmb/T0GNFLF6D-F053N53AGRJ-df616dd4f7/screenshot_2023-04-17_110337_480.png"
-        >
-          playlistImage
-        </p>
+        <img v-bind:src="require('../assets/music-placeholder.png')"><p>playlistImage</p>
+        <img v-bind:src="require('../assets/music-placeholder.png')"><p>playlistImage</p>
+        <img v-bind:src="require('../assets/music-placeholder.png')"><p>playlistImage</p>
+        <img v-bind:src="require('../assets/music-placeholder.png')"><p>playlistImage</p>
+      
+        
       </div>
       <div id="playlist-name">
         <p>Name</p>
@@ -108,7 +88,7 @@ main #username{
 }
 main #user-info{
     grid-area: user-info;
-    justify-content: center;
+    justify-content: left;
     text-align: center;
 }
 
@@ -125,7 +105,7 @@ main #playlist-name{
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 4em;
 }
 
 
@@ -136,6 +116,8 @@ h2 {
 
 
 #user-picture img {
+  width: 20vw;
+  height: 35vh;
   border-radius: 50%;
 }
 

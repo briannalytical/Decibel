@@ -6,7 +6,7 @@
         <speech-recognition @mood-detected="onMoodDetected"></speech-recognition>
       </div>
     <div id="header-section">
-      <img v-bind:src="require('../assets/holder-logo.jpg')" />
+      <img src="require('../assets/holder-logo.jpg')" />
       <h1>Decibel</h1>
       <p>How would you like to generate your playlist?</p>
     </div>

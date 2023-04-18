@@ -63,50 +63,6 @@ export default {
 
 <style>
 
-#main-grid {
-  display: inline-grid;
-  grid-template-columns: 2fr 1fr 3fr;
-  grid-template-areas:
-    "user-picture  user-picture . username        username      username"
-    "user-info     user-info    . playlist-image  playlist-name playlist-name";
-    
-
-  grid-template-rows: 2fr 4fr;
-  row-gap: 20px;
-  column-gap: 50px;
-  align-items: vertical;
-  align-items: center;
-}
-
-
-main #user-picture{
-    grid-area: user-picture;
-    justify-content: center;
-    text-align: center;
-}
-main #username{
-    grid-area: username;
-    justify-content: center;
-    text-align: center;
-}
-main #user-info{
-    grid-area: user-info;
-    justify-content: left;
-    text-align: center;
-}
-
-main #playlist-image{
-    grid-area: playlist-image;
-    justify-content: center;
-    text-align: center;
-}
-
-main #playlist-name{
-    grid-area: playlist-name;
-    justify-content: center;
-    text-align: center;
-}
-
 h1 {
   font-size: 4em;
 }

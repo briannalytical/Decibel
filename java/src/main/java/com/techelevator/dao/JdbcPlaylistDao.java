@@ -114,6 +114,7 @@ public class JdbcPlaylistDao implements PlaylistDao {
     private Playlist mapRowToPlaylist(SqlRowSet row) {
         Playlist playlist = new Playlist();
         playlist.setPlaylistName(row.getString("playlist_name"));
+        playlist.setPlaylistPicture(row.getString("playlist_image"));
         playlist.setPlaylistId(row.getInt("playlist_id"));
         return playlist;
     }

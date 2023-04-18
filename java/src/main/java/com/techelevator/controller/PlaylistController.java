@@ -45,4 +45,9 @@ public class PlaylistController {
         playlistDao.deletePlayListById(playlist.getPlaylistName(), playlist.getPlaylistId());
     }
 
+    @RequestMapping(path = "/playlists", method = RequestMethod.PUT)
+    public void updatePlaylistPicture(@RequestBody Playlist playlist, Principal user){
+        playlistDao.updatePlaylistByName(playlist.getPlaylistPicture(), playlist.getPlaylistId());
+    }
+
 }

@@ -102,6 +102,15 @@ public class JdbcPlaylistDao implements PlaylistDao {
         jdbcTemplate.queryForRowSet(sql7, playlistName, playlistId);
     }
 
+    @Override
+    public void updatePlaylistPicture(String playlistPicture, int playlistId) {
+        String sql8 = "UPDATE playlist  " +
+                "SET playlist_image = ? " +
+                "WHERE playlist_id = ?";
+
+        jdbcTemplate.update(sql8, playlistPicture, playlistId);
+    }
+
     private Playlist mapRowToPlaylist(SqlRowSet row) {
         Playlist playlist = new Playlist();
         playlist.setPlaylistName(row.getString("playlist_name"));

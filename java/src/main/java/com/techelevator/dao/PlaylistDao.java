@@ -12,10 +12,6 @@ public interface PlaylistDao {
 
     public void deletePlaylistById(String playlistName, int userId);
 
-    public void updatePlaylistByName(String playlistName, int playlistId);
-
-    public void updatePlaylistImage(String playlistImage, int playlistId);
-
     public void updatePlaylist(Playlist playlist);
 
 }

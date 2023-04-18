@@ -1,5 +1,9 @@
 <template>
   <div id="main">
+<<<<<<< HEAD
+
+=======
+>>>>>>> 593f27a51fb598eda9a288c1987ebd88d4ef500c
     <div id="musicplayer">
          <MusicPlayer></MusicPlayer>
     </div>
@@ -95,9 +99,17 @@ export default {
       mood: [],
       moodId: "",
     };
+<<<<<<< HEAD
+    
   },
   components:{ SpeechRecognition, MusicPlayer,
   },
+
+=======
+  },
+  components:{ SpeechRecognition, MusicPlayer,
+  },
+>>>>>>> 593f27a51fb598eda9a288c1987ebd88d4ef500c
   created() {
     SongListService.getAllMoods()
       .then((response) => {

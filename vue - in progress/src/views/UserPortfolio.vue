@@ -79,11 +79,14 @@ h2 {
 }
 
 main #main-flex {
-    display: flex;
+    display: inline-flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: row;
     flex-wrap: nowrap;
+}
+#user-picture{
+  
 }
 
 </style>

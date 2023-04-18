@@ -10,7 +10,6 @@
       <tr class="column">
         <th>Title</th>
         <th>Artist</th>
-     
         <th>Genre</th>
       </tr>
       <tr v-for="currentSong in filteredSongs" v-bind:key="currentSong.id">

@@ -9,15 +9,21 @@ public class Playlist {
     public int playlistId;
     public List<Song> songs;
 
+    public Playlist() {
+
+    }
+
+    public Playlist(String playlistName, int playlistId){
+        this.playlistName = playlistName;
+        this.playlistId = playlistId;
+    }
+
     public List<Song> getSongs() {
         return songs;
     }
 
     public void setSongs(List<Song> songs) {
         this.songs = songs;
-    }
-
-    public Playlist() {
     }
 
     public String getPlaylistName() {
@@ -36,10 +42,6 @@ public class Playlist {
         this.playlistId = playlistId;
     }
 
-    public Playlist(String playlistName, int playlistId){
-        this.playlistName = playlistName;
-        this.playlistId = playlistId;
-    }
 }
 
 

@@ -33,36 +33,36 @@ public class JdbcSongDao implements SongDao{
         }
         return playlist;
     }
-@Override
-  public List<Song> getSongByMood(int moodId) {
-   List<Song> getSongByMoodList = new ArrayList<Song>();
-       String sql = "SELECT genre_name, song.song_id, title, artist, mood_name, mood.mood_id, genre.genre_id " +
-               "FROM song " +
-               "JOIN song_mood ON song_mood.song_id =song.song_id " +
-               "JOIN mood ON song_mood.mood_id = mood.mood_id " +
-               "JOIN song_genre ON song_genre.song_id = song.song_id " +
-               "JOIN genre ON song_genre.genre_id = genre.genre_id " +
-               "WHERE mood.mood_id =?";
-       SqlRowSet results = jdbcTemplate.queryForRowSet(sql, moodId);
-      while (results.next()) {
-          getSongByMoodList.add(mapRowToSong(results));
-       }
-      return getSongByMoodList;
-  }
+
+    @Override
+    public List<Song> getSongByMood(int moodId) {
+        List<Song> getSongByMoodList = new ArrayList<Song>();
+        String sql = "SELECT genre_name, song.song_id, title, artist, mood_name, mood.mood_id, genre.genre_id " +
+                "FROM song " +
+                "JOIN song_mood ON song_mood.song_id = song.song_id " +
+                "JOIN mood ON song_mood.mood_id = mood.mood_id " +
+                "JOIN song_genre ON song_genre.song_id = song.song_id " +
+                "JOIN genre ON song_genre.genre_id = genre.genre_id " +
+                "WHERE mood.mood_id = ? ";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, moodId);
+        while (results.next()) {
+            getSongByMoodList.add(mapRowToSong(results));
+        }
+        return getSongByMoodList;
+    }
 
 
 
 
     @Override
     public Song getSongBySongId(int songId) {
-
         return null;
     }
 
 
 
     @Override
-    public Song getSongByGenre(int genreId) {
+    public List<Song> getSongByGenre(int genreId) {
         return null;
     }
 
@@ -74,14 +74,12 @@ public class JdbcSongDao implements SongDao{
     //mapping method
     private Song mapRowToSong(SqlRowSet row) {
         Song song = new Song();
-
         song.setArtist( row.getString("artist"));
         song.setGenre(row.getString("genre_name"));
         song.setMood(row.getString("mood_name"));
         song.setTitle(row.getString("title"));
         song.setMoodId(row.getInt("mood_id"));
         song.setSongId(row.getInt("song_id"));
-
 
         return song;
     }

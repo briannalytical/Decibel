@@ -5,13 +5,13 @@
     <div class="container">
     <!-- Heading/MAYBE REMOVE THIS-->
     <header class="heading">
-        <h1 class="title">{{title}}</h1>
+      <h1 class="player-title">{{title}}</h1>
     </header>
     <!-- Heading-->
 
     <!-- Cover-->
     <picture class="cover">
-        <img :src="cover" alt="music-cover" width="50" height="50"/>
+        <img :src="cover" alt="music-cover"/>
     </picture>
     <!--Cover-->
 
@@ -39,22 +39,23 @@
       
       <!--Navigation-->
       <div class="navigation">
-        <button class="action-btn action-btn-left" :class="reload" @click="this.isRandom = !this.isRandom">
-          <i class="fas fa-random"></i>
+        <button class="action-btn" @click="playSong()">
+          <i class="fas fa-pause" v-if="isPlay">Play</i>
+          <i class="fas fa-play" v-else>Pause</i>
         </button>
         <button class="action-btn" @click="prevSong">
-          <i class="fas fa-backward"></i>
-        </button>
-        <button class="action-btn action-btn-big" @click="playSong()">
-          <i class="fas fa-pause" v-if="isPlay"></i>
-          <i class="fas fa-play" v-else></i>
+          <i class="fas fa-backward">Previous Song</i>
         </button>
         <button class="action-btn" @click="nextSong">
-          <i class="fas fa-forward"></i>
+          <i class="fas fa-forward">Next Song</i>
         </button>
-        <button class="action-btn action-btn-right" :class="fav" @click="favSong">
-          <i class="fas fa-heart"></i>
+        <button class="action-btn" :class="fav" @click="favSong">
+          <i class="fas fa-heart">Favorite</i>
         </button>
+        <button class="action-btn" :class="reload" @click="this.isRandom = !this.isRandom">
+          <i class="fas fa-random">Random</i>
+         </button>
+ 
       </div>
       <!--Navigation-->
 
@@ -246,69 +247,59 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
+  .navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: black;
+    z-index: 1;
+    padding-left: 200px;
+  }
+
 .bar {
     position: fixed;
     bottom: 0;
     width: 100%;
     background-color: #fff;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     padding: 5px 0;
+    background: black;
   }
 
   .container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
-    max-width: 100%;
+    align-items: center;
     margin: auto;
+    background: black;
+    color: white;
+  }
+
+  .progress-container {
+    max-width: 250px;
+    background: black;
   }
 
   .cover img {
     border-radius: 50%;
     box-shadow: none;
+    width: 60px;
+    height: 60px;
   }
 
   .info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0;
-    font-size: 14px;
+    font-size: 12px;
   }
 
-  .info .music {
-    font-weight: bold;
-    margin-bottom: 2px;
+  .player-title {
+    font-size: 20px;
   }
 
-  .info .artist {
-    font-weight: normal;
-  }
-
-  .music-info {
-    width: 40%;
-  }
-
-  .navigation {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 30%;
-    z-index: 1;
-  }
-
-  .action-btn {
-      
+  i {
   border: 0;
-  color: #8a017e;
-  font-size: 20px;
-  cursor: pointer;
-    padding: 6px;
-  }
-
-  .action-btn.action-btn-big {
-    font-size: normal;
+  font-size: 10px;
+  padding: 6px;
+  color: #ffc107;
+  border-radius: 3;
   }
 
 </style>

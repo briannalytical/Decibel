@@ -7,19 +7,19 @@ export default {
     getAllMoods() {
         return axios.get('/songs/moods');
     },
+
     getSongsByMood(id) {
         return axios.get(`/songs/moods/${id}`);
-
-
     },
+
     getPlaylistById() {
         return axios.get(`/playlist`);
-
-
     },
+
     savePlaylist(playlist){
         return axios.post(`/playlist`,playlist)
     },
+
     updateNameOfPlaylist(playlist){
         return axios.put(`/playlist`,playlist)
     },
@@ -27,8 +27,4 @@ export default {
     updateUserProfile(){
         return axios.put(`/users`)
     }
-
-
-
-
 }

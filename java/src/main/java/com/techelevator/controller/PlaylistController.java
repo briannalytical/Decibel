@@ -25,23 +25,23 @@ public class PlaylistController {
     @Autowired
     private UserDao userDao;
 
-    @RequestMapping(path = "/playlists", method = RequestMethod.GET)
+    @RequestMapping(path = "/playlist", method = RequestMethod.GET)
     public List<Playlist> getSongsInPlaylist(Principal user) {
         return playlistDao.getSongsInPlaylist(userDao.findIdByUsername(user.getName()));
     }
 
-    @RequestMapping(path = "/playlists", method = RequestMethod.POST)
+    @RequestMapping(path = "/playlist", method = RequestMethod.POST)
     public void savePlaylist(@RequestBody Playlist playlist, Principal user) {
         playlistDao.savePlaylist(playlist, (userDao.findIdByUsername(user.getName())));
     }
 
 
-    @RequestMapping(path="/playlists", method=RequestMethod.DELETE)
+    @RequestMapping(path="/playlist", method=RequestMethod.DELETE)
     public void deletePlaylist(Playlist playlist, Principal user) {
         playlistDao.deletePlaylistById(playlist.getPlaylistName(), playlist.getPlaylistId());
     }
 
-    @RequestMapping(path = "/playlists", method = RequestMethod.PUT)
+    @RequestMapping(path = "/playlist", method = RequestMethod.PUT)
     public void updatePlaylist(@RequestBody Playlist playlist){
         playlistDao.updatePlaylist(playlist);
     }

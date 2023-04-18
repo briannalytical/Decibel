@@ -1,16 +1,42 @@
 <template>
-
   <div id="main">
+<<<<<<< HEAD
+=======
 
     <div id="speech-box">
         <speech-recognition @mood-detected="onMoodDetected"></speech-recognition>
       </div>
+    <div id="musicplayer">
+         <MusicPlayer></MusicPlayer>
+    </div>
+>>>>>>> 6857322d13229eb3ef98ab4a539d5805cae72a9c
     <div id="header-section">
+<<<<<<< HEAD
       <img src="require('../assets/holder-logo.jpg')" />
       <h1>Decibel</h1>
+=======
+      <div id="logo-fun">
+        <img id="logo-jazz" v-bind:src="require('../assets/DBLogo-wht.png')" />
+        <img id="logo-jazz" v-bind:src="require('../assets/DBLogo-red-ish.png')" />
+        <img id="logo-jazz" v-bind:src="require('../assets/DBLogo-gold.png')" />
+        <img id="logo-jazz" v-bind:src="require('../assets/DBLogo-yellow.png')" />
+        <img id="logo-jazz" v-bind:src="require('../assets/DBLogo-more-blu.png')" />
+        <img id="logo-jazz" v-bind:src="require('../assets/DBLogo-purple.png')" />
+        <img id="logo-jazz" v-bind:src="require('../assets/DBLogo-Blk.png')" />
+      </div>
+      <br>
+      <h1>Welcome to Decibel</h1>
+>>>>>>> 989ffb6b7064d3449d7d9c19946610d4425f9705
       <p>How would you like to generate your playlist?</p>
     </div>
 
+    <div id="speech-box">
+      <h2>Tell us how you feel.</h2>
+      <speech-recognition @mood-detected="onMoodDetected"></speech-recognition>
+    </div>
+
+    <p class="or">Or</p>
+    
     <div id="dropdown-section-one">
       <div id="mood-dropdown">
         <select
@@ -19,7 +45,7 @@
           name="mood"
           class="mood"
         >
-          <option>Select Mood</option>
+        <option value="" selected disabled hidden>Select Mood</option>
           <option
             v-bind:value="currentMood.moodId"
             v-for="currentMood in mood"
@@ -30,10 +56,8 @@
         </select>
         <button v-on:click.prevent="generatePlaylistByMood">Generate</button>
       </div>
-
-      <p class="or">Or</p>
-
-      <div id="genre-dropdown">
+    </div>
+    <!-- <div id="genre-dropdown">
         <select name="genre" class="genre">
           <option>Select Genre</option>
           <option value="python">Python</option>
@@ -41,8 +65,8 @@
           <option value="java">Java</option>
         </select>
         <button v-on:click.prevent="generatePlaylistByMood">Generate</button>
-      </div>
-    </div>
+      </div> -->
+
     <!-- 
     <div class="or-selector">
       <p>Or</p>
@@ -85,6 +109,7 @@
 <script>
 import SongListService from "@/services/SongListService";
 import SpeechRecognition from "@/components/SpeechRecognition.vue";
+import MusicPlayer from "@/components/MusicPlayer.vue";
 // import SongList from "@/components/SongList";
 export default {
   data() {
@@ -92,10 +117,14 @@ export default {
       mood: [],
       moodId: "",
     };
+<<<<<<< HEAD
+=======
     
   },
-  components:{ SpeechRecognition,
+  components:{ SpeechRecognition, MusicPlayer,
+>>>>>>> 6857322d13229eb3ef98ab4a539d5805cae72a9c
   },
+  components: { SpeechRecognition },
 
   created() {
     SongListService.getAllMoods()
@@ -127,152 +156,5 @@ export default {
 </script>
 
 <style>
-body {
-  margin-top: 0px;
-  margin-right: 0px;
-  margin-bottom: 0px;
-  margin-left: 0px;
-  font-family: Arial, Helvetica, sans-serif;
-}
 
-img {
-  width: 8rlh;
-  margin-top: 2rlh;
-}
-
-button {
-  font-size: 12px;
-  height: 20px;
-  width: 80px;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  top: 0;
-}
-
-li {
-  font-size: 2vw;
-  font-family: monospace;
-  text-decoration-thickness: 25%;
-  text-transform: capitalize;
-  text-emphasis-style: bold;
-}
-
-#playlist {
-  display: flex;
-  align-content: center;
-  margin-bottom: 20px;
-}
-
-#song-table {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-}
-
-#try-again-button {
-  display: flex;
-  justify-content: center;
-}
-
-#header-section {
-  background-color: #1c37383a;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: space-around;
-  height: 15rlh;
-}
-
-#dropdown-section-one {
-  background-color: #4d484749;
-  display: flex;
-  flex-direction: flex-start;
-  justify-content: center;
-  align-items: center;
-  height: 8rlh;
-}
-
-#genre-dropdown {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#mood-dropdown {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#spacer {
-  width: 10vw;
-}
-
-#button-section-one {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 5vw;
-}
-
-#dropdown-section-two {
-  background-color: #8baaad;
-  display: flex;
-  flex-direction: flex-start;
-  justify-content: center;
-  align-items: center;
-  height: 8rlh;
-}
-
-#button-section-two {
-  flex-direction: column;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 5vw;
-  margin-top: 4vh;
-}
-
-.mood,
-.genre {
-  width: 25vw;
-  height: 20px;
-  text-align: center;
-  margin-bottom: 4vh;
-}
-
-.mood2,
-.genre2 {
-  width: 25vw;
-  height: 20px;
-  text-align: center;
-}
-
-.or {
-  /* flex-grow: 3; */
-  text-align: center;
-  margin-left: 11vw;
-  margin-right: 11vw;
-}
-
-.and {
-  /* flex-grow: 3; */
-  text-align: center;
-  margin-left: 11vw;
-  margin-right: 11vw;
-  margin-bottom: vh;
-}
-
-.or-selector {
-  background-color: #8bad919c;
-  display: flex;
-  justify-content: center;
-  height: 2rlh;
-  align-items: center;
-}
 </style>

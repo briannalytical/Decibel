@@ -10,13 +10,9 @@ public interface SongDao {
 
     List<Song> getSongByMood(int moodId);
 
-
-
     Song getSongBySongId(int songId);
 
-
-
-    Song getSongByGenre(int genreId);
+    List<Song> getSongByGenre(int genreId);
 
     Song addSongToList(int genreId, int moodId, int songId);
 }

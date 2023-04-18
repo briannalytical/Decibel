@@ -8,6 +8,7 @@ import store from '../store/index'
 import Songs from '../views/Songs.vue'
 import Welcome from '../views/Welcome.vue'
 import SavedList from '../views/SavedList.vue'
+import Playback from '../views/Playback.vue'
 import UserPortfolio from '../views/UserPortfolio.vue'
 Vue.use(Router)
 
@@ -52,6 +53,14 @@ const router = new Router({
       path: "/register",
       name: "register",
       component: Register,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/playback",
+      name: "playback",
+      component: Playback,
       meta: {
         requiresAuth: false
       }

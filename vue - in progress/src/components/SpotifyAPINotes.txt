@@ -1,0 +1,196 @@
+///////////////////////This is javascript code to get your top 5 tracks from the last 30 days as provided by spotify/////////////////////
+//////////////endpoint: get users top items/////////////////
+
+// Authorization token that must have been created previously. See : https://developer.spotify.com/documentation/web-api/concepts/authorization
+const token = 'BQC1ksJDPk3iUlOtwfrWm1NTsuvVn9pME_XLt2Au-IzSYg2vWxRWeXHvBHDUMtvhpB6sxE02uczC2pYiFuI3LjPOVInpTBWuqATzgPSyDd2KhYonWXz1y4_-7gbcuZpQwItFdjwwL9y4MVJv2b2R8HAcc93V5bto224YZb-8Q6coEIsdBkPt5m4_w8KxIziETE-_KPtl4mJjQ8VmCePdf_zkGoq3bmHIFzaTRLjO8mtbYyyC862-u4tmwEClE1PBmA-N1BvAI2KaLjoKrmZD3gxYrIV5s07BzVyXsFGowYVGwhjQ38EzXqlUPHVvif1fGrJkTt1-WurtYQRjyQgNeYiL7DKmmQc47HXUyh_ymPQTNZk';
+async function fetchWebApi(endpoint, method, body) {
+  const res = await fetch(`https://api.spotify.com/${endpoint}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method,
+    body:JSON.stringify(body)
+  });
+  return await res.json();
+}
+
+async function getTopTracks(){
+  // Endpoint reference : https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks
+  return (await fetchWebApi(
+    'v1/me/top/tracks?time_range=short_term&limit=5', 'GET'
+  )).items;
+}
+
+const topTracks = await getTopTracks();
+console.log(
+  topTracks?.map(
+    ({name, artists}) =>
+      `${name} by ${artists.map(artist => artist.name).join(', ')}`
+  )
+);
+
+
+
+
+
+//////////////RECOMMEND 5 SONGS BASED ON YOUR TOP 5 TRACKS FROM SPOTIFY//////////////////////////// ENDPOINT: Get Recommendations
+// Authorization token that must have been created previously. See : https://developer.spotify.com/documentation/web-api/concepts/authorization
+const token = 'BQAXR8nk8tgQE3g9e8Dou_tQbQvfhlD5viXn2dkIH2n-kzYUfHU684r-SAxnMueo_6HZrIbcVmR6Bc1VtEe4oiGePxAT5uKCIi-EmUf7PJbMHIxcj534t-xF7VzGI07MDWMjd4xsOuk_svCxDhmMQG4tOLgLKiSu1fbWjYj0agh0P2YKqe4lzvjkXc2rJXh-Hr_linMJ5rJ06nUOFam36AVg0xKgE6z-LqUK27BoptwNpihKf0tcUpk-M7BIPKCumIm948kZtAnR68dqDkVp9quMlQAq3j-SQZKkEWt0MKgViEbVO2uoKHxGIhs-PMB17XBqPHS9dF0BpDKT4nsFR_xw-gA0eFwX2Z7KAsO9ygALOv4';
+async function fetchWebApi(endpoint, method, body) {
+  const res = await fetch(`https://api.spotify.com/${endpoint}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method,
+    body:JSON.stringify(body)
+  });
+  return await res.json();
+}
+
+const topTracksIds = [
+  '4TCL0qqKyqsMZml0G3M9IM','5hR92ZjhZsVVUPLuEJcxDf','0DkmhHO4yyqCJFjosmmWPU','1wnraUPmcW37jYXJBppNME','1Vy5QWA1iVUa0KKIqMSfeY'
+];
+
+async function getRecommendations(){
+  // Endpoint reference : https://developer.spotify.com/documentation/web-api/reference/get-recommendations
+  return (await fetchWebApi(
+    `v1/recommendations?limit=5&seed_tracks=${topTracksIds.join(',')}`, 'GET'
+  )).tracks;
+}
+
+const recommendedTracks = await getRecommendations();
+console.log(
+  recommendedTracks.map(
+    ({name, artists}) =>
+      `${name} by ${artists.map(artist => artist.name).join(', ')}`
+  )
+);
+
+////////////////////////////SAVE THE 10 SONGS IN A PLAYLIST///////////// endpoint: create Playlist + add items to Playlist
+
+// Authorization token that must have been created previously. See : https://developer.spotify.com/documentation/web-api/concepts/authorization
+const token = 'BQAXR8nk8tgQE3g9e8Dou_tQbQvfhlD5viXn2dkIH2n-kzYUfHU684r-SAxnMueo_6HZrIbcVmR6Bc1VtEe4oiGePxAT5uKCIi-EmUf7PJbMHIxcj534t-xF7VzGI07MDWMjd4xsOuk_svCxDhmMQG4tOLgLKiSu1fbWjYj0agh0P2YKqe4lzvjkXc2rJXh-Hr_linMJ5rJ06nUOFam36AVg0xKgE6z-LqUK27BoptwNpihKf0tcUpk-M7BIPKCumIm948kZtAnR68dqDkVp9quMlQAq3j-SQZKkEWt0MKgViEbVO2uoKHxGIhs-PMB17XBqPHS9dF0BpDKT4nsFR_xw-gA0eFwX2Z7KAsO9ygALOv4';
+async function fetchWebApi(endpoint, method, body) {
+  const res = await fetch(`https://api.spotify.com/${endpoint}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method,
+    body:JSON.stringify(body)
+  });
+  return await res.json();
+}
+
+const tracksUri = [
+  'spotify:track:4TCL0qqKyqsMZml0G3M9IM','spotify:track:3iuKvTOVEem9qt2NnfhvfY','spotify:track:5hR92ZjhZsVVUPLuEJcxDf','spotify:track:3qqjhqNYczUgR0RJy90A8i','spotify:track:0DkmhHO4yyqCJFjosmmWPU','spotify:track:6dkTxbuVx2KFAxEa9wO431','spotify:track:1wnraUPmcW37jYXJBppNME','spotify:track:2uOaVjWLnMbOulzCbTjGyX','spotify:track:1Vy5QWA1iVUa0KKIqMSfeY','spotify:track:1s0HrQ4Fsp21Df2L10iHAa'
+];
+const user_id = 'se41jceq6ayr76fzb28w97vii';
+
+async function createPlaylist(tracksUri){
+  return await fetchWebApi(
+    `v1/users/${user_id}/playlists`, 'POST', {
+      "name": "My recommendation playlist",
+      "description": "Playlist created by the tutorial on developer.spotify.com",
+      "public": false
+  }).then(playlist => {
+    fetchWebApi(
+      `v1/playlists/${playlist.id}/tracks?uris=${tracksUri.join(',')}`,
+      'POST'
+    );
+    return playlist;
+  })
+}
+
+const createdPlaylist = await createPlaylist(tracksUri);
+console.log(createdPlaylist.name, createdPlaylist.id);
+
+
+
+
+
+
+
+////////////////////LISTEN TO SONGS HERE AND NOW - Product: embeds
+const playlistId = '5Ywkrkbt1pB3ZiLBD2ZmYu';
+
+<iframe
+  title="Spotify Embed: Recommendation Playlist "
+  src={`https://open.spotify.com/embed/playlist/5Ywkrkbt1pB3ZiLBD2ZmYu?utm_source=generator&theme=0`}
+  width="100%"
+  height="100%"
+  style={{ minHeight: '360px' }}
+  frameBorder="0"
+  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+  loading="lazy"
+/>
+
+OG MUSIC PLAYER CODE///////////////////////////////////////////////
+<template>
+  <div class="music-player">
+    <h2>Music Player</h2>
+    <div class="controls">
+      <button @click="previousTrack" class="control-btn">Previous</button>
+      <button @click="togglePlay" class="control-btn">
+        {{ isPlaying ? "Pause" : "Play" }}
+      </button>
+      <button @click="nextTrack" class="control-btn">Next</button>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isPlaying: false,
+    };
+  },
+  methods: {
+    togglePlay() {
+      this.isPlaying = !this.isPlaying;
+      // Integrate API here to play/pause the current track
+    },
+    nextTrack() {
+      // Integrate API here to skip to the next track
+    },
+    previousTrack() {
+      // Integrate API here to go back to the previous track
+    },
+  },
+};
+</script>
+
+<style scoped>
+.music-player {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  width: 300px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+}
+
+.control-btn {
+  background-color: #4a69bd;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0.5rem 1rem;
+}
+
+.control-btn:hover {
+  background-color: #3c528d;
+}
+</style>

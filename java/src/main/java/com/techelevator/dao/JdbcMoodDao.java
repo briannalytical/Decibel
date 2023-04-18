@@ -20,24 +20,15 @@ public class JdbcMoodDao implements MoodDao {
 
     @Override
     public List<Mood> getMoods() {
-        List<Mood> getMood = new ArrayList<Mood>();
-
-
-
-        String sql= "SELECT  mood_name,mood_id " +
-
+        List<Mood> moods = new ArrayList<Mood>();
+        String sql = "SELECT mood_name, mood_id " +
                 "FROM mood ";
-
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
-            getMood.add(mapRowToMood(results));
+            moods.add(mapRowToMood(results));
         }
-        return getMood;
+        return moods;
     }
-
-
-
-
 
     @Override
     public Mood getSongName(String mood) {
@@ -54,7 +45,6 @@ public class JdbcMoodDao implements MoodDao {
         Mood mood = new Mood();
         mood.setMood(row.getString("mood_name"));
         mood.setMoodId(row.getInt("mood_id"));
-
 
         return mood;
     }

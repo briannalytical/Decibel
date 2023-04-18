@@ -9,16 +9,6 @@ public class Song {
     public String mood;
     public int moodId;
 
-
-
-    public int getMoodId() {
-        return moodId;
-    }
-
-    public void setMoodId(int moodId) {
-        this.moodId = moodId;
-    }
-
     public Song() {
 
     }
@@ -29,6 +19,13 @@ public class Song {
         this.genre = genre;
         this.songId = songId;
         this.mood = mood;
+    }
+
+
+    public void setMoodId(int moodId) {this.moodId = moodId;}
+
+    public int getMoodId() {
+        return moodId;
     }
 
     public String getTitle() {
@@ -55,7 +52,7 @@ public class Song {
         this.genre = genre;
     }
 
-    public int getsongId() {
+    public int getSongId() {
         return songId;
     }
 

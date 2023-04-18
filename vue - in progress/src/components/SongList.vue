@@ -10,7 +10,6 @@
       <tr class="column">
         <th>Title</th>
         <th>Artist</th>
-     
         <th>Genre</th>
       </tr>
       <tr v-for="currentSong in filteredSongs" v-bind:key="currentSong.id">
@@ -92,45 +91,5 @@ export default {
 </script>
 
 <style>
-table {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
 
-table,
-th,
-td {
-  border: 1px solid;
-}
-
-th,
-td {
-  padding: 15px;
-  text-align: left;
-}
-
-th {
-  background-color: #fffb001e;
-  color: rgb(0, 0, 0);
-}
-
-.save-button {
-  background-color: #F8F9FA;
-  border: none;
-  color: #077BFF;
-  padding-left: 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s, color 0.3s;
-}
-.save-button:hover {
-  background-color: #077BFF;
-  color: #FFFFFF;
-}
-.playlist-name {
-  align-self: auto;
-}
 </style>

@@ -31,12 +31,15 @@
         <p>Name</p>
         <p>Name</p>
       </div>
+      <SongList />
     </main>
  
 </template>
 
 <script>
+import SongList from '@/components/SongList'
 export default {
+  components: SongList,
   methods: {
     uploadPhoto() {
       window.cloudinary

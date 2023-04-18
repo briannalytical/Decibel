@@ -8,9 +8,8 @@
           >&nbsp;|&nbsp;
           <router-link v-bind:to="{ name: 'songs' }">Songs</router-link
           >&nbsp;|&nbsp;
-          <!-- <router-link v-bind:to="{ name: 'savelist' }">Saved Lists</router-link
-      >&nbsp;|&nbsp; -->
-          <router-link v-bind:to="{ name: 'welcome' }">Welcome</router-link
+       
+        <router-link v-bind:to="{ name: 'welcome' }">Welcome</router-link
           >&nbsp;|&nbsp;
           <router-link v-bind:to="{ name: 'user' }">User</router-link
           >&nbsp;|&nbsp;

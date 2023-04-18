@@ -1,20 +1,9 @@
 <template>
   <div id="main">
-<<<<<<< HEAD
-=======
-
-    <div id="speech-box">
-        <speech-recognition @mood-detected="onMoodDetected"></speech-recognition>
-      </div>
     <div id="musicplayer">
          <MusicPlayer></MusicPlayer>
     </div>
->>>>>>> 6857322d13229eb3ef98ab4a539d5805cae72a9c
     <div id="header-section">
-<<<<<<< HEAD
-      <img src="require('../assets/holder-logo.jpg')" />
-      <h1>Decibel</h1>
-=======
       <div id="logo-fun">
         <img id="logo-jazz" v-bind:src="require('../assets/DBLogo-wht.png')" />
         <img id="logo-jazz" v-bind:src="require('../assets/DBLogo-red-ish.png')" />
@@ -26,17 +15,13 @@
       </div>
       <br>
       <h1>Welcome to Decibel</h1>
->>>>>>> 989ffb6b7064d3449d7d9c19946610d4425f9705
       <p>How would you like to generate your playlist?</p>
     </div>
-
     <div id="speech-box">
       <h2>Tell us how you feel.</h2>
       <speech-recognition @mood-detected="onMoodDetected"></speech-recognition>
     </div>
-
     <p class="or">Or</p>
-    
     <div id="dropdown-section-one">
       <div id="mood-dropdown">
         <select
@@ -66,17 +51,14 @@
         </select>
         <button v-on:click.prevent="generatePlaylistByMood">Generate</button>
       </div> -->
-
-    <!-- 
+    <!--
     <div class="or-selector">
       <p>Or</p>
     </div>
-
     <div id="dropdown-section-two">
       <div id="mood-dropdown">
         <select v-model="moodId" name="mood" class="mood2">
           <option>Select Mood</option>
-
           <option
             v-bind:value="currentMood.moodId"
             v-for="currentMood in mood"
@@ -86,12 +68,10 @@
           </option>
         </select>
       </div>
-
       <div id="button-section-two">
         <p class="and">And</p>
         <button v-on:click.prevent="generatePlaylistByMood">Generate</button>
       </div>
-
       <div id="genre-dropdown">
         <select name="genre" class="genre2">
           <option>Select Genre</option>
@@ -101,11 +81,9 @@
         </select>
       </div> -->
     <!-- </div> -->
-
     <!-- <SongList /> -->
   </div>
 </template>
-
 <script>
 import SongListService from "@/services/SongListService";
 import SpeechRecognition from "@/components/SpeechRecognition.vue";
@@ -117,15 +95,9 @@ export default {
       mood: [],
       moodId: "",
     };
-<<<<<<< HEAD
-=======
-    
   },
   components:{ SpeechRecognition, MusicPlayer,
->>>>>>> 6857322d13229eb3ef98ab4a539d5805cae72a9c
   },
-  components: { SpeechRecognition },
-
   created() {
     SongListService.getAllMoods()
       .then((response) => {
@@ -133,7 +105,6 @@ export default {
       })
       .catch((err) => console.error(err));
   },
-
   methods: {
     generatePlaylistByMood() {
       const moodName = this.$route.params.mood;
@@ -147,14 +118,11 @@ export default {
     updateMood() {
       this.$store.commit("SET_MOOD_ID", this.moodId);
     },
-
     onMoodDetected(mood) {
       console.log("Detected mood:", mood);
     },
   },
 };
 </script>
-
 <style>
-
 </style>

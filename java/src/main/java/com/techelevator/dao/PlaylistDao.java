@@ -12,9 +12,9 @@ public interface PlaylistDao {
 
     public void updatePlaylistByName(String playlistName, int userId);
 
-    public void deletePlayListById(String playlistName, int userId);
+    public void deletePlaylistById(String playlistName, int userId);
 
-    public void updatePlaylistPicture(String playlistPicture, int userId);
+    public void updatePlaylistImage(String playlistImage, int userId);
 
 
 }

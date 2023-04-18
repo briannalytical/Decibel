@@ -8,15 +8,7 @@ public class Playlist {
     public String playlistName;
     public int playlistId;
     public List<Song> songs;
-    public String playlistPicture;
-
-    public String getPlaylistPicture() {
-        return playlistPicture;
-    }
-
-    public void setPlaylistPicture(String playlistPicture) {
-        this.playlistPicture = playlistPicture;
-    }
+    public String playlistImage;
 
     public Playlist() {
 
@@ -49,6 +41,14 @@ public class Playlist {
 
     public void setPlaylistId(int playlistId) {
         this.playlistId = playlistId;
+    }
+
+    public String getPlaylistImage() {
+        return playlistImage;
+    }
+
+    public void setPlaylistImage(String playlistImage) {
+        this.playlistImage = playlistImage;
     }
 
 }

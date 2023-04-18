@@ -1,15 +1,9 @@
 <template>
   <div id="main">
-<<<<<<< HEAD
-=======
 
-    <div id="speech-box">
-        <speech-recognition @mood-detected="onMoodDetected"></speech-recognition>
-      </div>
     <div id="musicplayer">
          <MusicPlayer></MusicPlayer>
     </div>
->>>>>>> 6857322d13229eb3ef98ab4a539d5805cae72a9c
     <div id="header-section">
       <div id="logo-fun">
         <img id="logo-jazz" v-bind:src="require('../assets/DBLogo-wht.png')" />
@@ -112,14 +106,10 @@ export default {
       mood: [],
       moodId: "",
     };
-<<<<<<< HEAD
-=======
     
   },
   components:{ SpeechRecognition, MusicPlayer,
->>>>>>> 6857322d13229eb3ef98ab4a539d5805cae72a9c
   },
-  components: { SpeechRecognition },
 
   created() {
     SongListService.getAllMoods()

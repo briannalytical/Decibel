@@ -52,7 +52,7 @@ public class Song {
         this.genre = genre;
     }
 
-    public int getsongId() {
+    public int getSongId() {
         return songId;
     }
 

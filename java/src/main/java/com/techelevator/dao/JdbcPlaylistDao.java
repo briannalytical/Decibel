@@ -79,7 +79,7 @@ public class JdbcPlaylistDao implements PlaylistDao {
         List<Song> savedSongs = playlist.getSongs();
 
         for (Song song: savedSongs){
-            jdbcTemplate.update(sql5,song.getsongId(), playlistId);
+            jdbcTemplate.update(sql5,song.getSongId(), playlistId);
         }
 
 }

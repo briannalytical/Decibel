@@ -22,9 +22,10 @@ public class Playlist {
 
     }
 
-    public Playlist(String playlistName, int playlistId){
+    public Playlist(String playlistName, int playlistId, String playlistPicture){
         this.playlistName = playlistName;
         this.playlistId = playlistId;
+        this.playlistPicture = playlistName;
     }
 
     public List<Song> getSongs() {

@@ -83,13 +83,7 @@ public class JdbcPlaylistDao implements PlaylistDao {
         }
 
 }
-    @Override
-    public void updatePlaylistByName(String playlistName, int playlistId) {
-        String sql6 = "UPDATE playlist " +
-                "SET playlist_name = ?" +
-                "WHERE playlist_id = ?";
-        jdbcTemplate.update(sql6, playlistName, playlistId);
-    }
+
 
     @Override
     public void deletePlayListById(String playlistName, int playlistId) {
@@ -103,13 +97,13 @@ public class JdbcPlaylistDao implements PlaylistDao {
     }
 
     @Override
-    public void updatePlaylistPicture(String playlistPicture, int playlistId) {
-        String sql8 = "UPDATE playlist  " +
-                "SET playlist_image = ? " +
-                "WHERE playlist_id = ?";
-
-        jdbcTemplate.update(sql8, playlistPicture, playlistId);
+    public void updatePlaylist(String playlistPicture, String playlistName, int playlistId) {
+        String sql6 = "UPDATE playlist " +
+                "SET playlist_name = ?, playlist_image=? " +
+                "WHERE playlist_id=?";
+        jdbcTemplate.update(sql6, playlistName, playlistId);
     }
+
 
     private Playlist mapRowToPlaylist(SqlRowSet row) {
         Playlist playlist = new Playlist();

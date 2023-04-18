@@ -42,7 +42,9 @@ export default {
       songs: [],
       playlist: {
         playlistName: "",
-        songs: []
+        songs: [],
+        playlistId:"",
+        playlistImage:""
 
       },
       showForm: false,
@@ -77,7 +79,7 @@ export default {
         .then((response) => {
           this.playlist = response.data;
           this.$router.push({
-            name: "savelist",
+            name: "user-profile",
           });
         })
         .catch((err) => console.error(err));

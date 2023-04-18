@@ -34,6 +34,8 @@ export default {
     SongListService.getPlaylistById()
       .then((response) => {
         this.playlist = response.data;
+        console.log("Reached created in playlist accordian")
+        console.log(this.playlist)
       })
       .catch((err) => console.error(err));
      },

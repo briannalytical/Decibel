@@ -1,10 +1,25 @@
 <template>
   
    <main id="main-flex">
-      <div id="user-picture">
+
+<div  id="playlist-name" class="accordion" role="tablist">
+    <b-card no-body class="mb-1" v-for="(currentPlaylist, index) in playlist" v-bind:key="currentPlaylist.playlistId">
+      <b-card-header header-tag="header" class="p-1" role="tab">
+        <b-button block v-b-toggle="'accordion-' + index" variant="info">{{currentPlaylist.playlistName}}</b-button>
+      </b-card-header>
+      <b-collapse class="collapsed-items" v-bind:id="'accordion-' + index" visible accordion="my-accordion" role="tabpanel">
+        <b-card-body >
+          <b-card-text>{{currentPlaylist.songs}}</b-card-text>
+        </b-card-body>
+      </b-collapse>
+    </b-card>
+
+
+    
+  <div id="user-picture">
         <img v-bind:src="require('../assets/user-profile.png')">
         
-        <button v-on:click.prevent="uploadPhoto">Upload User Picture</button>
+        <button id="upload-button" v-on:click.prevent="uploadPhoto">Upload User Picture</button>
       </div>
 
       <div id="username">
@@ -16,28 +31,48 @@
       </div>
 
       <div id="playlist-image">
-        <img v-bind:src="require('../assets/music-placeholder.png')"><p>playlistImage</p>
-        <img v-bind:src="require('../assets/music-placeholder.png')"><p>playlistImage</p>
-        <img v-bind:src="require('../assets/music-placeholder.png')"><p>playlistImage</p>
-        <img v-bind:src="require('../assets/music-placeholder.png')"><p>playlistImage</p>
+        <img v-bind:src="require('../assets/music-placeholder.png')"><p>playlistImage</p><button id="upload-button-playlist-image" v-on:click.prevent="uploadPhoto">Upload Playlist Image</button>
+        <img v-bind:src="require('../assets/music-placeholder.png')"><p>playlistImage</p><button id="upload-button-playlist-image" v-on:click.prevent="uploadPhoto">Upload Playlist Image</button>
+        <img v-bind:src="require('../assets/music-placeholder.png')"><p>playlistImage</p><button id="upload-button-playlist-image" v-on:click.prevent="uploadPhoto">Upload Playlist Image</button>
+        <img v-bind:src="require('../assets/music-placeholder.png')"><p>playlistImage</p><button id="upload-button-playlist-image" v-on:click.prevent="uploadPhoto">Upload Playlist Image</button>
       
         
       </div>
-      <div id="playlist-name">
-        <p>Name</p>
-        <p>Name</p>
-        <p>Name</p>
-        <p>Name</p>
-      </div>
-      <SongList />
+</div>
+    
+    
     </main>
+    
  
 </template>
 
 <script>
-import SongList from '@/components/SongList'
+
+
+import SongListService from "@/services/SongListService";
 export default {
-  components: SongList,
+  data() {
+    return {
+      playlist: [],
+    }
+  },
+
+    name: 'savelist',
+     created() {
+      
+
+    SongListService.getPlaylistById()
+      .then((response) => {
+        this.playlist = response.data;
+      })
+      .catch((err) => console.error(err));
+     },
+
+   components:{
+
+   
+
+   }, 
   methods: {
     uploadPhoto() {
       window.cloudinary
@@ -86,8 +121,31 @@ main #main-flex {
     flex-wrap: nowrap;
 }
 #user-picture{
+  display: flex;
+}
+
+#user-info{
+  display: flex;
+}
+
+#username{
+  display: flex;
+}
+
+#playlist-image{
+  display: flex;
+}
+#playlist-name{
+  display: flex;
+}
+#upload-button-playlist-image{
+
+}
+
+#upload-button-playlist-image{
   
 }
+
 
 </style>
 

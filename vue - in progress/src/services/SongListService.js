@@ -22,6 +22,10 @@ export default {
     },
     updateNameOfPlaylist(playlist){
         return axios.put(`/playlist`,playlist)
+    },
+
+    updateUserProfile(){
+        return axios.put(`/users`)
     }
 
 

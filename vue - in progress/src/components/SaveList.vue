@@ -1,5 +1,5 @@
 <template>
-  <div id="main">
+  <div id="save-list-main">
 
 <div class="accordion" role="tablist">
     <b-card no-body class="mb-1" v-for="(currentPlaylist, index) in playlist" v-bind:key="currentPlaylist.playlistId">

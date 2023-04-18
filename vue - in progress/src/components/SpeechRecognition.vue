@@ -1,8 +1,9 @@
 <template>
   <div class="speech-recognition">
     <div class="speech-box">
-      <button @click="startRecognition" :disabled="listening" class="speech-btn">Start Listening</button>
-      <button @click="stopRecognition" :disabled="!listening" class="speech-btn">Stop Listening</button>
+      <button @click="startRecognition" :disabled="listening" class="speech-btn"><i class="fa fa-microphone"></i> Start Listening</button>
+      
+      <button @click="stopRecognition" :disabled="!listening" class="speech-btn"><i class="fa fa-microphone-slash"></i>Stop Listening</button>
       <p v-if="listening" class="listening-indicator">Listening...</p>
       <p v-if="speechResult" class="mood-result">Mood detected: {{ speechResult }}</p>
     </div>
@@ -106,48 +107,5 @@ export default {
 //in time, I believe we could do a different version for each mood result that affects the VFX of the whole page as previously discussed.
 </script>
 <style scoped>
-.speech-recognition {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-.speech-box {
-  background-color: #F0F0F0;
-  border-radius: 5px;
-  padding: 1rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 250px;
-}
-.speech-btn {
-  background-color: #4A69BD;
-  border: none;
-  border-radius: 3px;
-  color: #fff;
-  cursor: pointer;
-  display: block;
-  font-size: 14px;
-  margin-bottom: 1rem;
-  padding: 0.5rem 1rem;
-  text-align: center;
-  width: 100%;
-}
-.speech-btn:hover {
-  background-color: #3C528D;
-}
-.speech-btn:disabled {
-  background-color: #A6B1E1;
-  cursor: not-allowed;
-}
-.listening-indicator {
-  color: #333;
-  font-size: 14px;
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-.mood-result {
-  color: #333;
-  font-size: 14px;
-  font-weight: bold;
-  text-align: center;
-}
+
 </style>

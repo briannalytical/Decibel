@@ -23,10 +23,5 @@ export default {
 </script>
 
 <style scoped>
-.back-button-container {
-  position: absolute;
-  top: 50px;
-  left: 20px;
-  z-index: 10;
-}
+
 </style>

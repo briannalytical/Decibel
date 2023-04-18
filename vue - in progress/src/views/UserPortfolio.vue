@@ -1,8 +1,6 @@
 <template>
   
-   
-
-    <main id="main-flex">
+   <main id="main-flex">
       <div id="user-picture">
         <img v-bind:src="require('../assets/user-profile.png')">
         
@@ -80,7 +78,7 @@ h2 {
   border-radius: 50%;
 }
 
-#main {
+main #main-flex {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;

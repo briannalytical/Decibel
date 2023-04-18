@@ -35,14 +35,15 @@ public class PlaylistController {
         playlistDao.savePlaylist(playlist, (userDao.findIdByUsername(user.getName())));
     }
 
-    @RequestMapping(path = "/playlists", method = RequestMethod.PUT)
-    public void updatePlaylistByName(@RequestBody Playlist playlist, Principal user) {
-        playlistDao.updatePlaylistByName(playlist.getPlaylistName(), playlist.getPlaylistId());
-    }
 
     @RequestMapping(path="/playlists", method=RequestMethod.DELETE)
-        public void deletePlaylistByName(Playlist playlist, Principal user) {
+    public void deletePlaylist(Playlist playlist, Principal user) {
         playlistDao.deletePlaylistById(playlist.getPlaylistName(), playlist.getPlaylistId());
+    }
+
+    @RequestMapping(path = "/playlists", method = RequestMethod.PUT)
+    public void updatePlaylist(@RequestBody Playlist playlist){
+        playlistDao.updatePlaylist(playlist);
     }
 
 }

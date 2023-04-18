@@ -83,13 +83,14 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
+
     public void updateUserProfilePicture(String userProfilePicture, int userId) {
         String sql10 = "UPDATE users " +
                 "SET user_image =? " +
                 "WHERE user_id= ?";
         jdbcTemplate.update(sql10, userProfilePicture, userId);
-    }
 
+    }
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
         user.setId(rs.getInt("user_id"));

@@ -86,6 +86,7 @@ h2 {
     align-items: flex-start;
     flex-direction: row;
     flex-wrap: nowrap;
+}
 
 </style>
 

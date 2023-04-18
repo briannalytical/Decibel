@@ -15,9 +15,13 @@ public class User {
    @JsonIgnore
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
-   String userProfilePicture;
+   private String userProfilePicture;
 
-   public User() { }
+
+
+   public User() {
+
+   }
 
    public String getUserProfilePicture() {
       return userProfilePicture;
@@ -51,6 +55,7 @@ public class User {
    public void setUsername(String username) {
       this.username = username;
    }
+
 
    public String getPassword() {
       return password;

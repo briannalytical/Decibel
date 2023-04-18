@@ -16,5 +16,7 @@ public interface UserDao {
 
     boolean create(String username, String password, String role);
 
+
     void updateUserProfilePicture(String userProfilePicture, int userId);
+
 }

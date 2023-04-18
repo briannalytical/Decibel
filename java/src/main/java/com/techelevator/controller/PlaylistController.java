@@ -37,12 +37,12 @@ public class PlaylistController {
 
 
     @RequestMapping(path="/playlists", method=RequestMethod.DELETE)
-        public void deletePlaylistByName(Playlist playlist, Principal user) {
-        playlistDao.deletePlayListById(playlist.getPlaylistName(), playlist.getPlaylistId());
+    public void deletePlaylist(Playlist playlist, Principal user) {
+        playlistDao.deletePlaylistById(playlist.getPlaylistName(), playlist.getPlaylistId());
     }
 
     @RequestMapping(path = "/playlists", method = RequestMethod.PUT)
-    public void updatePlaylistPicture(@RequestBody Playlist playlist){
+    public void updatePlaylist(@RequestBody Playlist playlist){
         playlistDao.updatePlaylist(playlist);
     }
 

@@ -52,7 +52,7 @@ public class JdbcPlaylistDao implements PlaylistDao {
                     "JOIN song_mood ON song_mood.song_id =song.song_id " +
                     "JOIN mood ON song_mood.mood_id = mood.mood_id " +
                     "JOIN song_playlist ON song_playlist.song_id = song.song_id " +
-                    "WHERE playlist_id = ?";
+                    "WHERE playlist_id = ? ";
             SqlRowSet results2 = jdbcTemplate.queryForRowSet(sql2, playlist.getPlaylistId());
             while (results2.next()) {
                 songs.add(mapRowToSong(results2));
@@ -81,12 +81,18 @@ public class JdbcPlaylistDao implements PlaylistDao {
         for (Song song: savedSongs){
             jdbcTemplate.update(sql5,song.getSongId(), playlistId);
         }
-
-}
-
+    }
 
     @Override
-    public void deletePlayListById(String playlistName, int playlistId) {
+    public void updatePlaylistByName(String playlistName, int playlistId) {
+        String sql6 = "UPDATE playlist " +
+                "SET playlist_name = ?" +
+                "WHERE playlist_id = ?";
+        jdbcTemplate.update(sql6, playlistName, playlistId);
+    }
+
+    @Override
+    public void deletePlaylistById(String playlistName, int playlistId) {
         String sql7 = "DELETE FROM playlist_users" +
         "WHERE playlist_id = ? " +
         "DELETE FROM song_playlist " +
@@ -97,31 +103,39 @@ public class JdbcPlaylistDao implements PlaylistDao {
     }
 
     @Override
+    public void updatePlaylistImage(String playlistImage, int playlistId) {
+        String sql8 = "UPDATE playlist " +
+                "SET playlist_image = ? " +
+                "WHERE playlist_id = ? ";
+        jdbcTemplate.update(sql8, playlistImage, playlistId);
+    }
+
+    @Override
     public void updatePlaylist(Playlist playlist) {
         String sql6 = "UPDATE playlist " +
                 "SET playlist_name = ?, playlist_image=? " +
                 "WHERE playlist_id=?";
-        jdbcTemplate.update(sql6, playlist.getPlaylistName(), playlist.getPlaylistPicture(), playlist.getPlaylistId());
+        jdbcTemplate.update(sql6, playlist.getPlaylistName(), playlist.getPlaylistImage(), playlist.getPlaylistId());
     }
-
 
     private Playlist mapRowToPlaylist(SqlRowSet row) {
         Playlist playlist = new Playlist();
         playlist.setPlaylistName(row.getString("playlist_name"));
-        playlist.setPlaylistPicture(row.getString("playlist_image"));
+        playlist.setPlaylistImage(row.getString("playlist_image"));
         playlist.setPlaylistId(row.getInt("playlist_id"));
         return playlist;
     }
 
     private Song mapRowToSong(SqlRowSet row) {
         Song song = new Song();
-
         song.setArtist( row.getString("artist"));
         song.setGenre(row.getString("genre_name"));
         song.setMood(row.getString("mood_name"));
         song.setTitle(row.getString("title"));
         song.setMoodId(row.getInt("mood_id"));
         song.setSongId(row.getInt("song_id"));
+
         return song;
     }
+
 }

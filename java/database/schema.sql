@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS playlist;
 
 CREATE TABLE users (
 	user_id SERIAL,
-	user_image varchar (300),
+	user_image varchar (10000),
 	username varchar(50) NOT NULL UNIQUE,
 	password_hash varchar(200) NOT NULL,
 	role varchar(50) NOT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE song_mood (
 
 CREATE TABLE playlist (
 	playlist_id serial,
-	playlist_image varchar (300),
+	playlist_image varchar (10000),
 	playlist_name varchar (200),
 	CONSTRAINT PK_playlist PRIMARY KEY (playlist_id)
 	);

@@ -12,8 +12,8 @@
                     <th class="table-mood">Mood</th>
                     <th class="table-genre">Genre</th>
                 </tr>
-                <tr class="playlist-songs>
-                    <td class="playlist-content">{{ LimpBizkit }}</td>
+                <tr class="playlist-songs">
+                    <td class="playlist-content"></td>
                     <td class="playlist-content">Limp Bizkit</td>
                     <td class="playlist-content">Limp Bizkit</td>
                     <td class="playlist-content">Limp Bizkit</td>

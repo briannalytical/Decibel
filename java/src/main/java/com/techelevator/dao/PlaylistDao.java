@@ -10,11 +10,12 @@ public interface PlaylistDao {
 
     public void savePlaylist(Playlist playlist, int userId);
 
+    public void deletePlaylistById(String playlistName, int userId);
 
+    public void updatePlaylistByName(String playlistName, int playlistId);
 
-    public void deletePlayListById(String playlistName, int userId);
+    public void updatePlaylistImage(String playlistImage, int playlistId);
 
     public void updatePlaylist(Playlist playlist);
-
 
 }

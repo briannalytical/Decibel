@@ -71,7 +71,6 @@ public class JdbcPlaylistDao implements PlaylistDao {
 
         String sql4 = "INSERT INTO playlist_users (playlist_id, user_id) " +
                 "VALUES (?,?)";
-
         jdbcTemplate.update(sql4, playlistId, userId);
 
         String sql5 = "INSERT INTO song_playlist (song_id, playlist_id) " +

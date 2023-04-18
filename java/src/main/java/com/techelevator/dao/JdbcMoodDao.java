@@ -20,14 +20,14 @@ public class JdbcMoodDao implements MoodDao {
 
     @Override
     public List<Mood> getMoods() {
-        List<Mood> getMood = new ArrayList<Mood>();
-        String sql = "SELECT  mood_name,mood_id " +
+        List<Mood> moods = new ArrayList<Mood>();
+        String sql = "SELECT mood_name, mood_id " +
                 "FROM mood ";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
-            getMood.add(mapRowToMood(results));
+            moods.add(mapRowToMood(results));
         }
-        return getMood;
+        return moods;
     }
 
     @Override

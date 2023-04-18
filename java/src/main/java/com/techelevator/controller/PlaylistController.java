@@ -47,7 +47,7 @@ public class PlaylistController {
 
     @RequestMapping(path = "/playlists", method = RequestMethod.PUT)
     public void updatePlaylistPicture(@RequestBody Playlist playlist, Principal user){
-        playlistDao.updatePlaylistByName(playlist.getPlaylistPicture(), playlist.getPlaylistId());
+        playlistDao.updatePlaylistPicture(playlist.getPlaylistPicture(), playlist.getPlaylistId());
     }
 
 }

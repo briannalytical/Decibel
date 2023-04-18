@@ -2,7 +2,7 @@
   
    
 
-    <main id="main-grid">
+    <main id="main-flex">
       <div id="user-picture">
         <img v-bind:src="require('../assets/user-profile.png')">
         
@@ -79,6 +79,13 @@ h2 {
   height: 35vh;
   border-radius: 50%;
 }
+
+#main {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
 
 </style>
 

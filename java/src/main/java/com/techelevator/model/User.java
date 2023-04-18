@@ -15,8 +15,17 @@ public class User {
    @JsonIgnore
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
+   String userProfilePicture;
 
    public User() { }
+
+   public String getUserProfilePicture() {
+      return userProfilePicture;
+   }
+
+   public void setUserProfilePicture(String userProfilePicture) {
+      this.userProfilePicture = userProfilePicture;
+   }
 
    public User(int id, String username, String password, String authorities) {
       this.id = id;
@@ -24,6 +33,7 @@ public class User {
       this.password = password;
       if(authorities != null) this.setAuthorities(authorities);
       this.activated = true;
+
    }
 
    public int getId() {

@@ -8,11 +8,8 @@ import store from '../store/index'
 import Songs from '../views/Songs.vue'
 import Welcome from '../views/Welcome.vue'
 import SavedList from '../views/SavedList.vue'
-<<<<<<< HEAD
 import Playback from '../views/Playback.vue'
-=======
 import UserPortfolio from '../views/UserPortfolio.vue'
->>>>>>> 248bedbe68a998ce3bd357167b062e204b7c973a
 Vue.use(Router)
 
 /**

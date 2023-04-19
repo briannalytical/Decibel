@@ -96,6 +96,7 @@ const router = new Router({
         requiresAuth: false
       }
     },
+
     {
       path: "/songs/playlist",
       name: "savelist",
@@ -106,6 +107,9 @@ const router = new Router({
     },
     {
       path: "/user",
+   
+      // path: "/users",
+
       name: "user-profile",
       component: UserPortfolio,
       meta: {

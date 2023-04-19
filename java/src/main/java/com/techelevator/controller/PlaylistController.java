@@ -4,13 +4,11 @@ package com.techelevator.controller;
 import com.techelevator.dao.PlaylistDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Playlist;
-import com.techelevator.model.Song;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -35,7 +33,6 @@ public class PlaylistController {
         playlistDao.savePlaylist(playlist, (userDao.findIdByUsername(user.getName())));
     }
 
-
     @RequestMapping(path="/playlist", method=RequestMethod.DELETE)
     public void deletePlaylist(Playlist playlist, Principal user) {
         playlistDao.deletePlaylistById(playlist.getPlaylistName(), playlist.getPlaylistId());
@@ -44,6 +41,13 @@ public class PlaylistController {
     @RequestMapping(path = "/playlist", method = RequestMethod.PUT)
     public void updatePlaylist(@RequestBody Playlist playlist){
         playlistDao.updatePlaylist(playlist);
+    }
+
+
+
+    @RequestMapping(path = "/playlist/image", method= RequestMethod.GET)
+    public Playlist getPlaylistImageByUserId(@RequestParam int playlistId, Principal user) {
+        return playlistDao.getPlaylistImageByPlaylistId(playlistId);
     }
 
 }

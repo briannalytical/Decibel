@@ -21,6 +21,8 @@ public class Playlist {
 
 
 
+
+
     public Playlist() {
 
     }
@@ -54,7 +56,6 @@ public class Playlist {
     public void setPlaylistId(int playlistId) {
         this.playlistId = playlistId;
     }
-
 
 }
 

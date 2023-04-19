@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.techelevator.model.Playlist;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -88,10 +89,10 @@ public class JdbcUserDao implements UserDao {
                 "SET user_image =? " +
                 "WHERE user_id= ?";
         jdbcTemplate.update(sql10, userImage, userId);
-
     }
 
-    public User getPlaylistByUserId (int userId) {
+    @Override
+    public User getPlaylistByUserId(int userId) {
         return null;
     }
 

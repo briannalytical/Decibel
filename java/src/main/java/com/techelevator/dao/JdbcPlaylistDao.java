@@ -28,8 +28,8 @@ public class JdbcPlaylistDao implements PlaylistDao {
     }
 
     @Override
-    public List <Playlist> getSongsInPlaylist(int userId) {
-        List <Playlist> playlistOfSongs = new ArrayList<>();
+    public List<Playlist> getSongsInPlaylist(int userId) {
+        List<Playlist> playlistOfSongs = new ArrayList<>();
         List<Song> songs = new ArrayList<>();
         Playlist playlist = new Playlist();
 
@@ -64,7 +64,7 @@ public class JdbcPlaylistDao implements PlaylistDao {
     }
 
     @Override
-    public void savePlaylist(Playlist playlist, int userId){
+    public void savePlaylist(Playlist playlist, int userId) {
         String sql3 = "INSERT INTO playlist (playlist_name) " +
                 "VALUES (?) RETURNING playlist_id";
         int playlistId = jdbcTemplate.queryForObject(sql3, Integer.class, playlist.getPlaylistName());
@@ -78,12 +78,10 @@ public class JdbcPlaylistDao implements PlaylistDao {
 
         List<Song> savedSongs = playlist.getSongs();
 
-        for (Song song: savedSongs){
-            jdbcTemplate.update(sql5,song.getSongId(), playlistId);
+        for (Song song : savedSongs) {
+            jdbcTemplate.update(sql5, song.getSongId(), playlistId);
         }
     }
-
-
 
     @Override
     public void deletePlaylistById(String playlistName, int playlistId) {
@@ -104,17 +102,28 @@ public class JdbcPlaylistDao implements PlaylistDao {
         jdbcTemplate.update(sql6, playlist.getPlaylistName(), playlist.getPlaylistImage(), playlist.getPlaylistId());
     }
 
+    @Override
+    public Playlist getPlaylistImageByPlaylistId(int playlistId) {
+        Playlist playlist = new Playlist();
+        String sql7 = "SELECT playlist_image, playlist_name " +
+                "FROM playlist " +
+                "WHERE playlist_id = ? ";
+        jdbcTemplate.queryForObject(sql7, Playlist.class, playlistId);
+        return playlist;
+    }
+
     private Playlist mapRowToPlaylist(SqlRowSet row) {
         Playlist playlist = new Playlist();
         playlist.setPlaylistName(row.getString("playlist_name"));
         playlist.setPlaylistImage(row.getString("playlist_image"));
         playlist.setPlaylistId(row.getInt("playlist_id"));
+
         return playlist;
     }
 
     private Song mapRowToSong(SqlRowSet row) {
         Song song = new Song();
-        song.setArtist( row.getString("artist"));
+        song.setArtist(row.getString("artist"));
         song.setGenre(row.getString("genre_name"));
         song.setMood(row.getString("mood_name"));
         song.setTitle(row.getString("title"));
@@ -123,4 +132,6 @@ public class JdbcPlaylistDao implements PlaylistDao {
 
         return song;
     }
+
 }
+

@@ -103,7 +103,7 @@ public class JdbcPlaylistDao implements PlaylistDao {
     }
 
     @Override
-    public Playlist getPlaylistImageByUserId(int playlistId) {
+    public Playlist getPlaylistImageByPlaylistId(int playlistId) {
         Playlist playlist = new Playlist();
         String sql7 = "SELECT playlist_image, playlist_name " +
                 "FROM playlist " +

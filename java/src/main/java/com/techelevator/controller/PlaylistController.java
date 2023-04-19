@@ -4,13 +4,11 @@ package com.techelevator.controller;
 import com.techelevator.dao.PlaylistDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Playlist;
-import com.techelevator.model.Song;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -49,7 +47,7 @@ public class PlaylistController {
 
     @RequestMapping(path = "/playlist/image", method= RequestMethod.GET)
     public Playlist getPlaylistImageByUserId(@RequestParam int playlistId, Principal user) {
-        return playlistDao.getPlaylistImageByUserId(playlistId);
+        return playlistDao.getPlaylistImageByPlaylistId(playlistId);
     }
 
 }

@@ -14,5 +14,5 @@ public interface PlaylistDao {
 
     void updatePlaylist(Playlist playlist);
 
-    Playlist getPlaylistImageByUserId(int playlistId);
+    Playlist getPlaylistImageByPlaylistId(int playlistId);
 }

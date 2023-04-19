@@ -1,5 +1,5 @@
 <template>
-  <div id="save-list-main">
+  <main>
     <div class="accordion" role="tablist">
       <b-card
         no-body
@@ -43,7 +43,7 @@
         </b-collapse>
       </b-card>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -98,6 +98,8 @@ export default {
 </script>
 
 <style scoped>
+
+
 .btn {
   display: flex;
 }
@@ -109,10 +111,4 @@ export default {
   gap: 10px;
 }
 
-#playlist-generic {
-  display: flex;
-  height: 100%;
-  width: 50px;
-  padding-right: 10px;
-}
 </style>

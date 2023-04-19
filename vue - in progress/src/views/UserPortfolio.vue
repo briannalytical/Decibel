@@ -1,19 +1,17 @@
 <template>
-  <main id="main-flex">
-    <div id="user-picture">
-      <img v-bind:src="require('../assets/user-profile.png')" />
-
-      <button v-on:click.prevent="uploadPhoto">Upload User Picture</button>
+  <div id="page-container">
+    <div class="username">
+      <h2>Username</h2>
+        <div id="user-details">
+          <img class="img" v-bind:src="require('../assets/user-profile.png')" />
+          <button class="upload" v-on:click.prevent="uploadPhoto">Upload User Picture</button>
+          <h5 class="user-info">User Info</h5>
+            <div id="accordian">
+              <PlaylistAccordian />
+            </div>
+        </div>
     </div>
-
-    <div id="username">
-      <h1>Username</h1>
-    </div>
-
-    <div id="user-info">
-      <h2>User Info</h2>
-    </div>
-<PlaylistAccordian />
+  </div>
     <!-- <div id="playlist-image">
       <img v-bind:src="require('../assets/music-placeholder.png')" />
       <p>playlistImage</p>
@@ -31,7 +29,6 @@
       <p>Name</p>
     </div> -->
     
-  </main>
 </template>
 
 <script>
@@ -79,38 +76,39 @@ export default {
 
 
 <style scoped>
-main #main-flex {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: row;
-  flex-wrap: nowrap;
+#page-container {
+  margin: 5vw;
+  display: flex !important;
 }
 
-#user-picture {
-  display: flex;
-}
-
-h1 {
-  display: flex;
+h2 {
+  text-align: center;
   font-size: 4em;
 }
-/* 
-h2 {
-  display: flex;
-  font-size: 1.8em;
-  line-height: 1.45em;
+
+#user-details {
+  display: flex !important;
 }
-#upload-button-playlist-image{
 
-#user-picture img {
+#user-details > .img .upload .user-info {
+  flex-direction: column !important;
+}
+
+
+h2 {
+  font-size: 4em;
+}
+
+.btn {
   display: flex;
-  width: 20vw;
-  height: 35vh;
-  border-radius: 50%;
-} */
+}
 
-
+.b-button {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  gap: 10px;
+}
 
 </style>
 

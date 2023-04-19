@@ -1,7 +1,9 @@
 <template>
   <div id="main">
     <div id="musicplayer">
-         <MusicPlayer></MusicPlayer>
+         <!-- <MusicPlayer></MusicPlayer> -->
+         <SpotifyPlayback />
+
     </div>
     <div id="header-section">
       <div id="logo-fun">
@@ -87,7 +89,10 @@
 <script>
 import SongListService from "@/services/SongListService";
 import SpeechRecognition from "@/components/SpeechRecognition.vue";
-import MusicPlayer from "@/components/MusicPlayer.vue";
+import SpotifyPlayback from "@/components/SpotifyPlayback.vue";
+
+
+// import MusicPlayer from "@/components/MusicPlayer.vue";
 // import SongList from "@/components/SongList";
 export default {
   data() {
@@ -97,7 +102,7 @@ export default {
     };
     
   },
-  components:{ SpeechRecognition, MusicPlayer,
+  components:{ SpeechRecognition, SpotifyPlayback
   },
 
   created() {

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface PlaylistDao {
 
-    List <Playlist> getSongsInPlaylist(int userId);
+    List<Playlist> getSongsInPlaylist(int userId);
 
     void savePlaylist(Playlist playlist, int userId);
 
@@ -14,6 +14,5 @@ public interface PlaylistDao {
 
     void updatePlaylist(Playlist playlist);
 
-    Playlist getPlaylistImageByUserId (int playlistId);
-
+    Playlist getPlaylistImageByUserId(int playlistId);
 }

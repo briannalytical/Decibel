@@ -95,6 +95,11 @@ public class JdbcUserDao implements UserDao {
         return null;
     }
 
+    @Override
+    public void updateUserProfilePicture(String userProfilePicture, int idByUsername) {
+
+    }
+
 
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();

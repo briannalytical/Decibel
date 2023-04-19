@@ -20,4 +20,5 @@ public interface UserDao {
 
     User getPlaylistByUserId (int userId);
 
+    void updateUserProfilePicture(String userProfilePicture, int idByUsername);
 }

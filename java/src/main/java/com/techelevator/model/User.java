@@ -15,10 +15,14 @@ public class User {
    @JsonIgnore
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
+   private String userImage;
 
-   public User() { }
 
-   public User(int id, String username, String password, String authorities) {
+   public User() {
+
+   }
+
+   public User (int id, String username, String password, String authorities) {
       this.id = id;
       this.username = username;
       this.password = password;
@@ -65,6 +69,13 @@ public class User {
    public void setAuthorities(Set<Authority> authorities) {
       this.authorities = authorities;
    }
+
+   public void setUserImage(String userImage) {
+      this.userImage = userImage;
+   }
+
+   public String getUserImage(String userImage) {return userImage;}
+
 
    public void setAuthorities(String authorities) {
       String[] roles = authorities.split(",");

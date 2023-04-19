@@ -18,6 +18,8 @@ import com.techelevator.dao.UserDao;
 import com.techelevator.security.jwt.JWTFilter;
 import com.techelevator.security.jwt.TokenProvider;
 
+import java.security.Principal;
+
 @RestController
 @CrossOrigin
 public class AuthenticationController {
@@ -56,9 +58,16 @@ public class AuthenticationController {
             User user = userDao.findByUsername(newUser.getUsername());
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User Already Exists.");
         } catch (UsernameNotFoundException e) {
-            userDao.create(newUser.getUsername(),newUser.getPassword(), newUser.getRole());
+            userDao.create(newUser.getUsername(), newUser.getPassword(), newUser.getRole());
         }
     }
+
+        @RequestMapping(path = "/users", method = RequestMethod.PUT)
+        public void updateUserProfilePicture(@RequestBody ImageLinkDTO userProfilePicture, Principal user){
+        userDao.updateUserProfilePicture(userProfilePicture.getUserProfilePicture(), userDao.findIdByUsername(user.getName()));
+
+    }
+
 
 }
 

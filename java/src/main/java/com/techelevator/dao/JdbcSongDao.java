@@ -51,15 +51,10 @@ public class JdbcSongDao implements SongDao{
         return getSongByMoodList;
     }
 
-
-
-
     @Override
     public Song getSongBySongId(int songId) {
         return null;
     }
-
-
 
     @Override
     public List<Song> getSongByGenre(int genreId) {
@@ -71,7 +66,6 @@ public class JdbcSongDao implements SongDao{
         return null;
     }
 
-    //mapping method
     private Song mapRowToSong(SqlRowSet row) {
         Song song = new Song();
         song.setArtist( row.getString("artist"));
@@ -83,4 +77,5 @@ public class JdbcSongDao implements SongDao{
 
         return song;
     }
+
 }

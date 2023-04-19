@@ -6,12 +6,14 @@ import java.util.List;
 
 public interface PlaylistDao {
 
-    public List <Playlist> getSongsInPlaylist(int userId);
+    List <Playlist> getSongsInPlaylist(int userId);
 
-    public void savePlaylist(Playlist playlist, int userId);
+    void savePlaylist(Playlist playlist, int userId);
 
-    public void deletePlaylistById(String playlistName, int userId);
+    void deletePlaylistById(String playlistName, int userId);
 
-    public void updatePlaylist(Playlist playlist);
+    void updatePlaylist(Playlist playlist);
+
+    Playlist getPlaylistImageByUserId (int playlistId);
 
 }

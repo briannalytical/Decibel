@@ -62,10 +62,9 @@ public class AuthenticationController {
         }
     }
 
-        @RequestMapping(path = "/users", method = RequestMethod.PUT)
-        public void updateUserProfilePicture(@RequestBody ImageLinkDTO userProfilePicture, Principal user){
-        userDao.updateUserProfilePicture(userProfilePicture.getUserProfilePicture(), userDao.findIdByUsername(user.getName()));
-
+    @RequestMapping(path = "/users", method = RequestMethod.PUT)
+    public void updateUserImage(@RequestBody ImageLinkDTO userImage, Principal user){
+        userDao.updateUserImage(userImage.getUserProfilePicture(), userDao.findIdByUsername(user.getName()));
     }
 
 

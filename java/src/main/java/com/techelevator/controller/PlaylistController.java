@@ -35,7 +35,6 @@ public class PlaylistController {
         playlistDao.savePlaylist(playlist, (userDao.findIdByUsername(user.getName())));
     }
 
-
     @RequestMapping(path="/playlist", method=RequestMethod.DELETE)
     public void deletePlaylist(Playlist playlist, Principal user) {
         playlistDao.deletePlaylistById(playlist.getPlaylistName(), playlist.getPlaylistId());
@@ -44,6 +43,13 @@ public class PlaylistController {
     @RequestMapping(path = "/playlist", method = RequestMethod.PUT)
     public void updatePlaylist(@RequestBody Playlist playlist){
         playlistDao.updatePlaylist(playlist);
+    }
+
+
+
+    @RequestMapping(path = "/playlist/image", method= RequestMethod.GET)
+    public Playlist getPlaylistImageByUserId(@RequestParam int playlistId, Principal user) {
+        return playlistDao.getPlaylistImageByUserId(playlistId);
     }
 
 }

@@ -18,6 +18,4 @@ public interface UserDao {
 
     void updateUserImage(String userImage, int userId);
 
-    User getPlaylistByUserId (int userId);
-
 }

@@ -1,82 +1,118 @@
 <template>
   <div id="save-list-main">
+    <div class="accordion" role="tablist">
+      <b-card
+        no-body
+        class="mb-1"
+        v-for="(currentPlaylist, index) in playlist"
+        v-bind:key="currentPlaylist.playlistId"
+      >
+        <b-card-header header-tag="header" class="p-1" role="tab">
+          <b-button block v-b-toggle="'accordion-' + index" variant="info">{{
+            currentPlaylist.playlistName
+          }}</b-button>
+        </b-card-header>
 
-<div class="accordion" role="tablist">
-    <b-card no-body class="mb-1" v-for="(currentPlaylist, index) in playlist" v-bind:key="currentPlaylist.playlistId">
-      <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-button block v-b-toggle="'accordion-' + index" variant="info">{{currentPlaylist.playlistName}}</b-button>
-      </b-card-header>
-      <b-collapse class="collapsed-items" v-bind:id="'accordion-' + index" visible accordion="my-accordion" role="tabpanel">
-        <b-card-body >
-          <b-card-text>{{currentPlaylist.songs}}</b-card-text>
-        </b-card-body>
-      </b-collapse>
-    </b-card>
+        <b-collapse
+          class="collapsed-items"
+          v-bind:id="'accordion-' + index"
+          visible
+          accordion="my-accordion"
+          role="tabpanel"
+        >
+          <b-card-body>
+            <table id="table">
+              <tbody
+                v-for="song in currentPlaylist.songs"
+                v-bind:key="song.songId"
+              >
+                <tr class="column">
+                  <th>Title</th>
+                  <th>Artist</th>
+                  <th>Genre</th>
+                </tr>
 
+                <tr>
+                  <td>{{ song.title }}</td>
+                  <td>{{ song.artist }}</td>
+                  <td>{{ song.genre }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </b-card-body>
+        </b-collapse>
+      </b-card>
+    </div>
   </div>
-   
- </div>
 </template>
 
 <script>
 import SongListService from "@/services/SongListService";
+
 export default {
+  name: "savelist",
+
   data() {
     return {
-      playlist: [],
-    }
+      songs: [],
+      playlist: {
+        playlistName: "",
+        songs: [],
+      },
+      showForm: false,
+      moodSongs: "",
+    };
   },
+  components: {},
 
-    name: 'savelist',
-     created() {
-      
+  computed: {
+    filteredSongs() {
+      const songs = this.songs.filter((song) => {
+        if (song.moodId == this.$store.state.moodId) {
+          return true;
+        }
+      });
+      return songs;
+    },
+  },
+  created() {
+    SongListService.getAllSongs()
+      .then((response) => {
+        this.songs = response.data;
+      })
+      .catch((err) => console.error(err));
+
+    SongListService.getAllMoods()
+      .then((response) => {
+        this.mood = response.data;
+      })
+      .catch((err) => console.error(err));
 
     SongListService.getPlaylistById()
       .then((response) => {
         this.playlist = response.data;
-        console.log("Reached created in playlist accordian")
-        console.log(this.playlist)
       })
       .catch((err) => console.error(err));
-     },
-
-   
-
-}
+  },
+};
 </script>
 
-<style>
-
-/* .btn-info { 
-  background-color: green;
-  color:#07ff1c;
-  font-size: 24em;
+<style scoped>
+.btn {
+  display: flex;
 }
 
-.mb-1 {
-  background-color: green;
-  color:#07ff1c;
+.b-button {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  gap: 10px;
 }
 
-.collapsed-items {
-    background-color: #960909;
-    border: none;
-    color: #07ff1c;
-
-    font-size: 16px;
-    cursor: pointer;
-
-    border-radius: 4px;
-    transition: background-color 0.3s, color 0.3s;
+#playlist-generic {
+  display: flex;
+  height: 100%;
+  width: 50px;
+  padding-right: 10px;
 }
-
-.expand-btn {
-  height: auto;
-}
-
-.save-button:hover {
-    background-color: #077bff;
-    color: #ffffff;
-} */
-
 </style>

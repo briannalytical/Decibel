@@ -53,8 +53,7 @@ public class Song {
     }
 
     public int getSongId() {
-        return songId;
-    }
+        return songId;}
 
     public void setSongId(int songId) {
         this.songId = songId;

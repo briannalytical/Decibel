@@ -1,45 +1,62 @@
 <template>
-  
-   
+  <main id="main-flex">
+    <div id="user-picture">
+      <img v-bind:src="require('../assets/user-profile.png')" />
 
-    <main id="main-grid">
-      <div id="user-picture">
-        <img v-bind:src="require('../assets/user-profile.png')">
-        
-        <button v-on:click.prevent="uploadPhoto">Upload User Picture</button>
-      </div>
+      <button v-on:click.prevent="uploadPhoto">Upload User Picture</button>
+    </div>
 
-      <div id="username">
-        <h1>Username</h1>
-      </div>
+    <div id="username">
+      <h1>Username</h1>
+    </div>
 
-       <div id="user-info">
-        <h2>User Info</h2>
-      </div>
-
-      <div id="playlist-image">
-        <img v-bind:src="require('../assets/music-placeholder.png')"><p>playlistImage</p>
-        <img v-bind:src="require('../assets/music-placeholder.png')"><p>playlistImage</p>
-        <img v-bind:src="require('../assets/music-placeholder.png')"><p>playlistImage</p>
-        <img v-bind:src="require('../assets/music-placeholder.png')"><p>playlistImage</p>
-      
-        
-      </div>
-      <div id="playlist-name">
-        <p>Name</p>
-        <p>Name</p>
-        <p>Name</p>
-        <p>Name</p>
-      </div>
-      <SongList />
-    </main>
- 
+    <div id="user-info">
+      <h2>User Info</h2>
+    </div>
+<PlaylistAccordian />
+    <!-- <div id="playlist-image">
+      <img v-bind:src="require('../assets/music-placeholder.png')" />
+      <p>playlistImage</p>
+      <img v-bind:src="require('../assets/music-placeholder.png')" />
+      <p>playlistImage</p>
+      <img v-bind:src="require('../assets/music-placeholder.png')" />
+      <p>playlistImage</p>
+      <img v-bind:src="require('../assets/music-placeholder.png')" />
+      <p>playlistImage</p>
+    </div>
+    <div id="playlist-name">
+      <p>Name</p>
+      <p>Name</p>
+      <p>Name</p>
+      <p>Name</p>
+    </div> -->
+    
+  </main>
 </template>
 
 <script>
-import SongList from '@/components/SongList'
+import PlaylistAccordian from "@/components/PlaylistAccordian";
+import SongListService from "@/services/SongListService";
+// import SongList from '@/components/SongList'
 export default {
-  components: SongList,
+  data() {
+    return {
+      playlist: [],
+    }
+  },
+
+    name: 'savelist',
+     created() {
+      
+
+    SongListService.getPlaylistById()
+      .then((response) => {
+        this.playlist = response.data;
+      })
+      .catch((err) => console.error(err));
+     },
+  components: { PlaylistAccordian,
+},
   methods: {
     uploadPhoto() {
       window.cloudinary
@@ -61,68 +78,37 @@ export default {
 </script>
 
 
-<style>
-
-#main-grid {
-  display: inline-grid;
-  grid-template-columns: 2fr 1fr 3fr;
-  grid-template-areas:
-    "user-picture  user-picture . username        username      username"
-    "user-info     user-info    . playlist-image  playlist-name playlist-name";
-    
-
-  grid-template-rows: 2fr 4fr;
-  row-gap: 20px;
-  column-gap: 50px;
-  align-items: vertical;
-  align-items: center;
+<style scoped>
+main #main-flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
-
-main #user-picture{
-    grid-area: user-picture;
-    justify-content: center;
-    text-align: center;
-}
-main #username{
-    grid-area: username;
-    justify-content: center;
-    text-align: center;
-}
-main #user-info{
-    grid-area: user-info;
-    justify-content: left;
-    text-align: center;
-}
-
-main #playlist-image{
-    grid-area: playlist-image;
-    justify-content: center;
-    text-align: center;
-}
-
-main #playlist-name{
-    grid-area: playlist-name;
-    justify-content: center;
-    text-align: center;
+#user-picture {
+  display: flex;
 }
 
 h1 {
+  display: flex;
   font-size: 4em;
 }
-
-
+/* 
 h2 {
+  display: flex;
   font-size: 1.8em;
   line-height: 1.45em;
 }
 
-
 #user-picture img {
+  display: flex;
   width: 20vw;
   height: 35vh;
   border-radius: 50%;
-}
+} */
+
 
 </style>
 

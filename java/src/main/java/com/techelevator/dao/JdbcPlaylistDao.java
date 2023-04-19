@@ -29,7 +29,7 @@ public class JdbcPlaylistDao implements PlaylistDao {
 
     @Override
     public List <Playlist> getSongsInPlaylist(int userId) {
-       List <Playlist> playlistOfSongs = new ArrayList<>();
+        List <Playlist> playlistOfSongs = new ArrayList<>();
         List<Song> songs = new ArrayList<>();
         Playlist playlist = new Playlist();
 
@@ -82,33 +82,27 @@ public class JdbcPlaylistDao implements PlaylistDao {
             jdbcTemplate.update(sql5,song.getSongId(), playlistId);
         }
 
-}
-    @Override
-    public void updatePlaylistByName(String playlistName, int playlistId) {
-        String sql6 = "UPDATE playlist " +
-                "SET playlist_name = ?" +
-                "WHERE playlist_id = ?";
-        jdbcTemplate.update(sql6, playlistName, playlistId);
     }
 
+
+
     @Override
-    public void deletePlayListById(String playlistName, int playlistId) {
+    public void deletePlaylistById(String playlistName, int playlistId) {
         String sql7 = "DELETE FROM playlist_users" +
-        "WHERE playlist_id = ? " +
-        "DELETE FROM song_playlist " +
-        "WHERE playlist_id = ? " +
-        "DELETE FROM playlist " +
-        "WHERE playlist_id = ? ";
+                "WHERE playlist_id = ? " +
+                "DELETE FROM song_playlist " +
+                "WHERE playlist_id = ? " +
+                "DELETE FROM playlist " +
+                "WHERE playlist_id = ? ";
         jdbcTemplate.queryForRowSet(sql7, playlistName, playlistId);
     }
 
     @Override
-    public void updatePlaylistPicture(String playlistPicture, int playlistId) {
-        String sql8 = "UPDATE playlist  " +
-                "SET playlist_image = ? " +
-                "WHERE playlist_id = ?";
-
-        jdbcTemplate.update(sql8, playlistPicture, playlistId);
+    public void updatePlaylist(Playlist playlist) {
+        String sql6 = "UPDATE playlist " +
+                "SET playlist_name = ?, playlist_image=? " +
+                "WHERE playlist_id=?";
+        jdbcTemplate.update(sql6, playlist.getPlaylistName(), playlist.getPlaylistImage(), playlist.getPlaylistId());
     }
 
     private Playlist mapRowToPlaylist(SqlRowSet row) {

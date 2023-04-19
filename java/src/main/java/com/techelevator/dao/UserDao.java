@@ -16,7 +16,8 @@ public interface UserDao {
 
     boolean create(String username, String password, String role);
 
+    void updateUserImage(String userImage, int userId);
 
-    void updateUserProfilePicture(String userProfilePicture, int userId);
+    User getPlaylistByUserId (int userId);
 
 }

@@ -29,7 +29,7 @@ public class JdbcPlaylistDao implements PlaylistDao {
 
     @Override
     public List <Playlist> getSongsInPlaylist(int userId) {
-       List <Playlist> playlistOfSongs = new ArrayList<>();
+        List <Playlist> playlistOfSongs = new ArrayList<>();
         List<Song> songs = new ArrayList<>();
         Playlist playlist = new Playlist();
 
@@ -81,6 +81,10 @@ public class JdbcPlaylistDao implements PlaylistDao {
         for (Song song: savedSongs){
             jdbcTemplate.update(sql5,song.getSongId(), playlistId);
         }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 4e5a60efc7b73a8cd0a24439b74a5c5d093384dd
     }
 
 
@@ -88,16 +92,19 @@ public class JdbcPlaylistDao implements PlaylistDao {
     @Override
     public void deletePlaylistById(String playlistName, int playlistId) {
         String sql7 = "DELETE FROM playlist_users" +
-        "WHERE playlist_id = ? " +
-        "DELETE FROM song_playlist " +
-        "WHERE playlist_id = ? " +
-        "DELETE FROM playlist " +
-        "WHERE playlist_id = ? ";
+                "WHERE playlist_id = ? " +
+                "DELETE FROM song_playlist " +
+                "WHERE playlist_id = ? " +
+                "DELETE FROM playlist " +
+                "WHERE playlist_id = ? ";
         jdbcTemplate.queryForRowSet(sql7, playlistName, playlistId);
     }
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 4e5a60efc7b73a8cd0a24439b74a5c5d093384dd
     @Override
     public void updatePlaylist(Playlist playlist) {
         String sql6 = "UPDATE playlist " +
@@ -125,5 +132,9 @@ public class JdbcPlaylistDao implements PlaylistDao {
 
         return song;
     }
+<<<<<<< HEAD
+}
+=======
 
 }
+>>>>>>> 4e5a60efc7b73a8cd0a24439b74a5c5d093384dd

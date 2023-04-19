@@ -6,6 +6,7 @@
       <input type="text" placeholder="Playlist Name" class="playlist-name" required v-model="playlist.playlistName"><br>
       <button type="submit" class="submit-save">Go!</button>
     </form>
+    
     <table id="table">
       <tr class="column">
         <th>Title</th>

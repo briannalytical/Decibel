@@ -83,21 +83,26 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-
-    public void updateUserProfilePicture(String userProfilePicture, int userId) {
+    public void updateUserImage(String userImage, int userId) {
         String sql10 = "UPDATE users " +
                 "SET user_image =? " +
                 "WHERE user_id= ?";
-        jdbcTemplate.update(sql10, userProfilePicture, userId);
+        jdbcTemplate.update(sql10, userImage, userId);
 
     }
+
+    public User getPlaylistByUserId (int userId) {
+        return null;
+    }
+
+
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
         user.setId(rs.getInt("user_id"));
         user.setUsername(rs.getString("username"));
         user.setPassword(rs.getString("password_hash"));
         user.setAuthorities(Objects.requireNonNull(rs.getString("role")));
-        user.setUserProfilePicture(rs.getString("user_image"));
+        user.setUserImage(rs.getString("user_image"));
         user.setActivated(true);
         return user;
     }

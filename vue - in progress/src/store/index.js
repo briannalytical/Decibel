@@ -45,8 +45,8 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    SET_MOOD_ID(state, moodId){
-      state.moodId = moodId;
+    SET_MOOD(state, mood){
+      state.moodId = mood;
       
     },
 

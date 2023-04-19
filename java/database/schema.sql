@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS song_playlist;
+DROP TABLE IF EXISTS playlist_mood;
 DROP TABLE IF EXISTS playlist_users;
 DROP TABLE IF EXISTS song_mood;
 DROP TABLE IF EXISTS song_genre;
@@ -62,9 +63,20 @@ CREATE TABLE song_mood (
 CREATE TABLE playlist (
 	playlist_id serial,
 	playlist_image varchar (10000),
+	playlist_url varchar (10000),
 	playlist_name varchar (200),
 	CONSTRAINT PK_playlist PRIMARY KEY (playlist_id)
 	);
+CREATE TABLE playlist_mood (
+	playlist_id bigint,
+	mood_id bigint,
+	
+	CONSTRAINT pk_playlist_mood primary key (playlist_id, mood_id),
+	CONSTRAINT fk_playlist_mood_playlist_id FOREIGN KEY (playlist_id) REFERENCES playlist(playlist_id),
+	CONSTRAINT fk_playlist_mood_mood_id FOREIGN KEY (mood_id) REFERENCES mood(mood_id)
+);
+
+
 	
 CREATE TABLE playlist_users (
 playlist_id bigint,

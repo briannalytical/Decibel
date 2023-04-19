@@ -2,7 +2,7 @@
   <div id="main">
     <div id="musicplayer">
          <!-- <MusicPlayer></MusicPlayer> -->
-         <SpotifyPlayback />
+        
 
     </div>
     <div id="header-section">
@@ -89,7 +89,7 @@
 <script>
 import SongListService from "@/services/SongListService";
 import SpeechRecognition from "@/components/SpeechRecognition.vue";
-import SpotifyPlayback from "@/components/SpotifyPlayback.vue";
+
 
 
 // import MusicPlayer from "@/components/MusicPlayer.vue";
@@ -99,10 +99,12 @@ export default {
     return {
       mood: [],
       moodId: "",
+      moodName:""
+  
     };
     
   },
-  components:{ SpeechRecognition, SpotifyPlayback
+  components:{ SpeechRecognition, 
   },
 
   created() {
@@ -123,10 +125,23 @@ export default {
       });
     },
     updateMood() {
-      this.$store.commit("SET_MOOD_ID", this.moodId);
+      let mood = ''
+      this.mood.forEach( (moodInMoods) => {
+        if (moodInMoods.moodId == this.moodId) {
+          mood = moodInMoods;
+        }
+      })
+      this.$store.commit("SET_MOOD", mood);
     },
     onMoodDetected(mood) {
       console.log("Detected mood:", mood);
+      const moodName = this.$route.params.mood;
+      this.$router.push({
+        name: "songs",
+        params: {
+          mood: moodName,
+        },
+      });
     },
   },
 };

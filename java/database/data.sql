@@ -116,18 +116,34 @@ INSERT INTO song(title, artist)
     VALUES ('Sparkle', 'Tetsuro Yamashita'), ('Colors','Black Pumas'), ('In Plain Sight','Kraak & Smaak'), ('Beauty and Essence','Free Nationals'),
     ('Aint Nobody Like You','Yung Bae'), ('Brick House','Commodores'), ('People Get Up and Drive Your Funky Soul','James Brown'),
     ('The Rubber Band Man','The Spinners'), ('Jungle Boogie','Kool & The Gang');
-
+	
 INSERT INTO song_genre (song_id, genre_id)
     VALUES (100,12), (101,12), (102,12), (103,12), (104,12), (105,12), (106,12), (107,12), (108,12);
 INSERT INTO song_mood (song_id, mood_id)
     VALUES (100,1), (101,2), (102,3), (103,4), (104,5), (105,6), (106,7), (107,8), (108,9);
 
 
-INSERT INTO playlist (playlist_name)
-VALUES ('Will'), ('JB'), ('BebeFinn');
+
+INSERT INTO playlist (playlist_name,playlist_url)
+VALUES ('Angry','https://open.spotify.com/embed/playlist/37i9dQZF1EIhuCNl2WSFYd?utm_source=generator&theme=0'),
+('Sad','https://open.spotify.com/embed/playlist/37i9dQZF1EIg6gLNLe52Bd?utm_source=generator&theme=0'),
+('Happy','https://open.spotify.com/embed/playlist/37i9dQZF1EIgG2NEOhqsD7?utm_source=generator&theme=0'),
+('Workout','https://open.spotify.com/embed/playlist/37i9dQZF1EIgSjgoYBB2M6?utm_source=generator&theme=0'),
+('Silly','https://open.spotify.com/embed/playlist/4OEt6ybaV4mNhOaxt95I9y?utm_source=generator&theme=0'),
+('Unhinged','https://open.spotify.com/embed/playlist/2Gn3C608EeMG0P1JPgUGAI?utm_source=generator&theme=0'),
+('Romantic','https://open.spotify.com/embed/playlist/37i9dQZF1EIfISqpNhcAN8?utm_source=generator&theme=0'),
+('Motivated','https://open.spotify.com/embed/playlist/37i9dQZF1EIh4zcdX2LJPS?utm_source=generator&theme=0'),
+('Chill','https://open.spotify.com/embed/playlist/37i9dQZF1EIelivQWnxTte?utm_source=generator&theme=0');
 
 INSERT INTO playlist_users (playlist_id, user_id)
 VALUES (1,1), (2,1),(3,1);
 
 INSERT INTO song_playlist (song_id, playlist_id)
  VALUES (100,2), (101,2), (102,2), (103,2), (104,2), (105,2), (106,2), (107,2), (108,2);
+ 
+ INSERT INTO playlist_mood (playlist_id, mood_id)
+    VALUES (1,3), (2,2),(3,1), (4,9), (5, 5), (6, 6), 
+	(7, 4), (8, 7), (9, 8);
+ 
+ 
+ 

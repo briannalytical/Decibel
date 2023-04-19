@@ -8,6 +8,17 @@ public class Playlist {
     public String playlistName;
     public int playlistId;
     public List<Song> songs;
+    public String playlistUrl;
+
+    public String getPlaylistUrl() {
+        return playlistUrl;
+    }
+
+    public void setPlaylistUrl(String playlistUrl) {
+        this.playlistUrl = playlistUrl;
+    }
+
+
 
     public String getPlaylistImage() {
         return playlistImage;

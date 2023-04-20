@@ -46,7 +46,7 @@ public class PlaylistController {
 
 
     @RequestMapping(path = "/playlist/image", method= RequestMethod.GET)
-    public Playlist getPlaylistImageByUserId(@RequestParam int playlistId, Principal user) {
+    public Playlist getPlaylistImageByPlaylistId(@RequestParam int playlistId, Principal user) {
         return playlistDao.getPlaylistImageByPlaylistId(playlistId);
     }
 

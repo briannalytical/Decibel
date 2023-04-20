@@ -33,7 +33,7 @@ public class JdbcPlaylistDao implements PlaylistDao {
         List<Song> songs = new ArrayList<>();
         Playlist playlist = new Playlist();
 
-        String sql = " SELECT playlist.playlist_id, playlist_name " +
+        String sql = " SELECT playlist.playlist_id, playlist_name, playlist_url " +
                 " FROM playlist_users " +
                 " JOIN playlist ON playlist_users.playlist_id = playlist.playlist_id " +
                 " WHERE user_id = ?";
@@ -41,6 +41,7 @@ public class JdbcPlaylistDao implements PlaylistDao {
         while (results.next()) {
             playlist = new Playlist();
             songs = new ArrayList<>();
+            playlist.setPlaylistUrl(results.getString("playlist_url"));
             playlist.setPlaylistId(results.getInt("playlist_id"));
             playlist.setPlaylistName(results.getString("playlist_name"));
 
@@ -99,7 +100,7 @@ public class JdbcPlaylistDao implements PlaylistDao {
         String sql6 = "UPDATE playlist " +
                 "SET playlist_name = ?, playlist_image=? " +
                 "WHERE playlist_id=?";
-        jdbcTemplate.update(sql6, playlist.getPlaylistName(), playlist.getPlaylistImage(), playlist.getPlaylistId());
+        jdbcTemplate.update(sql6, playlist.getPlaylistName(), playlist.getPlaylistImage(), playlist.getPlaylistId(), playlist.getPlaylistUrl());
     }
 
     @Override
@@ -117,6 +118,10 @@ public class JdbcPlaylistDao implements PlaylistDao {
         playlist.setPlaylistName(row.getString("playlist_name"));
         playlist.setPlaylistImage(row.getString("playlist_image"));
         playlist.setPlaylistId(row.getInt("playlist_id"));
+
+        playlist.setPlaylistUrl(row.getString("playlist_url"));
+
+
 
         return playlist;
     }

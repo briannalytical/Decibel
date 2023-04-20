@@ -12,10 +12,9 @@ export default {
         return axios.get(`/songs/moods/${id}`);
     },
 
-    getPlaylistById() {
-        return axios.get(`/playlist`);
+    getPlaylist(){
+        return axios.get(`/playlist`)
     },
-
     savePlaylist(playlist){
         return axios.post(`/playlist`,playlist)
     },

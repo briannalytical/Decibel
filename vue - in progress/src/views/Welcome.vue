@@ -117,7 +117,13 @@ export default {
       });
     },
     updateMood() {
-      this.$store.commit("SET_MOOD_ID", this.moodId);
+      let mood = {}
+      this.mood.forEach( (moodInArray) => {
+        if (moodInArray.moodId == this.moodId) {
+          mood = moodInArray
+        }
+      })
+      this.$store.commit("SET_MOOD", mood);
     },
     onMoodDetected(mood) {
       console.log("Detected mood:", mood);

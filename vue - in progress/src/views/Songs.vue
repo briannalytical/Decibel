@@ -1,12 +1,7 @@
 <template>
 
   <div>
-  
-    
-    
-    <div class="playlist-url" v-for="currentPlaylist in filterPlaylist" v-bind:key="currentPlaylist.id">
-      <iframe style="border-radius:12px" v-bind:src="currentPlaylist.playlistUrl" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
+   <div class="playlist-url" v-for="currentPlaylist in filterPlaylist" v-bind:key="currentPlaylist.id">
   <div id="main">
     <div id="these-darn-buttons">
       <back-button></back-button>
@@ -14,18 +9,10 @@
     </div>
 
     <div class="player-container">
-      <iframe
-        src="https://open.spotify.com/embed/playlist/37i9dQZF1EIcpc1Z28flXB?utm_source=generator&theme=0"
-        width="100%"
-        height="auto"
-        frameBorder="0"
-        allowfullscreen=""
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      >
-      </iframe>
-
+       <iframe style="border-radius:12px" v-bind:src="currentPlaylist.playlistUrl" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
     </div>
+</div>
 </div>
     
   </div>

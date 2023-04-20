@@ -21,7 +21,8 @@ export default new Vuex.Store({
       playlistName: "",
       songs: [],
       playlistImage: "",
-      playlistId: ""
+      playlistId: "",
+      playlistUrl: ""
     }
   },
   mutations: {

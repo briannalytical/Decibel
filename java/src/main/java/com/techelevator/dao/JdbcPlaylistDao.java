@@ -66,9 +66,9 @@ public class JdbcPlaylistDao implements PlaylistDao {
 
     @Override
     public void savePlaylist(Playlist playlist, int userId) {
-        String sql3 = "INSERT INTO playlist (playlist_name) " +
-                "VALUES (?) RETURNING playlist_id";
-        int playlistId = jdbcTemplate.queryForObject(sql3, Integer.class, playlist.getPlaylistName());
+        String sql3 = "INSERT INTO playlist (playlist_name, playlist_url) " +
+                "VALUES (?,?) RETURNING playlist_id";
+        int playlistId = jdbcTemplate.queryForObject(sql3, Integer.class, playlist.getPlaylistName(), playlist.getPlaylistUrl());
 
         String sql4 = "INSERT INTO playlist_users (playlist_id, user_id) " +
                 "VALUES (?,?)";

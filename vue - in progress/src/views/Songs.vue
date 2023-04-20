@@ -8,6 +8,7 @@
       <div id="main">
         <div id="these-darn-buttons">
           <back-button></back-button>
+          <!-- <back-button/> -->
           <save-button></save-button>
         </div>
         <div class="player-container">
@@ -15,7 +16,7 @@
             style="border-radius: 12px"
             v-bind:src="currentPlaylist.playlistUrl"
             width="100%"
-            height="352"
+            height="100%"
             frameBorder="0"
             allowfullscreen=""
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -30,19 +31,18 @@
 import SaveButton from "../components/SaveButton.vue";
 import BackButton from "../components/BackButton.vue";
 import SongListService from "../services/SongListService";
+
 export default {
   components: {
-        BackButton,
-        SaveButton,
-      },
+    BackButton,
+    SaveButton,
+  },
   data() {
     return {
       songs: [],
       playlist: [],
       currentPlaylist: "",
-      mood: { mood: "" },
-
-      
+      mood: {},
       speech: "",
     };
   },
@@ -51,11 +51,12 @@ export default {
       .then((response) => {
         this.playlist = response.data;
         this.mood = this.$store.state.moodId;
+        this.$store.state.playlist = this.playlist.filter((playlist) => {
+          return playlist.playlistName.toLowerCase() == this.mood.mood;
+        })[0];
       })
-      .catch((err) => {
-        console.error(err);
-        this.speech = this.$store.state.speech;
-      });
+      .catch((err) => console.error(err));
+    this.speech = this.$store.state.speech;
   },
   computed: {
     filterPlaylist() {

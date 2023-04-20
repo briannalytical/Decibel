@@ -1,37 +1,39 @@
 <template>
   <div id="main">
     <div id="record-collection-prime">
-    <div id="record-collection1">
-      <div id="albums1">
-        <img src="../assets/Cash.jpg" /><img src="../assets/Bad.jpg" /><img
-          src="../assets/Beauty.png"
-        /><img src="../assets/Gran.jpg" />
+      <div id="record-collection1">
+        <div id="albums1">
+          <img src="../assets/Cash.jpg" /><img src="../assets/Bad.jpg" /><img
+            src="../assets/Beauty.png"
+          /><img src="../assets/Gran.jpg" />
+        </div>
+        <div id="albums2">
+          <img src="../assets/Guy.jpg" /><img src="../assets/Bey.jpg" /><img
+            src="../assets/RTJ4.jpg"
+          />
+        </div>
+        <div id="albums3">
+          <img src="../assets/Nyan.jpg" /><img src="../assets/Jimmy.jpg" />
+        </div>
       </div>
-      <div id="albums2">
-        <img src="../assets/Guy.jpg" /><img src="../assets/Bey.jpg" /><img
-          src="../assets/RTJ4.jpg"
-        />
-      </div>
-      <div id="albums3">
-        <img src="../assets/Nyan.jpg" /><img src="../assets/Jimmy.jpg" />
-      </div>
-    </div>
 
-    <div id="record-collection2">
-      <div id="albums4">
-        <img src="../assets/Roots.jpg" /><img src="../assets/Snake.jpg" />
+      <img id="purp-logo" src="../assets/DBLogo-purple.png" />
+
+      <div id="record-collection2">
+        <div id="albums4">
+          <img src="../assets/Roots.jpg" /><img src="../assets/Snake.jpg" />
+        </div>
+        <div id="albums5">
+          <img src="../assets/Whitehorse.jpg" /><img
+            src="../assets/Panic.jpg"
+          /><img src="../assets/IMG_0984.jpg" />
+        </div>
+        <div id="albums6">
+          <img src="../assets/IMG_0994.jpg" /><img
+            src="../assets/ODB.jpg"
+          /><img src="../assets/Swift.jpg" /><img src="../assets/Snoop.jpg" />
+        </div>
       </div>
-      <div id="albums5">
-        <img src="../assets/Whitehorse.jpg" /><img
-          src="../assets/Panic.jpg"
-        /><img src="../assets/IMG_0984.jpg" />
-      </div>
-      <div id="albums6">
-        <img src="../assets/IMG_0994.jpg" /><img src="../assets/ODB.jpg" /><img
-          src="../assets/Swift.jpg"
-        /><img src="../assets/Snoop.jpg" />
-      </div>
-    </div>
     </div>
 
     <div id="login">
@@ -116,7 +118,12 @@ export default {
 <style scoped>
 #main {
   height: 100vh;
-  
+}
+
+#purp-logo {
+  display:flex;
+  width: 255px;
+  height: 255px;
 }
 
 #bottom-part {
@@ -124,7 +131,7 @@ export default {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-    background-color: #52525270;
+  background-color: #52525270;
   border: solid 2px#525252;
   width: 25vw;
   height: 88px;
@@ -136,7 +143,7 @@ export default {
   align-content: center;
   justify-content: center;
   align-items: center;
-    background-color: #52525270;
+  background-color: #52525270;
   border: solid 2px#525252;
   width: 25vw;
   height: 88px;
@@ -169,13 +176,9 @@ form {
 #record-collection-prime {
   display: flex;
   justify-content: center;
-  gap: 20%;
-  padding-top: 1px;
-   height: 100vh;
-  background-image: url("../assets/DBLogo-purple.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 15%;
+  align-items: center;
+  gap: 150px;
+  height: 100vh;
   background-color: rgb(0, 0, 0);
 }
 #record-collection1 {
@@ -195,7 +198,6 @@ form {
 }
 
 #albums1 {
-
   display: inline-flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -204,7 +206,6 @@ form {
   /* align-self: flex-start; */
 }
 #albums2 {
-
   display: inline-flex;
   flex-direction: column;
   width: 150px;
@@ -212,7 +213,6 @@ form {
   /* padding-bottom: 50px; */
 }
 #albums3 {
-
   display: inline-flex;
   flex-direction: column;
   width: 150px;
@@ -220,7 +220,6 @@ form {
   /* align-self: flex-start; */
 }
 #albums4 {
-
   display: inline-flex;
   flex-direction: column;
   width: 150px;
@@ -228,7 +227,6 @@ form {
   /* padding-bottom: 315px; */
 }
 #albums5 {
-
   display: inline-flex;
   flex-direction: column;
   width: 150px;
@@ -236,7 +234,6 @@ form {
   /* align-self: flex-start; */
 }
 #albums6 {
-
   display: inline-flex;
   flex-direction: column;
   width: 150px;

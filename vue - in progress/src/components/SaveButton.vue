@@ -1,17 +1,16 @@
 <template>
   <div class="songlist">
     <button class="save-button" v-on:click="showForm = !showForm">
-      &#8595; Save Playlist
+     Save Playlist &#x2192;
     </button>
-    <form v-show="showForm" v-on:submit.prevent="savePlaylist">
+    <form class="form" v-show="showForm" v-on:submit.prevent="savePlaylist">
       <input
         type="text"
         placeholder="Playlist Name"
-        class="playlist-name"
+        class="playlist-name-input"
         required
-        v-model="playlist.playlistName"
-      /><br />
-      <button type="submit" class="submit-save">Go!</button>
+        v-model="playlist.playlistName" />
+      <button type="submit" class="submit-save">Save!</button>
     </form>
   </div>
 </template>

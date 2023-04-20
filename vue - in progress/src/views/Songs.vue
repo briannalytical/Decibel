@@ -71,6 +71,7 @@ export default {
   margin-bottom: 20px;
   width: 25vw;
 }
+
 iframe {
   border: solid 2px #feba4c;
   border-radius: 4%;

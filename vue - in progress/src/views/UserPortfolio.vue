@@ -2,7 +2,8 @@
   <div>
     <div id="prime">
     <div id="main-1">
-      <img v-bind:src="require('../assets/user-profile.png')" />
+      <img v-if="userImageUrl != null" v-bind:src="userImageUrl" />
+      <img v-else v-bind:src="require('../assets/user-profile.png')" />
       <button v-on:click.prevent="uploadPhoto">Upload User Picture</button>
       <div id="user-info">
         <!-- <h2>User Info</h2> -->
@@ -26,11 +27,14 @@ export default {
   data() {
     return {
       playlist: [],
+      userImageUrl: null
     };
   },
 
   name: "savelist",
   created() {
+    this.getProfilePhoto()
+
     SongListService.getPlaylistById()
       .then((response) => {
         this.playlist = response.data;
@@ -39,16 +43,39 @@ export default {
   },
   components: { PlaylistAccordion },
   methods: {
+    getProfilePhoto() {
+      SongListService.getUserProfile()
+      .then(response => {
+        if (response.status != 200) {
+          //TODO: error
+          return
+        }
+
+        this.userImageUrl = response.data["userProfilePicture"]
+      })
+    },
     uploadPhoto() {
       window.cloudinary
         .openUploadWidget(
           {
-            cloud_name: "<your-cloud-name>",
-            upload_preset: "<your-upload-preset>",
+            cloud_name: "dhneofixj",
+            upload_preset: "ml_default",
           },
           (error, result) => {
             if (!error && result && result.event === "success") {
-              console.log("Done uploading..: ", result.info);
+              console.log("Done uploading..: ", result.info.url);
+
+              // Send the uploaded image URL to the backend
+              SongListService.updateUserProfile(result.info.url)
+              .then(response => {
+                if (response.status != 200) {
+                  //TODO: error
+                  return
+                }
+
+                // Set the newly uploaded photo
+                this.userImageUrl = result.info.url
+              })
             }
           }
         )

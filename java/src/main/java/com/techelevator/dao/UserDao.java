@@ -18,7 +18,5 @@ public interface UserDao {
 
     void updateUserImage(String userImage, int userId);
 
-    User getPlaylistByUserId (int userId);
-
-    void updateUserProfilePicture(String userProfilePicture, int idByUsername);
+    String getUserImage(int userId);
 }

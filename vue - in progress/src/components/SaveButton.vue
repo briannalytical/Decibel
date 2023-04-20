@@ -1,9 +1,16 @@
 <template>
   <div class="songlist">
-
-<button class="save-button" v-on:click="showForm = !showForm">&#8595; Save</button>
+    <button class="save-button" v-on:click="showForm = !showForm">
+      &#8595; Save Playlist
+    </button>
     <form v-show="showForm" v-on:submit.prevent="savePlaylist">
-      <input type="text" placeholder="Playlist Name" class="playlist-name" required v-model="playlist.playlistName"><br>
+      <input
+        type="text"
+        placeholder="Playlist Name"
+        class="playlist-name"
+        required
+        v-model="playlist.playlistName"
+      /><br />
       <button type="submit" class="submit-save">Go!</button>
     </form>
   </div>
@@ -22,7 +29,7 @@ export default {
         }
       });
       return songs;
-    }
+    },
   },
   components: {},
   data() {
@@ -31,12 +38,11 @@ export default {
       playlist: {
         playlistName: "",
         songs: [],
-        playlistId:"",
-        playlistImage:""
-
+        playlistId: "",
+        playlistImage: "",
       },
       showForm: false,
-      moodSongs: ""
+      moodSongs: "",
     };
   },
   created() {
@@ -51,18 +57,16 @@ export default {
         this.mood = response.data;
       })
       .catch((err) => console.error(err));
-
-
   },
- 
-     methods: {
+
+  methods: {
     savePlaylist() {
-       const songs = this.songs.filter((song) => {
+      const songs = this.songs.filter((song) => {
         if (song.moodId == this.$store.state.moodId) {
           return true;
         }
       });
-      this.playlist.songs = songs
+      this.playlist.songs = songs;
       SongListService.savePlaylist(this.playlist)
         .then((response) => {
           this.playlist = response.data;
@@ -72,7 +76,7 @@ export default {
         })
         .catch((err) => console.error(err));
     },
-}
+  },
 };
 </script>
 

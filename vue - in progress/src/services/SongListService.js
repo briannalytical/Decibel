@@ -23,7 +23,11 @@ export default {
         return axios.put(`/playlist`,playlist)
     },
 
-    updateUserProfile(){
-        return axios.put(`/users`)
+    updateUserProfile(imageUrl){
+        return axios.put(`/users`, {"userProfilePicture": imageUrl})
+    },
+
+    getUserProfile() {
+        return axios.get('/users')
     }
 }

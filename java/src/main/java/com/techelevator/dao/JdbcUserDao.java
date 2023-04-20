@@ -91,6 +91,16 @@ public class JdbcUserDao implements UserDao {
         jdbcTemplate.update(sql10, userImage, userId);
     }
 
+    @Override
+    public User getPlaylistByUserId(int userId) {
+        return null;
+    }
+
+    @Override
+    public void updateUserProfilePicture(String userProfilePicture, int idByUsername) {
+
+    }
+
 
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();

@@ -105,8 +105,10 @@ const router = new Router({
         requiresAuth: false
       }
     },
-   {
-      path: "/users",
+    {
+      path: "/user",
+   
+      // path: "/users",
 
       name: "user-profile",
       component: UserPortfolio,

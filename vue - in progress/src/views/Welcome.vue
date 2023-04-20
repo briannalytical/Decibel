@@ -1,10 +1,5 @@
 <template>
   <div id="main">
-    <div id="musicplayer">
-         <!-- <MusicPlayer></MusicPlayer> -->
-        
-
-    </div>
     <div id="header-section">
       <div id="logo-fun">
         <img id="logo-jazz" v-bind:src="require('../assets/DBLogo-wht.png')" />
@@ -20,7 +15,7 @@
       <p>How would you like to generate your playlist?</p>
     </div>
     <div id="speech-box">
-      <h2>Tell us how you feel.</h2>
+      <h2 id="talk-to-me">Tell us how you feel.</h2>
       <speech-recognition @mood-detected="onMoodDetected"></speech-recognition>
     </div>
     <p class="or">Or</p>
@@ -91,7 +86,6 @@ import SongListService from "@/services/SongListService";
 import SpeechRecognition from "@/components/SpeechRecognition.vue";
 
 
-
 // import MusicPlayer from "@/components/MusicPlayer.vue";
 // import SongList from "@/components/SongList";
 export default {
@@ -99,12 +93,10 @@ export default {
     return {
       mood: [],
       moodId: "",
-      moodName:""
-  
     };
     
   },
-  components:{ SpeechRecognition, 
+  components:{ SpeechRecognition,
   },
 
   created() {
@@ -125,26 +117,48 @@ export default {
       });
     },
     updateMood() {
-      let mood = ''
-      this.mood.forEach( (moodInMoods) => {
-        if (moodInMoods.moodId == this.moodId) {
-          mood = moodInMoods;
-        }
-      })
-      this.$store.commit("SET_MOOD", mood);
+      this.$store.commit("SET_MOOD_ID", this.moodId);
     },
     onMoodDetected(mood) {
       console.log("Detected mood:", mood);
-      const moodName = this.$route.params.mood;
-      this.$router.push({
-        name: "songs",
-        params: {
-          mood: moodName,
-        },
-      });
     },
   },
 };
 </script>
-<style>
+<style scoped>
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 4em;
+    
+}
+
+#main {
+  padding-top: 180px;
+}
+
+#talk-to-me {
+margin-top: 100px;
+}
+h2 {
+    font-family: 'Sofia Sans Condensed', sans-serif;
+    color:white;
+    
+    text-align: center;
+    font-size: 1.5em;
+}
+
+
+.or {
+    font-family: 'Oswald', sans-serif;
+    color:white;
+    font-size: 1.5em;
+    text-align: center;
+    margin-left: 11vw;
+    margin-right: 11vw;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 </style>

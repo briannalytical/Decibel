@@ -157,6 +157,7 @@ body {
 	text-align: center;
 	font-family: Josefin Sans;
 }
+
 #infoPage.active{
 	height: 500px;
     }

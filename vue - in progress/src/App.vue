@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <nav class="navigationWrapper">
-          <a href="http://localhost:8080/welcome"><img id="header-logo" v-bind:src="require('./assets/DBLogo-wht.png')" /></a>
+          <a href="http://localhost:8080/welcome"><img id="header-logo" v-bind:src="require('./assets/DBLogo-gold.png')" /><img id="header-logo2" v-bind:src="require('./assets/DBLogo-txt-only.png')" /></a>
         <ul class="navigation">
           <router-link v-bind:to="{ name: 'home' }">Home</router-link
           >&nbsp;|&nbsp;

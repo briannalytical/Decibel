@@ -10,3 +10,9 @@ export default {
   name: "home"
 };
 </script>
+
+<style scoped>
+.home {
+  padding-top: 180px;
+}
+</style>

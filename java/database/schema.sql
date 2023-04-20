@@ -66,7 +66,8 @@ CREATE TABLE playlist (
 	playlist_url varchar (10000),
 	playlist_name varchar (200),
 	CONSTRAINT PK_playlist PRIMARY KEY (playlist_id)
-	);
+);
+	
 CREATE TABLE playlist_mood (
 	playlist_id bigint,
 	mood_id bigint,

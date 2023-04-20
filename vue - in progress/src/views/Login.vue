@@ -29,14 +29,14 @@
       <div id="albums6">
         <img src="../assets/IMG_0994.jpg" /><img src="../assets/ODB.jpg" /><img
           src="../assets/Swift.jpg"
-        /><img src="../assets/ManMan.jpg" />
+        /><img src="../assets/Snoop.jpg" />
       </div>
     </div>
     </div>
 
     <div id="login">
       <form @submit.prevent="login">
-        <h1>Listen,</h1>
+        <h1>Listen, bitch.</h1>
         <div role="alert" v-if="invalidCredentials">
           Invalid username and password!
         </div>
@@ -146,8 +146,6 @@ export default {
 h1 {
   color: #ffefd5;
   font-family: serif;
-    background-color: #52525270;
-  border: solid 2px#525252;
   font-size: 5em;
   letter-spacing: 2px;
   text-align: center;

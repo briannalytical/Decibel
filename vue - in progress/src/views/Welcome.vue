@@ -117,7 +117,13 @@ export default {
       });
     },
     updateMood() {
-      this.$store.commit("SET_MOOD_ID", this.moodId);
+      let mood = {}
+      this.mood.forEach( (moodInArray) => {
+        if (moodInArray.moodId == this.moodId) {
+          mood = moodInArray
+        }
+      })
+      this.$store.commit("SET_MOOD", mood);
     },
     onMoodDetected(mood) {
       console.log("Detected mood:", mood);
@@ -131,25 +137,19 @@ h1 {
     font-weight: bold;
     text-align: center;
     font-size: 4em;
-    
 }
-
 #main {
   padding-top: 180px;
 }
-
 #talk-to-me {
 margin-top: 100px;
 }
 h2 {
     font-family: 'Sofia Sans Condensed', sans-serif;
     color:white;
-    
     text-align: center;
     font-size: 1.5em;
 }
-
-
 .or {
     font-family: 'Oswald', sans-serif;
     color:white;
@@ -160,5 +160,4 @@ h2 {
     margin-top: 30px;
     margin-bottom: 30px;
 }
-
 </style>

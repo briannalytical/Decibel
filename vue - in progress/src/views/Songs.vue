@@ -1,20 +1,30 @@
 <template>
   <div>
-
-
-
-   <div class="playlist-url" v-for="currentPlaylist in filterPlaylist" v-bind:key="currentPlaylist.id">
-  <div id="main">
-    <div id="these-darn-buttons">
-      <back-button></back-button>
-      <!-- <back-button/> -->
-      <save-button></save-button>
+    <div
+      class="playlist-url"
+      v-for="currentPlaylist in filterPlaylist"
+      v-bind:key="currentPlaylist.id"
+    >
+      <div id="main">
+        <div id="these-darn-buttons">
+          <back-button></back-button>
+          <!-- <back-button/> -->
+          <save-button></save-button>
+        </div>
+        <div class="player-container">
+          <iframe
+            style="border-radius: 12px"
+            v-bind:src="currentPlaylist.playlistUrl"
+            width="100%"
+            height="100%"
+            frameBorder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
     </div>
-    <div class="player-container">
-       <iframe style="border-radius:12px" v-bind:src="currentPlaylist.playlistUrl" width="100%" height="100%" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
-</div>
-</div>
   </div>
 </template>
 <script>
@@ -23,17 +33,17 @@ import BackButton from "../components/BackButton.vue";
 import SongListService from "../services/SongListService";
 
 export default {
-        components: {
-        BackButton,
-        SaveButton,
-      },
+  components: {
+    BackButton,
+    SaveButton,
+  },
   data() {
     return {
       songs: [],
       playlist: [],
       currentPlaylist: "",
       mood: {},
-
+      speech: "",
     };
   },
   created() {
@@ -41,11 +51,12 @@ export default {
       .then((response) => {
         this.playlist = response.data;
         this.mood = this.$store.state.moodId;
-         this.$store.state.playlist = this.playlist.filter((playlist) => {
-        return playlist.playlistName.toLowerCase() == this.mood.mood;
-      })[0];
+        this.$store.state.playlist = this.playlist.filter((playlist) => {
+          return playlist.playlistName.toLowerCase() == this.mood.mood;
+        })[0];
       })
       .catch((err) => console.error(err));
+    this.speech = this.$store.state.speech;
   },
   computed: {
     filterPlaylist() {
@@ -65,7 +76,7 @@ export default {
   width: 25vw;
 }
 iframe {
-  border: solid 2px #FEBA4C;
+  border: solid 2px #feba4c;
   border-radius: 4%;
 }
 .player-container {

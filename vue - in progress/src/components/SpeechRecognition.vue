@@ -38,6 +38,7 @@ export default {
                 const transcript = latestResult[0].transcript.trim();
                 if (latestResult.isFinal) {
                     this.speechResult = transcript;
+                    this.$store.commit('SET_SPEECH', this.speechResult);
                     this.stopRecognition();
                     this.$emit("mood-detected", transcript);
                 }

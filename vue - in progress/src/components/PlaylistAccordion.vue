@@ -1,5 +1,5 @@
 <template>
-  <div id="save-list-main">
+  <div id="PlaylistAccordion-case">
     <div class="accordion" role="tablist">
       <b-card
         no-body
@@ -98,9 +98,6 @@ export default {
 </script>
 
 <style scoped>
-.btn {
-  display: flex;
-}
 
 .b-button {
   display: flex;
@@ -115,4 +112,49 @@ export default {
   width: 50px;
   padding-right: 10px;
 }
+.collapsed-items {
+    background-color: #525252;
+    border: none;
+    color: papayawhip;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.accordion {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    align-content: center;
+    justify-content: center;
+}
+.btn-info { 
+    background: #6e61d5;
+    height: 40px;
+    width: 100%;
+    border: none;
+    color:#f9e47f;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.btn-info:focus {
+    background: #8324ac;
+}  
+
+.btn-info:hover {
+      background: #8324ac;
+}
+
+.mb-1 {
+  background-color: rgba(255, 0, 0, 0);
+  border: none;
+}
+
+.card-header {
+  border: none;
+  background-color: rgba(255, 0, 0, 0);
+}
+
 </style>

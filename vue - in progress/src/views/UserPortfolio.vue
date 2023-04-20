@@ -1,62 +1,43 @@
 <template>
-  <main id="main-flex">
-    <div id="user-picture">
+  <div>
+    <div id="prime">
+    <div id="main-1">
       <img v-bind:src="require('../assets/user-profile.png')" />
-
       <button v-on:click.prevent="uploadPhoto">Upload User Picture</button>
+      <div id="user-info">
+        <!-- <h2>User Info</h2> -->
+      </div>
     </div>
 
-    <div id="username">
-      <h1>Username</h1>
+    <div id="accordion-case">
+      <h1 id="username">Username</h1>
+      <p>Your Playlists</p>
+      <PlaylistAccordion />
     </div>
-
-    <div id="user-info">
-      <h2>User Info</h2>
-    </div>
-<PlaylistAccordian />
-    <!-- <div id="playlist-image">
-      <img v-bind:src="require('../assets/music-placeholder.png')" />
-      <p>playlistImage</p>
-      <img v-bind:src="require('../assets/music-placeholder.png')" />
-      <p>playlistImage</p>
-      <img v-bind:src="require('../assets/music-placeholder.png')" />
-      <p>playlistImage</p>
-      <img v-bind:src="require('../assets/music-placeholder.png')" />
-      <p>playlistImage</p>
-    </div>
-    <div id="playlist-name">
-      <p>Name</p>
-      <p>Name</p>
-      <p>Name</p>
-      <p>Name</p>
-    </div> -->
-    
-  </main>
+  </div>
+  </div>
 </template>
 
 <script>
-import PlaylistAccordian from "@/components/PlaylistAccordian";
+import PlaylistAccordion from "@/components/PlaylistAccordion";
 import SongListService from "@/services/SongListService";
 // import SongList from '@/components/SongList'
 export default {
   data() {
     return {
       playlist: [],
-    }
+    };
   },
 
-    name: 'savelist',
-     created() {
-      
-
+  name: "savelist",
+  created() {
     SongListService.getPlaylistById()
       .then((response) => {
         this.playlist = response.data;
       })
       .catch((err) => console.error(err));
-     },
-  components: { PlaylistAccordian,
-},
+  },
+  components: { PlaylistAccordion },
   methods: {
     uploadPhoto() {
       window.cloudinary
@@ -79,38 +60,48 @@ export default {
 
 
 <style scoped>
-main #main-flex {
+#username {
   display: flex;
-  justify-content: flex-start;
+  font-family: serif;
+  color:#ffefd5;
+  font-size: 10em;
+  margin-bottom: 150px;
+  letter-spacing: 5px;
+}
+
+#accordion-case {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+  height: 100%;
+}
+
+#main-1 {
+  flex-direction: column;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 15px;
+ padding-left: 25px;
+}
+
+#spacer {
+  width: 14vw;
+}
+
+#prime {
+  display:flex;
   align-items: flex-start;
-  flex-direction: row;
-  flex-wrap: nowrap;
 }
 
-#user-picture {
-  display: flex;
+p {
+  font-family: "Oswald", sans-serif;
+  font-size: 2em;
+  border-bottom: solid 1.5px #ffefd5;
+  color:#ffefd5;
 }
-
-h1 {
-  display: flex;
-  font-size: 4em;
-}
-/* 
-h2 {
-  display: flex;
-  font-size: 1.8em;
-  line-height: 1.45em;
-}
-#upload-button-playlist-image{
-
-#user-picture img {
-  display: flex;
-  width: 20vw;
-  height: 35vh;
-  border-radius: 50%;
-} */
-
-
 
 </style>
 

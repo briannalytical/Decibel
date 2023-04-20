@@ -1,10 +1,5 @@
 <template>
   <div id="main">
-    <div id="musicplayer">
-         <!-- <MusicPlayer></MusicPlayer> -->
-         <SpotifyPlayback />
-
-    </div>
     <div id="header-section">
       <div id="logo-fun">
         <img id="logo-jazz" v-bind:src="require('../assets/DBLogo-wht.png')" />
@@ -20,7 +15,7 @@
       <p>How would you like to generate your playlist?</p>
     </div>
     <div id="speech-box">
-      <h2>Tell us how you feel.</h2>
+      <h2 id="talk-to-me">Tell us how you feel.</h2>
       <speech-recognition @mood-detected="onMoodDetected"></speech-recognition>
     </div>
     <p class="or">Or</p>
@@ -89,7 +84,6 @@
 <script>
 import SongListService from "@/services/SongListService";
 import SpeechRecognition from "@/components/SpeechRecognition.vue";
-import SpotifyPlayback from "@/components/SpotifyPlayback.vue";
 
 
 // import MusicPlayer from "@/components/MusicPlayer.vue";
@@ -102,7 +96,7 @@ export default {
     };
     
   },
-  components:{ SpeechRecognition, SpotifyPlayback
+  components:{ SpeechRecognition,
   },
 
   created() {
@@ -131,5 +125,35 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 4em;
+    
+}
+
+#talk-to-me {
+margin-top: 100px;
+}
+h2 {
+    font-family: 'Sofia Sans Condensed', sans-serif;
+    color:#ffefd5;
+    
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.or {
+    font-family: 'Oswald', sans-serif;
+    color:#ffefd5;
+    font-size: 1.5em;
+    text-align: center;
+    margin-left: 11vw;
+    margin-right: 11vw;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 </style>

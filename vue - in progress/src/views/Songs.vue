@@ -1,29 +1,63 @@
 <template>
-  <div>
-   
-    <div class="back-button-container">
+  <div id="main">
+    <div id="these-darn-buttons">
       <back-button></back-button>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1EIcpc1Z28flXB?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-      </iframe>
-    
+      <save-button></save-button>
     </div>
+
+    <div class="player-container">
+      <iframe
+        src="https://open.spotify.com/embed/playlist/37i9dQZF1EIcpc1Z28flXB?utm_source=generator&theme=0"
+        width="100%"
+        height="auto"
+        frameBorder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      >
+      </iframe>
+    </div>
+
+    
   </div>
 </template>
 
 <script>
-
+import SaveButton from "../components/SaveButton.vue";
 import BackButton from "../components/BackButton.vue";
-
 
 export default {
   components: {
-  
     BackButton,
-   
+    SaveButton,
   },
 };
 </script>
 
 <style scoped>
+
+#these-darn-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  width: 25vw;
+}
+
+iframe {
+  border: solid 2px #feba4c;
+  border-radius: 4%;
+}
+
+.player-container {
+  display: flex;
+  width: 45vw;
+  height: 45vh;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 </style>

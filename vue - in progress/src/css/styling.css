@@ -15,13 +15,7 @@ a:active {
     color: #8324ac;
 }
 
-.accordion {
-    display: flex;
-    flex-direction: column;
-    width: 50vw;
-    align-content: center;
-    justify-content: center;
-}
+
 
 .and {
     /* flex-grow: 3; */
@@ -63,22 +57,7 @@ body {
     background-color: #525252;
 }
 
-.btn-info { 
-    background: #6e61d5;
-    height: 40px;
-    border: none;
-    color:#f9e47f;
-    font-size: 1.5em;
-    font-weight: bold;
-}
 
-.btn-info:focus {
-    background: #8324ac;
-}  
-
-.btn-info:hover {
-      background: #8324ac;
-}
 
 button {
     font-family: 'Sofia Sans Condensed', sans-serif;
@@ -122,15 +101,7 @@ button:hover {
     margin-top: 4vh;    
 }
 
-.collapsed-items {
-    background-color: #525252;
-    border: none;
-    color: papayawhip;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s, color 0.3s;
-}
+
 
 #dropdown-section-one {
     
@@ -195,20 +166,9 @@ font-family: 'Londrina Solid', cursive;
 
 font-family: 'Sofia Sans Condensed', sans-serif; */
 
-h1 {
-    font-family: 'Oswald', sans-serif;
-    font-weight: bold;
-    text-align: center;
-    
-}
 
-h2 {
-    font-family: 'Sofia Sans Condensed', sans-serif;
-    color:white;
-    margin-top: 2vh;
-    text-align: center;
-    font-size: 1.5em;
-}
+
+
 
 #header-logo {
     height: 80px;
@@ -227,6 +187,7 @@ h2 {
     align-content: space-around;
     height: 15rlh;
     color:white;
+   
 }
 
 
@@ -359,13 +320,6 @@ justify-content: center;
     margin-bottom: 25px;    
 }
 
-.or {
-    color:white;
-    font-size: 1.5em;
-    text-align: center;
-    margin-left: 11vw;
-    margin-right: 11vw;
-}
 
 .or-selector {
         background-color: #8bad919c;
@@ -391,26 +345,7 @@ justify-content: center;
     align-self: auto;
 }
 
-.save-button {
-    background-color: #F8F9FA;
-    border: none;
-    color: #077BFF;
-    padding-left: 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s, color 0.3s;
-}
 
-.save-button:hover {
-    background-color: #077BFF;
-    color: #FFFFFF;
-}
-
-.save-button:hover {
-    background-color: #077bff;
-    color: #ffffff;
-}
 
 #save-list-main {
     display: flex;
@@ -432,14 +367,11 @@ justify-content: center;
     justify-content:center;
 }
 
-#spacer {
-    width: 10vw;
-}
+
 
 .speech-recognition {
     display: flex;
     justify-content: center;
-    margin-bottom: 2rem;
 }
 
 .speech-box {
@@ -451,7 +383,7 @@ justify-content: center;
     /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
     width: 50vw;
     justify-content: center;
-    gap: 25px;
+    gap: 80px;
     
 }
 

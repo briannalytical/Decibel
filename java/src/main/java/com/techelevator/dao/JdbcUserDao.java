@@ -92,15 +92,16 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public User getPlaylistByUserId(int userId) {
+    public String getUserImage(int userId) {
+        String sql = "SELECT user_image " +
+                "FROM users " +
+                "WHERE user_id = ? ";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+        if (results.next()) {
+            return results.getString("user_image");
+        }
         return null;
     }
-
-    @Override
-    public void updateUserProfilePicture(String userProfilePicture, int idByUsername) {
-
-    }
-
 
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();

@@ -1,10 +1,16 @@
 <template>
   <div class="songlist">
-
-<button class="save-button" v-on:click="showForm = !showForm">&#8595; Save</button>
-    <form v-show="showForm" v-on:submit.prevent="savePlaylist">
-      <input type="text" placeholder="Playlist Name" class="playlist-name" required v-model="playlist.playlistName"><br>
-      <button type="submit" class="submit-save">Go!</button>
+    <button class="save-button" v-on:click="showForm = !showForm">
+     Save Playlist &#x2192;
+    </button>
+    <form class="form" v-show="showForm" v-on:submit.prevent="savePlaylist">
+      <input
+        type="text"
+        placeholder="Playlist Name"
+        class="playlist-name-input"
+        required
+        v-model="playlist.playlistName" />
+      <button type="submit" class="submit-save">Save!</button>
     </form>
   </div>
 </template>
@@ -22,7 +28,7 @@ export default {
         }
       });
       return songs;
-    }
+    },
   },
   components: {},
   data() {
@@ -31,13 +37,12 @@ export default {
       playlist: {
         playlistName: "",
         songs: [],
-        playlistId:"",
-        playlistImage:""
-
+        playlistId: "",
+        playlistImage: "",
       },
       playlistToAdd: {},
       showForm: false,
-      moodSongs: ""
+      moodSongs: "",
     };
   },
   created() {
@@ -52,11 +57,9 @@ export default {
         this.mood = response.data;
       })
       .catch((err) => console.error(err));
-
-
   },
- 
-     methods: {
+
+  methods: {
     savePlaylist() {
       this.playlistToAdd = this.$store.state.playlist
       this.playlistToAdd.playlistName = this.playlist.playlistName
@@ -69,7 +72,7 @@ export default {
         })
         .catch((err) => console.error(err));
     },
-}
+  },
 };
 </script>
 

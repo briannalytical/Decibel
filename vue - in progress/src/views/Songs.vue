@@ -86,6 +86,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 #these-darn-buttons {
   display: flex;
@@ -93,6 +94,7 @@ export default {
   margin-bottom: 20px;
   width: 25vw;
 }
+
 iframe {
   border: solid 2px #feba4c;
   border-radius: 4%;
@@ -110,10 +112,6 @@ iframe {
   padding-top: 180px;
 }
 </style>
-
-
-
-
 
 
 

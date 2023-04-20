@@ -95,6 +95,7 @@ public class JdbcPlaylistDao implements PlaylistDao {
         jdbcTemplate.queryForRowSet(sql7, playlistName, playlistId);
     }
 
+    // this is to update playlist image and name, but the playlist_name has now been changed to moods.
     @Override
     public void updatePlaylist(Playlist playlist) {
         String sql6 = "UPDATE playlist " +
@@ -103,6 +104,7 @@ public class JdbcPlaylistDao implements PlaylistDao {
         jdbcTemplate.update(sql6, playlist.getPlaylistName(), playlist.getPlaylistImage(), playlist.getPlaylistId(), playlist.getPlaylistUrl());
     }
 
+    // this will have to be rewritten too to attach the image to the playlist
     @Override
     public Playlist getPlaylistImageByPlaylistId(int playlistId) {
         Playlist playlist = new Playlist();
@@ -118,10 +120,7 @@ public class JdbcPlaylistDao implements PlaylistDao {
         playlist.setPlaylistName(row.getString("playlist_name"));
         playlist.setPlaylistImage(row.getString("playlist_image"));
         playlist.setPlaylistId(row.getInt("playlist_id"));
-
         playlist.setPlaylistUrl(row.getString("playlist_url"));
-
-
 
         return playlist;
     }

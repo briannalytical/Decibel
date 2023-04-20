@@ -28,6 +28,7 @@ export default {
         BackButton,
         SaveButton,
       },
+      speech: ""
     };
   },
   created() {
@@ -37,6 +38,7 @@ export default {
         this.mood = this.$store.state.moodId;
       })
       .catch((err) => console.error(err));
+      this.speech = this.$store.state.speech;
   },
   computed: {
     filterPlaylist() {

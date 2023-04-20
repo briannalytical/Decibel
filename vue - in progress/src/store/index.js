@@ -16,6 +16,7 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
+    speech: "",
     moodId: "",
     playlist: {
       playlistName: "",
@@ -47,6 +48,9 @@ export default new Vuex.Store({
     SAVE_PLAYLIST(state, playlist){
       state.playlist.playlistName = playlist.playlistName;
       state.playlist.songs = playlist.songs
+    },
+    SET_SPEECH(state, speech){
+      state.speech = speech;
     }
   }
 })

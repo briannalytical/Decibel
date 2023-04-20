@@ -127,6 +127,8 @@ export default {
     },
     onMoodDetected(mood) {
       console.log("Detected mood:", mood);
+      this.$store.commit("SET_MOOD", {mood : mood});
+      this.$router.push({name:"songs"});
     },
   },
 };

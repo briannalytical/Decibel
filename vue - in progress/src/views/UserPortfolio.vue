@@ -10,7 +10,7 @@
         <img v-else v-bind:src="require('../assets/user-profile.png')" />
         <button v-on:click.prevent="uploadPhoto">Upload User Picture</button>
         <div id="user-info">
-          <!-- <h2>User Info</h2> -->
+          <p>This is a user description.</p>
         </div>
       </div>
 
@@ -138,7 +138,7 @@ export default {
 
 p {
   font-family: "Oswald", sans-serif;
-  font-size: 2em;
+  font-size: 1em;
   border-bottom: solid 1.5px #ffefd5;
   color: #ffefd5;
   margin-bottom: 45px;

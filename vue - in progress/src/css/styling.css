@@ -175,11 +175,6 @@ font-family: 'Sofia Sans Condensed', sans-serif; */
 
 }
 
-#header-logo2:hover {
-    background-color: #8324ac6e;
-    border-radius: 50%;
-}
-
 #header-logo {
     height: 80px;
     width: 80px;

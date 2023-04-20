@@ -43,6 +43,7 @@ export default {
       playlist: [],
       currentPlaylist: "",
       mood: {},
+      speech: "",
     };
   },
   created() {
@@ -50,8 +51,12 @@ export default {
       .then((response) => {
         this.playlist = response.data;
         this.mood = this.$store.state.moodId;
+        this.$store.state.playlist = this.playlist.filter((playlist) => {
+          return playlist.playlistName.toLowerCase() == this.mood.mood;
+        })[0];
       })
       .catch((err) => console.error(err));
+    this.speech = this.$store.state.speech;
   },
   computed: {
     filterPlaylist() {

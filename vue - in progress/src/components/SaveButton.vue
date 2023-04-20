@@ -19,7 +19,7 @@
 import SongListService from "@/services/SongListService";
 
 export default {
-  name: "song-list",
+  name: "SongList",
   computed: {
     filteredSongs() {
       const songs = this.songs.filter((song) => {
@@ -40,6 +40,7 @@ export default {
         playlistId: "",
         playlistImage: "",
       },
+      playlistToAdd: {},
       showForm: false,
       moodSongs: "",
     };
@@ -60,13 +61,9 @@ export default {
 
   methods: {
     savePlaylist() {
-      const songs = this.songs.filter((song) => {
-        if (song.moodId == this.$store.state.moodId) {
-          return true;
-        }
-      });
-      this.playlist.songs = songs;
-      SongListService.savePlaylist(this.playlist)
+      this.playlistToAdd = this.$store.state.playlist
+      this.playlistToAdd.playlistName = this.playlist.playlistName
+      SongListService.savePlaylist(this.playlistToAdd)
         .then((response) => {
           this.playlist = response.data;
           this.$router.push({

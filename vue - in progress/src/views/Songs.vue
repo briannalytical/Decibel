@@ -1,8 +1,8 @@
 <template>
   <div>
   
-    <div class="back-button-container">
-    </div>
+    
+    
     <div class="playlist-url" v-for="currentPlaylist in filterPlaylist" v-bind:key="currentPlaylist.id">
       <iframe style="border-radius:12px" v-bind:src="currentPlaylist.playlistUrl" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
@@ -11,7 +11,7 @@
 
 <script>
 
-import BackButton from "../components/BackButton.vue";
+
 import SongListService from "../services/SongListService.js"
 
 export default {
@@ -24,7 +24,7 @@ export default {
 
   components: {
   
-    BackButton 
+
   },
     
 }

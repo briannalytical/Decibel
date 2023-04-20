@@ -82,9 +82,7 @@ public class JdbcPlaylistDao implements PlaylistDao {
         for (Song song : savedSongs) {
             jdbcTemplate.update(sql5, song.getSongId(), playlistId);
         }
-
     }
-
 
     @Override
     public void deletePlaylistById(String playlistName, int playlistId) {
@@ -97,7 +95,6 @@ public class JdbcPlaylistDao implements PlaylistDao {
         jdbcTemplate.queryForRowSet(sql7, playlistName, playlistId);
     }
 
-
     @Override
     public void updatePlaylist(Playlist playlist) {
         String sql6 = "UPDATE playlist " +
@@ -106,12 +103,26 @@ public class JdbcPlaylistDao implements PlaylistDao {
         jdbcTemplate.update(sql6, playlist.getPlaylistName(), playlist.getPlaylistImage(), playlist.getPlaylistId(), playlist.getPlaylistUrl());
     }
 
+    @Override
+    public Playlist getPlaylistImageByPlaylistId(int playlistId) {
+        Playlist playlist = new Playlist();
+        String sql7 = "SELECT playlist_image, playlist_name " +
+                "FROM playlist " +
+                "WHERE playlist_id = ? ";
+        jdbcTemplate.queryForObject(sql7, Playlist.class, playlistId);
+        return playlist;
+    }
+
     private Playlist mapRowToPlaylist(SqlRowSet row) {
         Playlist playlist = new Playlist();
         playlist.setPlaylistName(row.getString("playlist_name"));
         playlist.setPlaylistImage(row.getString("playlist_image"));
         playlist.setPlaylistId(row.getInt("playlist_id"));
+
         playlist.setPlaylistUrl(row.getString("playlist_url"));
+
+
+
         return playlist;
     }
 

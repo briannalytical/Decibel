@@ -71,10 +71,11 @@ public class User {
    }
 
    public void setUserImage(String userImage) {
-      this.userImage = userImage;
-   }
+      this.userImage = userImage;}
 
-   public String getUserImage(String userImage) {return userImage;}
+   public String getUserImage() {
+      return userImage;
+   }
 
 
    public void setAuthorities(String authorities) {

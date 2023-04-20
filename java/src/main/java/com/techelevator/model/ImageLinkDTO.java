@@ -1,6 +1,7 @@
 package com.techelevator.model;
 
 public class ImageLinkDTO {
+
     public String getUserProfilePicture() {
         return userProfilePicture;
     }

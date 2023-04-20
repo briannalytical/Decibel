@@ -1,21 +1,25 @@
 <template>
   <div>
     <div id="prime">
-    <div id="main-1">
-      <img v-if="userImageUrl != null" v-bind:src="userImageUrl" />
-      <img v-else v-bind:src="require('../assets/user-profile.png')" />
-      <button v-on:click.prevent="uploadPhoto">Upload User Picture</button>
-      <div id="user-info">
-        <!-- <h2>User Info</h2> -->
+      <div id="main-1">
+        <img
+          v-if="userImageUrl != null"
+          class="img"
+          v-bind:src="userImageUrl"
+        />
+        <img v-else v-bind:src="require('../assets/user-profile.png')" />
+        <button v-on:click.prevent="uploadPhoto">Upload User Picture</button>
+        <div id="user-info">
+          <!-- <h2>User Info</h2> -->
+        </div>
+      </div>
+
+      <div id="accordion-case">
+        <h1 id="username">Username</h1>
+        <p>Your Playlists</p>
+        <PlaylistAccordion />
       </div>
     </div>
-
-    <div id="accordion-case">
-      <h1 id="username">Username</h1>
-      <p>Your Playlists</p>
-      <PlaylistAccordion />
-    </div>
-  </div>
   </div>
 </template>
 
@@ -27,13 +31,13 @@ export default {
   data() {
     return {
       playlist: [],
-      userImageUrl: null
+      userImageUrl: null,
     };
   },
 
   name: "savelist",
   created() {
-    this.getProfilePhoto()
+    this.getProfilePhoto();
 
     SongListService.getPlaylistById()
       .then((response) => {
@@ -44,15 +48,14 @@ export default {
   components: { PlaylistAccordion },
   methods: {
     getProfilePhoto() {
-      SongListService.getUserProfile()
-      .then(response => {
+      SongListService.getUserProfile().then((response) => {
         if (response.status != 200) {
           //TODO: error
-          return
+          return;
         }
 
-        this.userImageUrl = response.data["userProfilePicture"]
-      })
+        this.userImageUrl = response.data["userProfilePicture"];
+      });
     },
     uploadPhoto() {
       window.cloudinary
@@ -66,16 +69,17 @@ export default {
               console.log("Done uploading..: ", result.info.url);
 
               // Send the uploaded image URL to the backend
-              SongListService.updateUserProfile(result.info.url)
-              .then(response => {
-                if (response.status != 200) {
-                  //TODO: error
-                  return
-                }
+              SongListService.updateUserProfile(result.info.url).then(
+                (response) => {
+                  if (response.status != 200) {
+                    //TODO: error
+                    return;
+                  }
 
-                // Set the newly uploaded photo
-                this.userImageUrl = result.info.url
-              })
+                  // Set the newly uploaded photo
+                  this.userImageUrl = result.info.url;
+                }
+              );
             }
           }
         )
@@ -90,7 +94,7 @@ export default {
 #username {
   display: flex;
   font-family: serif;
-  color:#ffefd5;
+  color: #ffefd5;
   font-size: 10em;
   margin-bottom: 150px;
   letter-spacing: 5px;
@@ -115,7 +119,12 @@ export default {
   align-items: center;
   align-content: center;
   gap: 15px;
- padding-left: 25px;
+  padding-left: 25px;
+}
+
+.img {
+  max-height: 225px;
+  max-width: 225px;
 }
 
 #spacer {
@@ -123,7 +132,7 @@ export default {
 }
 
 #prime {
-  display:flex;
+  display: flex;
   align-items: flex-start;
 }
 
@@ -131,10 +140,9 @@ p {
   font-family: "Oswald", sans-serif;
   font-size: 2em;
   border-bottom: solid 1.5px #ffefd5;
-  color:#ffefd5;
+  color: #ffefd5;
   margin-bottom: 45px;
 }
-
 </style>
 
 

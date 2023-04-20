@@ -42,6 +42,7 @@ export default {
     SongListService.getPlaylistById()
       .then((response) => {
         this.playlist = response.data;
+        this.playlist = this.playlist.slice(0,8)
       })
       .catch((err) => console.error(err));
   },

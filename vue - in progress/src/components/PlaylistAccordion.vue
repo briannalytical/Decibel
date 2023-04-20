@@ -106,6 +106,7 @@ export default {
     SongListService.getPlaylist()
       .then((response) => {
         this.playlist = response.data;
+        this.playlist = this.playlist.slice(9)
         this.mood = this.$store.state.moodId;
       })
       .catch((err) => console.error(err));

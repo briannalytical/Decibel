@@ -134,20 +134,25 @@ h1 {
     
 }
 
+#main {
+  padding-top: 180px;
+}
+
 #talk-to-me {
 margin-top: 100px;
 }
 h2 {
     font-family: 'Sofia Sans Condensed', sans-serif;
-    color:#ffefd5;
+    color:white;
     
     text-align: center;
     font-size: 1.5em;
 }
 
+
 .or {
     font-family: 'Oswald', sans-serif;
-    color:#ffefd5;
+    color:white;
     font-size: 1.5em;
     text-align: center;
     margin-left: 11vw;

@@ -69,6 +69,10 @@ export default {
   letter-spacing: 5px;
 }
 
+#prime {
+  padding-top: 180px;
+}
+
 #accordion-case {
   display: inline-flex;
   flex-direction: column;
@@ -101,6 +105,7 @@ p {
   font-size: 2em;
   border-bottom: solid 1.5px #ffefd5;
   color:#ffefd5;
+  margin-bottom: 45px;
 }
 
 </style>

@@ -58,6 +58,7 @@ iframe {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 180px;
 }
 
 </style>

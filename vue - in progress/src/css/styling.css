@@ -15,7 +15,9 @@ a:active {
     color: #8324ac;
 }
 
-
+app {
+    background-color: #525252;
+}
 
 .and {
     /* flex-grow: 3; */
@@ -55,8 +57,8 @@ body {
     margin-left: 0px;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #525252;
+    
 }
-
 
 
 button {
@@ -168,7 +170,15 @@ font-family: 'Sofia Sans Condensed', sans-serif; */
 
 
 
+#header-logo2 {
+    height: 80px;
 
+}
+
+#header-logo2:hover {
+    background-color: #8324ac6e;
+    border-radius: 50%;
+}
 
 #header-logo {
     height: 80px;
@@ -306,18 +316,18 @@ justify-content: center;
 
 .navigationWrapper {
     font-family: 'Sofia Sans Condensed', sans-serif;
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px;
     background-color: #222;
-    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
     color: white;
     text-transform: capitalize;
     overflow: hidden;
     width: 100vw;
-    margin-bottom: 25px;    
+    position: fixed;
+    top: 0;
+
 }
 
 
@@ -367,7 +377,10 @@ justify-content: center;
     justify-content:center;
 }
 
-
+#spacer {
+    height: 25px;
+    background-color: #222;
+}
 
 .speech-recognition {
     display: flex;

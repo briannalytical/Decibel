@@ -129,6 +129,7 @@ export default {
     justify-content: center;
 }
 .btn-info { 
+  font-family: 'Sofia Sans Condensed', sans-serif;
     background: #6e61d5;
     height: 40px;
     width: 100%;
@@ -137,6 +138,7 @@ export default {
     font-size: 1.5em;
     font-weight: bold;
     line-height: 1;
+    letter-spacing: 4px;
 }
 
 .btn-info:focus {

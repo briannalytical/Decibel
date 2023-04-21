@@ -39,7 +39,7 @@ export default {
   created() {
     this.getProfilePhoto();
 
-    SongListService.getPlaylistById()
+    SongListService.getPlaylist()
       .then((response) => {
         this.playlist = response.data;
       })

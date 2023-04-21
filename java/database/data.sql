@@ -110,8 +110,6 @@ VALUES ('Angry','https://open.spotify.com/embed/playlist/37i9dQZF1EIhuCNl2WSFYd?
 ('Romantic','https://open.spotify.com/embed/playlist/37i9dQZF1EIfISqpNhcAN8?utm_source=generator&theme=0'),
 ('Motivated','https://open.spotify.com/embed/playlist/37i9dQZF1EIh4zcdX2LJPS?utm_source=generator&theme=0'),
 ('Chill','https://open.spotify.com/embed/playlist/37i9dQZF1EIelivQWnxTte?utm_source=generator&theme=0');
-INSERT INTO playlist_users (playlist_id, user_id)
-VALUES (1,1), (2,1),(3,1),(4,1),(5,1),(6,1),(7,1),(8,1),(9,1);
 INSERT INTO song_playlist (song_id, playlist_id)
  VALUES (100,2), (101,2), (102,2), (103,2), (104,2), (105,2), (106,2), (107,2), (108,2);
  INSERT INTO playlist_mood (playlist_id, mood_id)

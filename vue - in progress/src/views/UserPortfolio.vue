@@ -10,7 +10,7 @@
         <img v-else v-bind:src="require('../assets/user-profile.png')" />
         <button v-on:click.prevent="uploadPhoto">Upload User Picture</button>
         <div id="user-info">
-          <!-- <h2>User Info</h2> -->
+          <p>This is a user description.</p>
         </div>
       </div>
 
@@ -42,6 +42,7 @@ export default {
     SongListService.getPlaylist()
       .then((response) => {
         this.playlist = response.data;
+        this.playlist = this.playlist.slice(0,8)
       })
       .catch((err) => console.error(err));
   },
@@ -138,7 +139,7 @@ export default {
 
 p {
   font-family: "Oswald", sans-serif;
-  font-size: 2em;
+  font-size: 1em;
   border-bottom: solid 1.5px #ffefd5;
   color: #ffefd5;
   margin-bottom: 45px;

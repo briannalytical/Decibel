@@ -1,5 +1,6 @@
 <template>
   <div id="PlaylistAccordion-case">
+    
     <div class="accordion" role="tablist">
       <b-card
         no-body
@@ -32,6 +33,7 @@
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
               ></iframe>
+              <PlaylistImage />
             </div>
             <!-- <table id="table">
               <tbody
@@ -60,6 +62,7 @@
 
 <script>
 import SongListService from "@/services/SongListService";
+import PlaylistImage from "@/components/PlaylistImage";
 
 export default {
   // name: "savelist",
@@ -72,7 +75,9 @@ export default {
       moodSongs: "",
     };
   },
-  components: {},
+  components: {
+    PlaylistImage
+  },
 
   computed: {
     filterPlaylist() {
@@ -106,6 +111,7 @@ export default {
     SongListService.getPlaylist()
       .then((response) => {
         this.playlist = response.data;
+        this.playlist = this.playlist.slice(9)
         this.mood = this.$store.state.moodId;
       })
       .catch((err) => console.error(err));

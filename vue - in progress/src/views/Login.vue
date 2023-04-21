@@ -38,7 +38,10 @@
 
     <div id="login">
       <form @submit.prevent="login">
+<<<<<<< HEAD
         <!-- <h1>Listen, bitch.</h1> -->
+=======
+>>>>>>> ef03cf37dd5ff6bc730839c0bcc821059cbf3baf
         <div role="alert" v-if="invalidCredentials">
           Invalid username and password!
         </div>

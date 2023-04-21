@@ -66,6 +66,24 @@ export default {
       });
     },
   },
+  methods: {
+    savePlaylist() {
+      const savedPlaylist = this.playlist.filter((playlist) => {
+        if (playlist.playlistName.toLowerCase() == this.mood.mood) {
+          return true;
+        }
+      });
+      this.playlist = savedPlaylist;
+      SongListService.savePlaylist(this.playlist)
+        .then((response) => {
+          this.playlist = response.data;
+          this.$router.push({
+            name: "user-profile",
+          });
+        })
+        .catch((err) => console.error(err));
+    },
+  },
 };
 </script>
 
